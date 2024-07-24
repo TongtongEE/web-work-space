@@ -1,0 +1,1317 @@
+@font-face { 
+    font-family: 'Jalnan Gothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jalnan2';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+body {
+    font-family: 'NEXON Lv2 Gothic';
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 좌우 스크롤 제거 */
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto; /* 가운데 정렬 */
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20%; /* 우측 여백 */
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: 2px solid #00ff00;
+}
+
+.logo img {
+    height: 22.5px; /* 로고 크기 조정 */
+    position: relative;
+    top: 0px;
+    left: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style-type: none;
+    align-items: top;
+}
+
+.nav-menu li {
+    margin-left: 65px;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    font-family: 'Jalnan2';
+    position: relative;
+    right: 40px;
+}
+
+.nav-menu a:hover {
+    color: #00ff00; /* 호버 시 글자 색상 변경 */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 메인 컨텐츠 영역 */
+main {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Section_1 */
+.container {
+    height: 380px;
+    margin-bottom: 4rem;
+}
+
+#intro {
+    text-align: left;
+    padding: 4rem 0;
+    background-color: transparent; /* 배경색 추가 */
+    color: #ffffff; /* 글자색 추가 */
+}
+
+#bg-video {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    width: 100%;
+    height: 56.25vw; /* 16:9 비율 유지 (100 * 9 / 16) */
+    max-width: 1920px;
+    max-height: 1080px;
+    object-fit: contain; /* cover 대신 contain 사용 */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+
+#intro .intro-content {
+    max-width: 990px;
+    position: relative;
+    margin: 100px 333px;
+}
+
+#intro h1 {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    margin-bottom: 1rem; 
+    margin-left: 60px;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+#intro p {
+    font-size: 17px;
+    margin-bottom: 2rem;
+    margin-left: 60px;
+    line-height: 1.8;
+}
+
+#intro .intro-buttons {
+    display: flex;
+    justify-content: left;
+    gap: 0.5rem;
+    margin-left: 60px;
+}
+
+.button_1, .button_2 {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 2px solid #00ff00; /* 테두리 추가 */
+    color: #00ff00;
+    font-family: 'Jalnan2';
+    text-align: center;
+    text-decoration: none;
+    font-weight: 50;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    left: 0px;
+    border-radius: 0;
+    width: 125px
+    
+}
+
+.button_1:hover, .button_2:hover  {
+    background-color: #00ff00;
+    color: #000000;
+}
+
+/* 제품구성 */
+#product {
+    position: relative;
+    width: 100%;
+    height: 900px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 20px;
+}
+
+.product-container {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+}
+
+.product-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.product-description {
+    font-size: 17px;
+}
+
+.product-image {
+    position: relative;
+    top: 40px;
+    left: -3px;
+    transition: transform 0.5s ease; /* 이미지 이동 애니메이션 추가 */
+}
+
+.product-image img {
+    display: flex;
+    width: 950px; /* 기본 이미지 너비 */
+    height: auto;
+    transition: transform 0.5s ease; /* 이미지 이동 애니메이션 추가 */
+}   
+
+.product-button-1, .product-button-2, .product-button-3, .product-button-4, .product-button-5, .product-button-6 {
+    position: absolute;
+    width: 25px; /* 내부 초록색 원의 크기 */
+    height: 25px;
+    background-color: #00ff00; /* 내부 초록색 원 */
+    border: 1px solid #000000; /* 검은색 테두리 */
+    border-radius: 50%;
+    z-index: 1; /* 작은 원이 위에 표시되도록 설정 */
+    transition: transform 0.5s ease; /* 버튼 이동 애니메이션 추가 */
+}
+
+.product-button-1 { transform: translate(550px, -330px); } /*리프트*/
+.product-button-2 { transform: translate(460px, -340px); } /*카메라*/
+.product-button-3 { transform: translate(490px, -470px); } /*로봇*/
+.product-button-4 { transform: translate(315px, -380px); } /*키오스크*/
+.product-button-5 { transform: translate(255px, -320px); } /*카드리더기*/
+.product-button-6 { transform: translate(332px, -280px); } /*포토프린트*/
+
+.product-image.shift-left img {
+    transform: translateX(-350px); /* 이미지와 버튼을 왼쪽으로 이동 */
+}
+
+.product-button-1.shift-left { transform: translate(200px, -330px); }
+.product-button-2.shift-left { transform: translate(110px, -340px); }
+.product-button-3.shift-left { transform: translate(140px, -470px); }
+.product-button-4.shift-left { transform: translate(-35px, -380px); }
+.product-button-5.shift-left { transform: translate(-95px, -320px); }
+.product-button-6.shift-left { transform: translate(-18px, -280px); }
+
+.product-button-1::after, .product-button-2::after, .product-button-3::after, .product-button-4::after, .product-button-5::after, .product-button-6::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(0, 255, 0, 0.3);
+    border-radius: 50%;
+    z-index: -1; /* 애니메이션 원이 뒤에 표시되도록 설정 */
+    animation: ripple 2s infinite;
+}
+
+/* 호버 효과 추가 */
+.product-button-1:hover, .product-button-2:hover, .product-button-3:hover, .product-button-4:hover, .product-button-5:hover, .product-button-6:hover {
+    cursor: pointer; /* 호버 시 커서 손가락 모양으로 변경 */
+}
+
+.popup {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    top: 990px;
+    right: 260px;
+    width: 591px;
+    height: 515px;
+    background-color: #00ff00;
+    border: 1px solid #000;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    opacity: 0; /* 기본적으로 투명 */
+    animation: slideIn 0.5s forwards; /* 슬라이드 인 애니메이션 적용 */
+}
+
+.popup.slide-out {
+    animation: slideOut 0.5s forwards; /* 슬라이드 아웃 애니메이션 적용 */
+}
+
+.popup-content {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #000;
+    width: 300px;
+    height: 300px;
+}
+
+.popup-text {
+    position: absolute;
+    top: 360px;
+    left: 0px;
+    font-family: 'Jalnan2';
+    color: #000;
+}
+
+.popup-text h3 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.popup-text p {
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 17px;
+    line-height: 28px;
+    margin: 0;
+    letter-spacing: -0.4px; /* 원하는 자간 값을 설정하세요 */
+}
+
+.close-btn {
+    position: absolute;
+    top: -35px;
+    right: -230px;
+    font-size: 40px; /* 닫기 버튼 크기 조정 */
+    cursor: pointer;
+    color: #000; /* 닫기 버튼 색상 */
+    background-color: transparent; /* 배경색 투명 */
+    border: none; /* 테두리 없음 */
+    z-index: 1001; /* 닫기 버튼이 다른 요소 위에 표시되도록 설정 */
+}
+
+.shift-left {
+    transform: translateX(0px); /* 왼쪽으로 밀리게 설정 */
+    transition: transform 0.5s ease;
+}
+
+/* keyfeature1 */
+#keyfeature1 {
+    position: relative;
+    width: 100%;
+    height: 1200px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 0px;
+}
+
+.keyfeature1-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00ff00;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+    border-top: 4px solid black; /* 위쪽 보더 추가 */
+    border-bottom: 2px solid black; /* 아래쪽 보더 추가 */
+}
+
+.keyfeature1-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    margin-top: 3rem;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+}
+
+.keyfeature1-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature1-description {
+    font-size: 17px;
+}
+
+.keyfeature1-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.1rem;
+    position: relative;
+    top: 175px;
+    left: -10px;
+}
+
+.keyfeature1-button {
+    padding: 2rem 3.2rem;
+    background-color: #00ff00;
+    border: 2px solid #000;
+    color: #000;
+    font-family: 'Jalnan2';
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.keyfeature1-button:hover {
+    background-color: #000;
+    color: #00ff00;
+}
+
+.keyfeature1-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 250px;
+    margin: 0 auto;
+    width: 80%; /* 내용의 너비 설정 */
+    height: 550px;
+    max-width: 1100px; /* 최대 너비 설정 */
+    padding: 1rem 0;
+    gap: var(--content-gap, 0rem); /* 간격을 CSS 변수로 설정 */
+}
+
+.content-section {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: auto;
+    border: 2px solid #000;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.content-section p, .content-section h2 {
+    font-family: 'JalnanGothic';
+    font-size: 16px;
+    color: #000;
+    text-align: left; /* 글자 좌측 정렬 */
+    margin-left: 20px;
+}
+
+#left-title {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin: 20px; /* 여백 제거 */
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#left-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding-left: 20px;
+}
+
+#right-title {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    background-color: #00ff00;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-left: 20px; /* 여백 제거 */
+    margin-bottom: -10px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#right-description {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.shooting-mode h3 {
+    font-family: 'Jalnan2';
+    font-size: 15px;
+    color: #000;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.image-row {
+    display: flex;
+    gap: 1rem;
+    margin-left: 20px;
+}
+
+.image-row img {
+    width: 100px;
+    height: 130px;
+    border: 1px solid #000;
+}
+
+/* keyfeature1-2 */
+#keyfeature1-2 {
+    position: relative;
+    top: -90px;
+    width: 100%;
+    height: 650px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+}
+
+.keyfeature1-2-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+}
+
+
+
+.keyfeature1-2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature1-2-description {
+    font-size: 17px;
+}
+
+.photo-frame-image {
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 945px; /* 기본 이미지 너비 */
+}
+
+.photo-frame-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* keyfeature2 */
+#keyfeature2 {
+    position: relative;
+    width: 100%;
+    height: 1200px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 0px;
+}
+
+.keyfeature2-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+}
+
+.keyfeature2-container::before {
+    content: '';
+    position: absolute;
+    top: 19px;
+    left: 200px;
+    right: 200px;
+    height: 100%;
+    border-top: 1px solid #000; /* 원하는 테두리 색상으로 변경 */
+    box-sizing: border-box;
+    z-index: -1; /* 배경 뒤에 위치하도록 설정 */
+}
+
+.keyfeature2-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    background-color: #ffffff;
+    padding: 0rem 2rem ; /* 배경 크기를 조정하는 패딩 값 */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-top: 0px;
+}
+
+
+.keyfeature2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature2-description {
+    font-size: 17px;
+}
+
+
+.keyfeature2-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 110px;
+    margin: 0 auto;
+    width: 80%; /* 내용의 너비 설정 */
+    height: 550px;
+    max-width: 1100px; /* 최대 너비 설정 */
+    padding: 1rem 0;
+    gap: var(--content-gap, 0rem); /* 간격을 CSS 변수로 설정 */
+}
+
+.content2-section {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: auto;
+    border: 2px solid #000;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.content2-section2 {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: auto;
+    border: 2px solid #000;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.content2-section2 p, .content2-section2 h2 {
+    font-family: 'JalnanGothic';
+    font-size: 16px;
+    color: #000;
+    text-align: left; /* 글자 좌측 정렬 */
+    margin-left: 20px;
+}
+
+#left-title2 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin: 20px; /* 여백 제거 */
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#left-image2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding-left: 20px;
+}
+
+#right-title2 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    background-color: #00ff00;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-left: 20px; /* 여백 제거 */
+    margin-bottom: -10px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#right-description2 {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.shooting-mode2 h3 {
+    font-family: 'Jalnan2';
+    font-size: 15px;
+    color: #000;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.image-row2 {
+    display: flex;
+    gap: 1rem;
+    margin-left: 20px;
+}
+
+.image-row2 img {
+    width: 100px;
+    height: 130px;
+    border: 1px solid #000;
+}
+
+/* keyfeature2-2 */
+#keyfeature2-2 {
+    position: relative;
+    top: -300px;
+    width: 100%;
+    height: 650px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 0;
+}
+
+.keyfeature2-2-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+}
+
+
+
+.keyfeature2-2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature2-2-description {
+    font-size: 17px;
+}
+
+.video-reference {
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1920px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.slide-track {
+    display: flex;
+    gap: 12px;
+    width: 200%;
+}
+
+.slide-track img {
+    width: calc(50% - 6px);
+    height: auto;
+}
+
+/* keyfeature3 */
+#keyfeature3 {
+    position: relative;
+    top:-100px;
+    width: 100%;
+    height: 750px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-top: 0;
+    
+}
+
+.keyfeature3-container {
+    position: absolute;
+    top: -160px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00ff00;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+    border-top: 4px solid black; /* 위쪽 보더 추가 */
+    border-bottom: 2px solid black; /* 아래쪽 보더 추가 */
+}
+
+.keyfeature3-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    margin-top: 3.7rem;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+}
+
+.keyfeature3-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature3-description {
+    font-size: 17px;
+}
+
+.event-reference {
+    position: relative;
+    max-width: 1920px;
+    top: 70px;
+    transform: translateX(20%);
+    z-index: -10; /* 배경 뒤에 위치하도록 설정 */
+}
+
+.event-reference img {
+    display: block;
+    width: 60%; /* 기본 이미지 너비 */
+    height: auto;
+
+}   
+
+/* keyfeature4 */
+#keyfeature4 {
+    position: relative;
+    width: 100%;
+    height: 1200px; /* 섹션 높이 설정 */
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 0px;
+}
+
+.keyfeature4-container {
+    position: relative;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+}
+
+
+.keyfeature4-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    background-color: none;
+    padding: 0rem 2rem ; /* 배경 크기를 조정하는 패딩 값 */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-top: 70px;
+    margin-bottom: 0px;
+}
+
+
+.keyfeature4-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    margin-bottom: -10px;
+    color: #ffffff;
+}
+
+.keyfeature4-description {
+    font-size: 17px;
+    color: #ffffff;
+}
+
+
+.keyfeature4-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -160px;
+    margin: 0 auto;
+    width: 80%; /* 내용의 너비 설정 */
+    height: 550px;
+    max-width: 1000px; /* 최대 너비 설정 */
+    padding: 1rem 0;
+    gap: var(--content-gap, 0rem); /* 간격을 CSS 변수로 설정 */
+}
+
+.content4-section {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: auto;
+    border: 2px solid #000000;
+    background-color:#ffffff;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 4px 4px 0px #00ff00;
+
+}
+
+.content4-section2 {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: auto;
+    border: 2px solid #000000;
+    background-color:#ffffff;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 4px 4px 0px #00ff00;
+}
+
+#left-title4 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin: 20px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#left-subtitle4-1 {
+    display: flex;
+    align-items: left;
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    margin-left: 20px; /* 여백 제거 */
+    margin-top: 0px;
+    line-height: 1; /* 줄 높이 설정 */
+}
+
+.description-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: -5px;
+}
+
+#check-icon {
+    position: relative;
+    top: -3px;
+    width: 25px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.description {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 18px;
+    color: #000;
+    line-height: 1px; /* 줄 높이 설정 */
+    
+}
+
+#left-subtitle4-2 {
+    display: flex;
+    align-items: left;
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    margin-left: 20px; /* 여백 제거 */
+    margin-top: 60px;
+    line-height: 1; /* 줄 높이 설정 */
+    
+}
+
+#right-title4 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem; /* 배경 크기를 조정하는 패딩 값 */
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin: 20px;
+    line-height: 0.3; /* 줄 높이 설정 */
+}
+
+#right-subtitle4-1 {
+    display: flex;
+    align-items: left;
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    margin-left: 20px; 
+    margin-top: 0px;
+    line-height: 1; 
+}
+
+.description-right-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: -5px;
+}
+
+#check-icon {
+    position: relative;
+    top: -3px;
+    width: 25px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.description-right {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 18px;
+    color: #000;
+    line-height: 1px; 
+}
+
+.description-right-row2 {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.description-right2 {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 15px;
+    color: #000;
+    line-height: 1px; /* 줄 높이 설정 */
+}
+
+#right-subtitle4-2 {
+    display: flex;
+    align-items: left;
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    margin-left: 20px; /* 여백 제거 */
+    margin-top: 60px;
+    line-height: 1; /* 줄 높이 설정 */
+}
+
+.shooting-mode2 h3 {
+    font-family: 'Jalnan2';
+    font-size: 15px;
+    color: #000;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.image-row2 {
+    display: flex;
+    gap: 1rem;
+    margin-left: 20px;
+}
+
+.image-row2 img {
+    width: 100px;
+    height: 130px;
+    border: 1px solid #000;
+}
+
+/* keyfeature4-2 */
+#keyfeature4-2 {
+    position: relative;
+    width: 100%;
+    height: 1400px; /* 섹션 높이 설정 */
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 0px;
+}
+
+.keyfeature4-2-container {
+    position: relative;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+}
+
+.subtitle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -40px;
+    color: #00ff00;
+}
+
+.keyfeature4-2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 33px;
+    font-weight: 300;
+    color: #ffffff;
+    margin-right: 10px; /* 유상 서비스와 간격을 조정 */
+}
+
+.keyfeature4-2-description {
+    font-size: 17px;
+    color: #ffffff;
+}
+
+.keyfeature4-2-description2 {
+    font-size: 17px;
+    color: #00ff00;
+}
+
+.keyfeature4-2-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    top: -260px;
+    margin: 0 auto;
+    width: 80%; /* 내용의 너비 설정 */
+    max-width: 800px; /* 최대 너비 설정 */
+    padding: 1rem 0;
+    gap: 0.6rem; /* 간격 설정 */
+}
+
+.content4-2-section  {
+    width: calc(48% - -0.7rem); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: 500px;
+    border: 2px solid #000000;
+    background-color:#ffffff;
+    padding: 3rem;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 4px 4px 0px #00ff00;
+}
+
+#title4-2 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    margin: 0px;
+    line-height: 1; /* 줄 높이 설정 */
+}
+
+.content4-2-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-left: 220px;
+    margin-top: 100px;
+}
+
+.button4-2_1, .button4-2_2 {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 2px solid #00ff00; /* 테두리 추가 */
+    color: #ffffff;
+    font-family: 'Jalnan2';
+    text-align: center;
+    -webkit-text-stroke: 0.5px #000;
+    text-decoration: none;
+    font-weight: 50;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    left: 0px;
+    border-radius: 0;
+    width: 125px;
+}
+
+.button4-2_1:hover, .button4-2_2:hover  {
+    background-color: #00ff00;
+    color: #000000;
+}
+
+#additional-text-section {
+    position: relative;
+    width: 100%;
+    height: 196px; /* 섹션 높이를 내용 크기에 맞게 설정 */
+    background-color: #333333;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.additional-text-container {
+    max-width: 1920px; /* 최대 너비 설정 */
+    margin: -140px auto;
+    color: #ffffff;
+    
+}
+
+.text-grid {
+    position: relative;
+    top: 35px;
+    left: 235px;
+    display: grid;
+    grid-template-columns: 525px 225px 500px; /* 각 열의 너비를 개별적으로 설정 */
+    grid-template-rows: repeat(4, auto); /* 4행 */
+}
+
+.text-cell {
+    margin-top: -10px;
+    margin-left: 150px;
+    padding: 10px;
+    font-family: 'NEXON Lv1 Gothic';
+    font-weight: 100;
+    font-size: 15px;
+    color: #cbcbcb;
+    text-align: left;   
+    width: 450px;
+
+}
+
+.text-cell.hoverable {
+    cursor: pointer; /* 마우스 호버 시 커서가 손가락 모양으로 변경 */
+}
+
+#insta {
+    cursor: pointer; /* 마우스 호버 시 커서가 손가락 모양으로 변경 */
+    position: relative;
+    top: -100px;
+    left: 690px;
+}
+
+.text-cell.hoverable:hover {
+    color: #ffffff; 
+}
+
+#insta:hover {
+    filter: brightness(1.5); /* 밝기를 1.5배로 증가 */
+}
+
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+    #features {
+        grid-template-columns: 1fr;
+    }
+
+    #multi-shot, #ai-editing {
+        flex-direction: column;
+    }
+}

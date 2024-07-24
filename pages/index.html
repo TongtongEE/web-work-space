@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Me</title>
+    <link rel="stylesheet" href="../src/assets/styles/pm_style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="../src/assets/images/PostMe_Logo.svg" alt="First Up Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#catalogue">CATALOGUE</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="intro">
+                <video autoplay muted loop id="bg-video">
+                    <source src="../src/assets/videos/sample.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="container">
+                    <div class="intro-content">
+                        <h1>다양한 앵글 촬영을<br>한번에 경험할 수 있는<br>AI 로봇 촬영 컨텐츠 솔루션</h1>
+                        <p>하이앵글부터 일반앵글, 로우앵글까지 3개 포토부스 타입을 포스트미 하나로!<br>사진과 동영상 촬영이 가능한 포스트미와 함께 트렌디한 이벤트를 준비해 보세요.</p>
+                        <div class="intro-buttons">
+                            <a href="#inquiry" class="button_1">구매 & 렌탈 문의</a>
+                            <a href="#product-info" class="button_2">제품 소개서</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="product">
+                <div class="product-container">
+                    <h2 class="product-title">포스트미 제품 구성</h2>
+                    <h3 class="product-subtitle">이동형 키오스크와 모바일베이스로 손쉬운 설치</h3>
+                    <p class="product-description">아래 파트별 버튼을 클릭하면 제품 상세 사항을 확인할 수 있어요.</p>
+                    <div class="product-image">
+                        <img src="../src/assets/images/section2_product/Post-Me_set_white.png" alt="제품 구성 이미지">
+                        <div class="product-button-1" onclick="showPopup(1)"></div>
+                        <div class="product-button-2" onclick="showPopup(2)"></div>
+                        <div class="product-button-3" onclick="showPopup(3)"></div>
+                        <div class="product-button-4" onclick="showPopup(4)"></div>
+                        <div class="product-button-5" onclick="showPopup(5)"></div>
+                        <div class="product-button-6" onclick="showPopup(6)"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 팝업창 요소 -->
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="hidePopup()">&times;</span>
+                    <div class="popup-image"></div>
+                    <div class="popup-text">
+                        <h3 id="popup-title">리프트</h3>
+                        <p id="popup-description">모바일베이스에 리프트 탑재로<br>높은 앵글 (최대 3m) 에서 촬영이 가능해요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section id="keyfeature1">
+                <div class="keyfeature1-container">
+                    <h2 class="keyfeature1-title">포스트미 ✦ 1</h2>
+                    <h3 class="keyfeature1-subtitle">다양한 앵글 사진 촬영을 한번에</h3>
+                    <p class="keyfeature1-description">
+                        하이앵글부터 일반, 로우앵글까지 3개의 포토부스 타입을 포스트미 하나로 경험할 수 있어요.
+                        <br>가로 촬영 모드 뿐만 아니라 세로 촬영모드도 가능해요.
+                    </p>
+                </div>
+                <div class="keyfeature1-buttons">
+                    <button class="keyfeature1-button" onclick="changeContent('high-angle')">High Angle</button>
+                    <button class="keyfeature1-button" onclick="changeContent('middle-angle')">Middle Angle</button>
+                    <button class="keyfeature1-button" onclick="changeContent('low-angle')">Low Angle</button>
+                    <button class="keyfeature1-button" onclick="changeContent('multi-angle')">Multi Angle</button>
+                </div>
+                <div class="keyfeature1-content">
+                    <div class="content-section">
+                        <h2 id="left-title">로봇 무빙</h2>
+                        <img id="left-image" src="path/to/default-left.jpg" alt="좌측 이미지">
+                    </div>
+                    <div class="content-section" id="right-content">
+                        <h2 id="right-title">High Angle</h2>
+                        <p id="right-description">최대 3m 높이에서 유행하는 항공샷, 정수리샷 등 촬영할 수 있어요.</p>
+                        <div class="shooting-mode">
+                            <h3>가로 촬영 모드</h3>
+                            <div class="image-row">
+                                <img id="right-image1" src="path/to/image1.jpg" alt="가로 촬영 모드 이미지 1">
+                                <img id="right-image2" src="path/to/image2.jpg" alt="가로 촬영 모드 이미지 2">
+                            </div>
+                            <h3>세로 촬영 모드</h3>
+                            <div class="image-row">
+                                <img id="right-image3" src="path/to/image3.jpg" alt="세로 촬영 모드 이미지 1">
+                                <img id="right-image4" src="path/to/image4.jpg" alt="세로 촬영 모드 이미지 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="keyfeature1-2">
+                <div class="keyfeature1-2-container">
+                    <h3 class="keyfeature1-2-subtitle">다채로운 포토 프레임과 필터효과</h3>
+                    <p class="keyfeature1-2-description">
+                        다양한 프레임과 필터로 원하는 취향대로 사진을 출력할 수 있어요.
+                    </p>
+                    <div class="photo-frame-image">
+                        <img src="../src/assets/images/section3-2/photo_frame.png" alt="포토 프레임">
+                    </div>
+                </div>
+            </section>
+
+            <section id="keyfeature2">
+                <div class="keyfeature2-container">
+                    <h2 class="keyfeature2-title">포스트미 ✦ 2</h2>
+                    <h3 class="keyfeature2-subtitle">다양한 앵글 사진 촬영을 한번에</h3>
+                    <p class="keyfeature2-description">
+                        로봇카메라를 통한 다양한 앵글을 연속 동작으로 구현하여 전문가 수준의 동영상 촬영이 가능해요.
+                    </p>
+                </div>
+                <div class="keyfeature2-content">
+                    <div class="content2-section">
+                        <h2 id="left-title2">로봇 무빙</h2>
+                        <img id="left-image2" src="path/to/default-left.jpg" alt="좌측 이미지">
+                    </div>
+                    <div class="content2-section2" id="right-content">
+                        <h2 id="right-title2">동영상 촬영본</h2>
+                        <p id="right-description2">여러 앵글의 연속 동작을 가로 세로 모드로 촬영 가능해요.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="keyfeature2-2">
+                <div class="keyfeature2-2-container">
+                    <h3 class="keyfeature2-2-subtitle">손쉬운 카메라 앵글 커스터마이징</h3>
+                    <p class="keyfeature2-2-description">
+                        동영상 촬영 앵글을 간편하게 설정할 수 있어요.
+                    </p>
+                    <div class="video-reference" id="videoReference">
+                        <div class="slide-track" id="slideTrack">
+                            <img src="../src/assets/images/section4-2/video_reference.png" alt="비디오 예시">
+                            <img src="../src/assets/images/section4-2/video_reference.png" alt="비디오 예시">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <section id="keyfeature3">
+        <div class="keyfeature3-container">
+            <h2 class="keyfeature3-title">✦ 포스트미 이벤트용 구성 ✦</h2>
+            <h3 class="keyfeature3-subtitle">기업행사, 이벤트 대행사, 팝업, 전시 등<br>
+            포스트미로 높은 가치 창출</h3>
+            <p class="keyfeature3-description">
+                사진 & 동영상 촬영 컨텐츠 포스트미로 기억에 남는 행사를 기획해 보세요.
+                     </p>
+                     <div class="event-reference">
+                     <img src="../src/assets/images/section5/event.jpg" alt="이벤트 이미지 예시">
+                    </div>
+                 </div>
+            </section>
+            <section id="keyfeature4">
+                <div class="keyfeature4-container">
+                    <h2 class="keyfeature4-title">✦ 제공 서비스 ✦</h2>
+                    <h3 class="keyfeature4-subtitle">유, 무상 서비스로
+                        유연하고 높은 만족도 제공</h3>
+                    <p class="keyfeature4-description">
+                        유연한 서비스 대응과 고객 맞춤형 브랜딩으로 높은 만족도를 제공해요.
+                    </p>
+                </div>
+                    <div class="keyfeature4-content">
+                        <div class="content4-section">
+                            <h2 id="left-title4">A/S</h2>
+                            <h3 id="left-subtitle4-1">1년 무상 A/S</h3>
+                            <div class="description-row">
+                                <img id="check-icon" src="../src/assets/images/section6/check_icon.svg" alt="아이콘">
+                                <p class="description">사용자 유지보수 교육 (최초 1회)</p>
+                            </div>
+                            <div class="description-row">
+                                <img id="check-icon" src="../src/assets/images/section6/check_icon.svg" alt="아이콘">
+                                <p class="description">시스템 정기 유지 보수</p>
+                            </div>
+                            <div class="description-row">
+                                <img id="check-icon" src="../src/assets/images/section6/check_icon.svg" alt="아이콘">
+                                <p class="description">시스템 원격지원</p>
+                            </div>
+                            <h4 id="left-subtitle4-2">*무상 A/S 제외 항목</h4>
+                            <div class="description-row">
+                                <img id="check-icon" src="../src/assets/images/section6/check_icon_p.svg" alt="아이콘">
+                                <p class="description">정기 교체 소모품 등</p>
+                            </div>
+                        </div>
+                        
+                    <div class="content4-section2" id="right-content">
+                        <h2 id="right-title4">유상 서비스</h2>
+                        <h3 id="right-subtitle4-1">맞춤형 브랜드 서비스</h3>
+                        <div class="description-right-row">
+                            <img id="check-icon" src="../src/assets/images/section6/check_icon.svg" alt="아이콘">
+                            <p class="description-right">키오스크 & 로봇카메라 랩핑</p>
+                        </div>
+                        <div class="description-right-row">
+                            <img id="check-icon" src="../src/assets/images/section6/check_icon.svg" alt="아이콘">
+                            <p class="description-right">포토 프레임 로고 적용 및 디자인</p>
+                        </div>
+                        <div class="description-right-row">
+                            <img id="check-icon" src="../src/assets/images/section6/check_icon.svg" alt="아이콘">
+                            <p class="description-right">포토월 디자인</p>
+                        </div>
+                        <div class="description-right-row">
+                            <img id="check-icon" src="../src/assets/images/section6/check_icon.svg" alt="아이콘">
+                            <p class="description-right">UI 디자인 (브랜드 Tone & Manner 적용)</p>
+                        </div>
+                        <div class="description-right-row2">
+                            <p class="description-right2">*자세한 내용은 제품소개서 참고 또는 문의해 주세요.</p>
+                        </div>
+                        <h4 id="right-subtitle4-2">A/S 출장비용</h4>
+                        <div class="description-right-row">
+                            <img id="check-icon" src="../src/assets/images/section6/check_icon_p.svg" alt="아이콘">
+                            <p class="description-right">수도권 10만원 외 지역 거리에따라...</p>
+                        </div>
+                    </div>
+                </div>
+                <section id="keyfeature4-2">
+                    <div class="keyfeature4-2-container">
+                        <div class="subtitle-container">
+                            <h3 class="keyfeature4-2-subtitle">고객 맞춤형 브랜딩</h3>
+                            <p class="keyfeature4-2-description2">유상 서비스</p>
+                        </div>
+                        <p class="keyfeature4-2-description">
+                            고객사의 Brand Identity를 적용하여 이벤트 분위기와 일관성 있는 Tone & Manner를 유지해요.
+                        </p>
+                    </div>
+                    <div class="keyfeature4-2-content">
+                        <div class="content4-2-section">
+                            <h2 id="title4-2">키오스크 & 로봇 랩핑</h2>
+                        </div>        
+                        <div class="content4-2-section">
+                            <h2 id="title4-2">포토 프레임</h2>
+                        </div>  
+                        <div class="content4-2-section">
+                            <h2 id="title4-2">UI 디자인</h2>
+                        </div>  
+                        <div class="content4-2-section">
+                            <h2 id="title4-2">포토월</h2>
+                        </div>  
+                        <div class="content4-2-buttons">
+                            <a href="#inquiry" class="button4-2_1">구매 & 렌탈 문의</a>
+                            <a href="#product-info" class="button4-2_2">제품 소개서</a>
+                        </div>
+                    </div> 
+                    <section id="additional-text-section">
+                        <div class="additional-text-container">
+                            <div class="text-grid">
+                                <div class="text-cell">(주)씨네틱모션</div>
+                                <div class="text-cell hoverable">CATALOGUE</div>
+                                <div class="text-cell hoverable">이용약관</div>
+                                <div class="text-cell">주소: 서울시 강남구 논현로153길 20-1, 1층 06033</div>
+                                <div class="text-cell hoverable">CONTACT</div>
+                                <div class="text-cell hoverable">개인정보처리방침</div>
+                                <div class="text-cell">이메일: info@cineticmotion.com I 사업자등록번호: 581-86-03121</div>
+                                <div class="text-cell"></div>
+                                <div class="text-cell"></div>
+                                <div class="text-cell">공식홈페이지: www.cineticmotion.com</div>
+                                <img id="insta" src="../src/assets/images/section7/insta.png" alt="인스타 아이콘">
+                            </div>
+                        </div>
+                    </section>
+                    
+            </main>
+        </div>
+    <script src="../ui/popup.jsx"></script>
+    <script src="../ui/angle.jsx"></script>
+    <script src="../ui/slide.jsx"></script>
+</body>
+</html>
