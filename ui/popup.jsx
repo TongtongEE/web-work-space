@@ -1,3 +1,7 @@
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
 function showPopup(buttonNumber) {
     var popup = document.getElementById('popup');
     var title = document.getElementById('popup-title');
@@ -18,11 +22,16 @@ function showPopup(buttonNumber) {
     description.innerHTML = descriptions[buttonNumber - 1];
 
     popup.style.display = 'block';
-    popup.style.animation = 'slideIn 0.5s forwards';
 
-    productImage.classList.add('shift-left');
-    for (var i = 1; i <= 6; i++) {
-        document.querySelector('.product-button-' + i).classList.add('shift-left');
+    if (!isMobile()) {
+        popup.style.animation = 'slideIn 0.5s forwards';
+        productImage.classList.add('shift-left');
+        for (var i = 1; i <= 6; i++) {
+            document.querySelector('.product-button-' + i).classList.add('shift-left');
+        }
+    } else {
+        popup.style.animation = 'none';
+        popup.style.opacity = 1;
     }
 }
 
@@ -30,15 +39,19 @@ function hidePopup() {
     var popup = document.getElementById('popup');
     var productImage = document.querySelector('.product-image');
 
-    popup.style.animation = 'slideOut 0.5s forwards';
-    productImage.classList.remove('shift-left');
-    for (var i = 1; i <= 6; i++) {
-        document.querySelector('.product-button-' + i).classList.remove('shift-left');
-    }
+    if (!isMobile()) {
+        popup.style.animation = 'slideOut 0.5s forwards';
+        productImage.classList.remove('shift-left');
+        for (var i = 1; i <= 6; i++) {
+            document.querySelector('.product-button-' + i).classList.remove('shift-left');
+        }
 
-    setTimeout(function() {
+        setTimeout(function() {
+            popup.style.display = 'none';
+        }, 500);
+    } else {
         popup.style.display = 'none';
-    }, 500);
+    }
 }
 
 // 팝업 이외의 부분 클릭 시 팝업 닫기
@@ -57,4 +70,27 @@ window.addEventListener('click', function(event) {
 // 팝업 안쪽 클릭 시 이벤트 전파 막기
 document.querySelector('.popup-content').addEventListener('click', function(event) {
     event.stopPropagation();
+});
+
+// 윈도우 리사이즈 시 팝업 위치 조정
+window.addEventListener('resize', function() {
+    var popup = document.getElementById('popup');
+    var productImage = document.querySelector('.product-image');
+
+    if (popup.style.display === 'block') {
+        if (isMobile()) {
+            popup.style.animation = 'none';
+            popup.style.opacity = 1;
+            productImage.classList.remove('shift-left');
+            for (var i = 1; i <= 6; i++) {
+                document.querySelector('.product-button-' + i).classList.remove('shift-left');
+            }
+        } else {
+            popup.style.animation = 'slideIn 0.5s forwards';
+            productImage.classList.add('shift-left');
+            for (var i = 1; i <= 6; i++) {
+                document.querySelector('.product-button-' + i).classList.add('shift-left');
+            }
+        }
+    }
 });

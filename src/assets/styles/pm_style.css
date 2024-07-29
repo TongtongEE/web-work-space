@@ -53,6 +53,7 @@
     }
 }
 
+
 body {
     font-family: 'NEXON Lv2 Gothic';
     line-height: 1.5;
@@ -61,6 +62,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* 좌우 스크롤 제거 */
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
 }
 
 .container {
@@ -125,34 +128,35 @@ main {
 /* Section_1 */
 .container {
     height: 380px;
-    margin-bottom: 4rem;
+    margin-bottom: -1020px;
 }
 
 #intro {
     text-align: left;
     padding: 4rem 0;
-    background-color: transparent; /* 배경색 추가 */
+    background-color: transparent;
     color: #ffffff; /* 글자색 추가 */
 }
 
 #bg-video {
-    position: absolute;
-    top: 56%;
-    left: 50%;
-    width: 100%;
-    height: 56.25vw; /* 16:9 비율 유지 (100 * 9 / 16) */
+    position: relative;
+    top: -226px;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
     max-width: 1920px;
-    max-height: 1080px;
-    object-fit: contain; /* cover 대신 contain 사용 */
-    transform: translate(-50%, -50%);
+    object-fit: cover;
     z-index: -1;
+    clip-path: inset(162px 0 240px 0); /* 상단 202px, 하단 203px 크롭 */
 }
 
 
 #intro .intro-content {
     max-width: 990px;
     position: relative;
+    top: -1080px;
     margin: 100px 333px;
+    white-space: nowrap;
 }
 
 #intro h1 {
@@ -238,6 +242,10 @@ main {
     margin-bottom: -10px;
 }
 
+.mobile-break {
+    display: none; /* 기본적으로 줄바꿈 숨김 */
+}
+
 .product-description {
     font-size: 17px;
 }
@@ -305,9 +313,9 @@ main {
 
 .popup {
     display: none; /* 기본적으로 숨김 */
-    position: absolute;
-    top: 990px;
-    right: 260px;
+    position: relative;
+    top: -690px;
+    right: -1000px;
     width: 591px;
     height: 515px;
     background-color: #00ff00;
@@ -318,6 +326,7 @@ main {
     border-radius: 10px;
     opacity: 0; /* 기본적으로 투명 */
     animation: slideIn 0.5s forwards; /* 슬라이드 인 애니메이션 적용 */
+    margin-bottom: -549px;
 }
 
 .popup.slide-out {
@@ -582,12 +591,20 @@ main {
     font-size: 17px;
 }
 
-.photo-frame-image {
+.photo-frame-container {
     position: relative;
-    top: 30px;
+    top: 10px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 945px; /* 기본 이미지 너비 */
+    transform: translateX(-49%);
+    width: 100%;
+    max-width: 1200px; /* 컨테이너의 최대 너비 */
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.photo-frame-image {
+    width: 48%; 
 }
 
 .photo-frame-image img {
@@ -910,6 +927,7 @@ main {
     background-position: center;
     width: 100%;
     height: 330px; /* 섹션 높이 설정 */
+    margin-bottom: 0;
 }
 
 
@@ -934,7 +952,12 @@ main {
     font-weight: 300;
     margin-bottom: -10px;
     color: #ffffff;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
+
+
 
 .keyfeature4-description {
     font-size: 17px;
@@ -1172,6 +1195,7 @@ main {
     margin-right: 10px; /* 유상 서비스와 간격을 조정 */
 }
 
+
 .keyfeature4-2-description {
     font-size: 17px;
     color: #ffffff;
@@ -1249,69 +1273,1340 @@ main {
 #additional-text-section {
     position: relative;
     width: 100%;
-    height: 196px; /* 섹션 높이를 내용 크기에 맞게 설정 */
-    background-color: #333333;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
+    height: 250px;
+    background-color: #000000;
+    top: -150px;
 }
 
 .additional-text-container {
-    max-width: 1920px; /* 최대 너비 설정 */
-    margin: -140px auto;
+    max-width: 1920px;
+    margin: 0 auto;
     color: #ffffff;
-    
+    border-top: solid 1px #00ff00;
 }
 
 .text-grid {
-    position: relative;
-    top: 35px;
-    left: 235px;
     display: grid;
-    grid-template-columns: 525px 225px 500px; /* 각 열의 너비를 개별적으로 설정 */
-    grid-template-rows: repeat(4, auto); /* 4행 */
+    grid-template-columns: 525px 225px 500px;
+    grid-auto-flow: column;
+    gap: 15px 0px;
+    padding: 35px 355px;
+    margin-top: 20px;
 }
 
 .text-cell {
-    margin-top: -10px;
-    margin-left: 150px;
-    padding: 10px;
     font-family: 'NEXON Lv1 Gothic';
     font-weight: 100;
     font-size: 15px;
     color: #cbcbcb;
-    text-align: left;   
-    width: 450px;
-
+    text-align: left;
 }
 
 .text-cell.hoverable {
-    cursor: pointer; /* 마우스 호버 시 커서가 손가락 모양으로 변경 */
-}
-
-#insta {
-    cursor: pointer; /* 마우스 호버 시 커서가 손가락 모양으로 변경 */
-    position: relative;
-    top: -100px;
-    left: 690px;
+    cursor: pointer;
 }
 
 .text-cell.hoverable:hover {
-    color: #ffffff; 
+    color: #00ff00;
+}
+
+#insta-cell {
+    position: relative;
+    top: -120px;
+    left: -120px;
+    grid-column: 3;
+    grid-row: 4;
+    justify-self: end;
+    align-self: end;
+}
+
+#insta {
+    cursor: pointer;
 }
 
 #insta:hover {
-    filter: brightness(1.5); /* 밝기를 1.5배로 증가 */
+    filter: brightness(1.5);
 }
+
+/*모바일 메뉴바*/
+
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    position: relative; 
+    margin-right: 5px;
+}
+
+.bar {
+    width: 50px;
+    height: 4px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    margin: 10px 0;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+}
+
+.overlay .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.overlay .nav-menu li {
+    margin: 20px 0;
+}
+
+.overlay .nav-menu a {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.mobile-nav-menu {
+    display: none;
+}
+
+.close-icon {
+    position: absolute;
+    top: 30px;
+    right: 62px;
+    font-size: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    display: none;
+}
+
 
 
 /* 반응형 디자인을 위한 미디어 쿼리 */
-@media (max-width: 768px) {
-    #features {
-        grid-template-columns: 1fr;
+@media screen and (max-width: 720px) {
+    
+    body {
+        font-size: 14px;
+        width: 720px;
+        align-content: center;
+        display: block;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* 좌우 스크롤 제거 */
+        -webkit-text-size-adjust: 100%;
     }
 
-    #multi-shot, #ai-editing {
-        flex-direction: column;
+    .container {
+        max-width: 720px;
+        margin: 0 auto; /* 가운데 정렬 */
+        box-sizing: border-box;
     }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    .logo img {
+        height: 40px;
+        position: relative;
+        top: 3px;
+        margin-left: -10px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .mobile-nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .mobile-nav-menu li {
+        margin: 20px 0;
+    }
+
+    .mobile-nav-menu a {
+        font-size: 50px;
+        color: #ffffff;
+        text-decoration: none;
+        font-family: 'Jalnan2';
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+    .overlay.active .close-icon {
+        display: block;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+    
+    /* 메인 컨텐츠 영역 */
+    main {
+    max-width: 100%;
+    margin: 0 auto;
+    }
+    
+    /* Section_1 */
+    .container {
+    height: 380px;
+    margin-bottom: 4rem;
+    }
+
+    #intro {
+        height: 720px; /* 뷰포트 높이의 100%를 사용 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #bg-video {
+        position: relative;
+        top: 0; /* 변경 */
+        left: 50%; /* 변경 */
+        width: 1550px; 
+        height: auto; /* 변경 */
+        max-width: 1550px; /* 제거 또는 100%로 변경 */
+        clip-path: inset(0 0 0 0);
+        z-index: -1;
+ 
+    }
+
+    #intro .intro-content {
+        position: relative; /* 추가 */
+        top: -30px;
+        left: -775px;
+        z-index: 1; /* 추가 */
+        max-width: 100%; /* 변경 */
+        padding: 0 20px; /* 추가 */
+        margin: 0; /* 변경 */
+        text-align: center;
+    }
+
+    #intro h1 {
+        font-size: 45px;
+        margin-left: 0;
+        letter-spacing: -0.6px;
+        
+    }
+
+    #intro p {
+        font-size: 20px;
+        margin-bottom: 50px;
+        margin-left: 0;
+        letter-spacing: -0.4px;
+    }
+
+    .intro-buttons {
+        flex-direction: row; /* 버튼을 가로로 배열 */
+        justify-content: center;
+        gap: 12px;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .button_1, .button_2 {
+        display: inline-block;
+        width: 550px; /* 버튼 너비를 자동으로 설정 */
+        padding: 1.5rem 2rem;
+        font-size: 22px;
+        left: -30px;
+    }
+
+    /* 제품구성 */
+     #product {
+        height: 900px;
+        padding: 20px 0;
+        position: relative; 
+        margin-bottom: -200px;
+        overflow: hidden;
+    }
+
+    .product-container {
+        position: relative;
+        top: 20px;
+        left: 0;
+        transform: none;
+    }
+
+    .product-title {
+        font-family: 'Jalnan2';
+        font-size: 27px;
+        font-weight: 300;
+        color: #00ff00; /* 강조색 */
+        margin-bottom: 1rem;
+        text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+        -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+    }
+    
+    .product-subtitle {
+        font-family: 'Jalnan Gothic';
+        font-size: 36px;
+        font-weight: 300;
+        margin-bottom: -10px;
+        letter-spacing: -0.6px;
+    }
+
+    .mobile-break {
+        display: block; /* 모바일에서만 줄바꿈 표시 */
+    }
+    
+    
+    .product-description {
+        font-size: 20px;
+        letter-spacing: -0.4px;
+    }
+
+    .product-image {
+        position: relative;
+        top: 50px;
+        left: -103px;
+    }
+
+    .product-image img {
+        width: 125%;
+
+    }
+
+    .product-button-1, .product-button-2, .product-button-3, 
+    .product-button-4, .product-button-5, .product-button-6 {
+        width: 20px;
+        height: 20px;
+        position: relative;
+       
+    }
+
+    .product-button-1{
+        top: 25px;
+        left: -30px;
+    }
+
+    .product-button-2{
+        top: 00px;
+        left: -20px;
+    }
+
+    .product-button-3{
+        top: -25px;
+        left: -25px;
+    }
+
+    .product-button-4{
+        top: -45px;
+        left: -15px;
+    }
+
+    .product-button-5{
+        top: -65px;
+        left: -10px;
+    }
+
+    .product-button-6{
+        top: -95px;
+        left: -15px;
+    }
+
+
+    .product-image.shift-left,
+    .product-button-1.shift-left,
+    .product-button-2.shift-left,
+    .product-button-3.shift-left,
+    .product-button-4.shift-left,
+    .product-button-5.shift-left,
+    .product-button-6.shift-left {
+        transform: none;
+    }
+
+    .popup {
+        position: relative; 
+        top: -610px;
+        left: 20px;
+        width: 650px;
+        height: 700px;
+        max-width: 700px;
+        animation: none;
+        opacity: 0;
+        z-index: 1000; /* 추가 */
+        background-color: #00ff00; /* 추가 */
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* 추가 */
+        margin-bottom: -735px;
+    }
+
+    .popup-content {
+        position: relative;
+        top: 0;
+        left: -2px;
+        padding: 20px;
+        background-color: #ffffff;
+        width: 94%;
+        height: 400px;
+        padding: 20px; /* 추가 */
+    }
+
+    .popup-text {
+        position: relative;
+        top: 450px ;
+        left: -20px;
+        padding: 10px;
+    }
+
+    .popup-text h3 {
+        font-size: 30px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .popup-text p {
+        font-size: 25px;
+        line-height: 40px;
+        margin: 0;
+        letter-spacing: -0.4px; /* 원하는 자간 값을 설정하세요 */
+    }
+
+    .close-btn {
+        position: absolute; /* 추가 */
+        top: -10px;
+        right: 10px;
+        font-size: 60px; /* 추가 */
+        cursor: pointer; /* 추가 */
+    }
+
+/* keyfeature1 */
+#keyfeature1 {
+    position: relative;
+    top: 320px;
+    width: 100%;
+    height: 1600px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 325px;
+    
 }
+
+.keyfeature1-container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00ff00;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 720px;
+    height: 400px; /* 섹션 높이 설정 */
+    border-top: 4px solid black; /* 위쪽 보더 추가 */
+    border-bottom: 2px solid black; /* 아래쪽 보더 추가 */
+}
+
+.keyfeature1-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    margin-top: 3rem;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+}
+
+.keyfeature1-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: -10px;
+    letter-spacing: -0.6px;
+}
+
+.keyfeature1-description {
+    font-size: 20px;
+    letter-spacing: -0.6px;
+    
+}
+
+.keyfeature1-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.1rem;
+    position: relative;
+    top: 175px;
+    left: 0px;
+}
+
+.keyfeature1-button {
+    padding: 1.5rem 3.1rem;
+    background-color: #00ff00;
+    border: 2px solid #000;
+    color: #000;
+    font-family: 'Jalnan2';
+    font-size: 25px;
+    letter-spacing: -0.4px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+
+}
+
+.keyfeature1-button:hover {
+    background-color: #000;
+    color: #00ff00;
+}
+
+.keyfeature1-content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 480px;
+    left: -50px;
+    margin: 0 auto;
+    max-width: 720px; /* 최대 너비 설정 */
+    gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.content-section {
+    width: 670px;
+    height: 550px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+#right-content {
+    height: 600px;
+}
+
+.content-section p, .content-section h2 {
+    font-family: 'JalnanGothic';
+    font-size: 16px;
+    color: #000;
+    text-align: center; 
+    margin-left: 20px;
+}
+
+#left-title {
+    font-family: 'Jalnan2';
+    font-size: 30px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin: 20px; /* 여백 제거 */
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#left-image {
+    position: relative;
+    left: 100px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+#right-title {
+    font-family: 'Jalnan2';
+    font-size: 30px;
+    color: #000;
+    background-color: #00ff00;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-left: 20px; /* 여백 제거 */
+    margin-bottom: -10px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#right-description {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.shooting-mode h3 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    line-height: 0.5;
+}
+
+.image-row {
+    display: flex;
+    gap: 1rem;
+    margin-left: 100px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.image-row img {
+    position: relative;
+    left: 50px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    padding-left: 20px;
+
+}
+
+/* keyfeature1-2 */
+#keyfeature1-2 {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    height: 1400px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 130px;
+}
+
+.keyfeature1-2-container {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+
+}
+
+
+.keyfeature1-2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature1-2-description {
+    font-size: 20px;
+}
+
+.photo-frame-container {
+    flex-direction: column;
+}
+
+.photo-frame-image {
+    width: 90%;
+    margin-bottom: 20px; /* 이미지 사이 간격 */
+}
+
+/* keyfeature2 */
+#keyfeature2 {
+    position: relative;
+    width: 100%;
+    height: 1600px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 150px;
+}
+
+.keyfeature2-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+}
+
+.keyfeature2-container::before {
+    content: '';
+    position: absolute;
+    top: 19px;
+    left: 50px;
+    right: 50px;
+    height: 100%;
+    border-top: 1px solid #000; /* 원하는 테두리 색상으로 변경 */
+    box-sizing: border-box;
+    z-index: -1; /* 배경 뒤에 위치하도록 설정 */
+}
+
+.keyfeature2-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    background-color: #ffffff;
+    padding: 0rem 2rem ; /* 배경 크기를 조정하는 패딩 값 */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-top: 0px;
+}
+
+
+.keyfeature2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature2-description {
+    font-size: 17px;
+}
+
+
+.keyfeature2-content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 400px;
+    left: -50px;
+    margin: 0 auto;
+    max-width: 720px; /* 최대 너비 설정 */
+    gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.content2-section {
+    width: 670px;
+    height: 550px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.content2-section2 {
+    width: 670px;
+    height: 550px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    text-align: left; /* 글자 좌측 정렬 */
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.content2-section2 p, .content2-section2 h2 {
+    font-family: 'JalnanGothic';
+    font-size: 16px;
+    color: #000;
+    text-align: left; /* 글자 좌측 정렬 */
+    margin-left: 20px;
+}
+
+#left-title2 {
+    font-family: 'Jalnan2';
+    font-size: 30px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin: 20px; /* 여백 제거 */
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#left-image2 {
+    position: relative;
+    left: 100px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+#right-title2 {
+    font-family: 'Jalnan2';
+    font-size: 30px;
+    color: #000;
+    background-color: #00ff00;
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-left: 20px; /* 여백 제거 */
+    margin-bottom: -10px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+}
+
+#right-description2 {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.shooting-mode2 h3 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    color: #000;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#right-image2-1 {
+    position: relative;
+    left: 100px;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+/*key feature2-2*/
+
+.keyfeature2-2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature2-2-description {
+    font-size: 20px;
+}
+
+.video-reference {
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 720px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.slide-track {
+    display: flex;
+    gap: 12px;
+    width: 200%;
+}
+
+.slide-track img {
+    width: 1920px;
+    height: auto;
+}
+ 
+
+/* keyfeature3 */
+#keyfeature3 {
+    position: relative;
+    top:-100px;
+    width: 100%;
+    height: 750px; /* 섹션 높이 설정 */
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-top: 0;
+    
+}
+
+.keyfeature3-container {
+    position: absolute;
+    top: -160px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00ff00;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+    border-top: 4px solid black; /* 위쪽 보더 추가 */
+    border-bottom: 2px solid black; /* 아래쪽 보더 추가 */
+}
+
+.keyfeature3-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    margin-top: 3.7rem;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+}
+
+.keyfeature3-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: -10px;
+}
+
+.keyfeature3-description {
+    font-size: 20px;
+}
+
+.event-reference {
+    position: relative;
+    max-width: 1920px;
+    top: 70px;
+    left: -275px;
+    transform: translateX(20%);
+    z-index: -10;
+    overflow: hidden;
+    width: 115%;
+    height: auto; /* 높이를 auto로 설정 */
+}
+
+.event-reference img {
+    display: block;
+    width: 110%;
+    height: auto;
+    clip-path: inset(10% 10% 10% 5%); /* 상 우 하 좌 순서로 크롭 */
+}
+
+/* keyfeature4 */
+#keyfeature4 {
+    position: relative;
+    width: 100%;
+    height: 1200px; /* 섹션 높이 설정 */
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 0px;
+}
+
+.keyfeature4-container {
+    position: relative;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+    margin-bottom: 50px;
+}
+
+
+.keyfeature4-title {
+    font-family: 'Jalnan2';
+    font-size: 27px;
+    font-weight: 300;
+    color: #00ff00; /* 강조색 */
+    background-color: none;
+    padding: 0rem 2rem ; /* 배경 크기를 조정하는 패딩 값 */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+    margin-top: 70px;
+    margin-bottom: 0px;
+}
+
+
+.keyfeature4-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: -10px;
+    color: #ffffff;
+    white-space: normal;
+    flex-direction: column;
+}
+
+.keyfeature4-description {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+
+.keyfeature4-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -160px;
+    margin: 0 auto;
+    width: 100%; /* 내용의 너비 설정 */
+    height: 1000px;
+    max-width: 720px; /* 최대 너비 설정 */
+    padding: 1rem 0;
+    gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
+}
+
+.content4-section  {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: 550px;
+    border: 2px solid #000000;
+    background-color:#ffffff;
+    padding: 1rem;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 0px #00ff00;
+    width: 550px;
+    text-align: center;
+
+}
+
+.content4-section2 {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: auto;
+    border: 2px solid #000000;
+    background-color:#ffffff;
+    padding: 1rem;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 0px #00ff00;
+    width: 550px;
+    text-align: center;
+}
+
+#left-title4 {
+    font-family: 'Jalnan2';
+    font-size: 30px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    display: inblock; /* inline-block에서 block으로 변경 */
+    margin: 20px auto; /* 좌우 마진을 auto로 설정하여 중앙 정렬 */
+    padding: 0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#left-subtitle4-1 {
+    display: block; /* flex에서 block으로 변경 */
+    font-family: 'Jalnan2';
+    font-size: 23px;
+    color: #000;
+    margin: 10px auto; /* 좌우 마진을 auto로 설정하여 중앙 정렬 */
+    line-height: 1;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.description-row {
+    display: flex;
+    justify-content: left; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-left: 120px;
+}
+
+#check-icon {
+    width: 25px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.description {
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 20px;
+    color: #000;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#left-subtitle4-2 {
+    display: block; /* flex에서 block으로 변경 */
+    font-family: 'Jalnan2';
+    font-size: 23px;
+    color: #000;
+    margin: 60px auto 0; /* 상단 마진 유지, 좌우 마진을 auto로 설정하여 중앙 정렬 */
+    line-height: 1;
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin-left: -10px;
+}
+
+#right-title4 {
+    font-family: 'Jalnan2';
+    font-size: 30px;
+    color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    display: inblock; /* inline-block에서 block으로 변경 */
+    margin: 20px auto; /* 좌우 마진을 auto로 설정하여 중앙 정렬 */
+    padding: 0.0rem 0.5rem 0.7rem 0.5rem;
+    line-height: 0.3;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#right-subtitle4-1 {
+    display: block; /* flex에서 block으로 변경 */
+    font-family: 'Jalnan2';
+    font-size: 23px;
+    color: #000;
+    margin: 10px auto; /* 좌우 마진을 auto로 설정하여 중앙 정렬 */
+    line-height: 1;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.description-right-row {
+    display: flex;
+    justify-content: left; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-left: 90px;
+    margin-top: 15px
+}
+
+#check-icon {
+    width: 25px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.description-right {
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 20px;
+    color: #000;
+    text-align: left; /* 텍스트 중앙 정렬 */
+}
+
+.description-right-row2 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.description-right2 {
+    font-family: 'NEXON Lv2 Gothic';
+    font-weight: 700;
+    font-size: 15px;
+    color: #000;
+    line-height: 1; /* 줄 높이 설정 */
+    margin-left: 100px;
+    margin-bottom: 0;
+}
+
+#right-subtitle4-2 {
+    display: flex;
+    align-items: center;
+    font-family: 'Jalnan2';
+    font-size: 23px;
+    color: #000;
+    margin-left: 170px; /* 여백 제거 */
+    margin-top: 60px;
+    line-height: 1; /* 줄 높이 설정 */
+    margin-bottom: -0px;
+}
+
+
+/* keyfeature4-2 */
+#keyfeature4-2 {
+    position: relative;
+    width: 100%;
+    height: 2800px; /* 섹션 높이 설정 */
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #000000; /* 텍스트 색상 */
+    margin-bottom: 0px;
+}
+
+.keyfeature4-2-container {
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    background-size: cover; /* 기본값은 cover */
+    background-position: center;
+    width: 100%;
+    height: 330px; /* 섹션 높이 설정 */
+    margin-bottom: -50px;
+}
+
+.subtitle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -40px;
+    color: #00ff00;
+}
+
+.keyfeature4-2-subtitle {
+    font-family: 'Jalnan Gothic';
+    font-size: 36px;
+    font-weight: 300;
+    color: #ffffff;
+    margin-right: 10px; /* 간격을 조정 */
+}
+
+.mobile-break {
+    display: block; /* 모바일에서 줄바꿈 표시 */
+}
+
+.keyfeature4-2-description {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.keyfeature4-2-description2 {
+    font-size: 17px;
+    color: #00ff00;
+}
+
+.keyfeature4-2-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: -200px;
+    left: 15px;
+    width: 80%; /* 내용의 너비 설정 */
+    height: 1000px;
+    max-width: 720px; /* 최대 너비 설정 */
+    padding: 1rem 0;
+    gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
+}
+
+.content4-2-section  {
+    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    height: 550px;
+    border: 2px solid #000000;
+    background-color:#ffffff;
+    padding: 1rem;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 0px #00ff00;
+    width: 550px;
+    text-align: center;
+}
+
+#title4-2 {
+    font-family: 'Jalnan2';
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    margin: 40px;
+    line-height: 1; /* 줄 높이 설정 */
+}
+
+.content4-2-buttons {
+    position: relative;
+    left: -220px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 100px;
+}
+
+.button4-2_1, .button4-2_2 {
+    display: inline-block;
+    padding: 1.5rem 2rem;
+    background-color: transparent;
+    border: 2px solid #00ff00; /* 테두리 추가 */
+    color: #ffffff;
+    font-family: 'Jalnan2';
+    text-align: center;
+    -webkit-text-stroke: 0.5px #000;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 50;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    left: 0px;
+    border-radius: 0;
+    width: 200px;
+}
+
+.button4-2_1:hover, .button4-2_2:hover  {
+    background-color: #00ff00;
+    color: #000000;
+}
+
+#additional-text-section {
+    height: auto; /* 높이를 자동으로 조정 */
+    top: 1380px;
+    overflow: hidden;
+}
+
+.text-grid {
+    grid-template-columns: 1fr; /* 단일 열 그리드 */
+    grid-auto-flow: row;
+    gap: 20px;
+    padding: 40px;
+}
+
+.text-cell {
+    text-align: left;
+    font-size: 21px; /* 모바일에서 폰트 크기 조정 */
+    font-family: 'NEXON Lv2 Gothic';
+    font-display: none;
+    margin-bottom: -10px;
+}
+
+.text-cell * { /* 모든 하위 요소에도 적용 */
+    color: inherit; /* 부모 요소의 색상 상속 */
+    text-decoration: none; /* 밑줄 제거 */
+    cursor: default; /* 기본 커서로 변경 */
+}
+
+.text-cell:contains("581-86-03121") {
+    font-weight: normal; /* 글꼴 두께를 보통으로 */
+    font-style: normal; /* 기울임 없음 */
+}
+
+#insta-cell {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: right;
+    left: -40px;
+    top: -65px;
+    scale: 200%;
+}
+}
+
+

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!startTime) startTime = timestamp;
         const progress = timestamp - startTime;
         
-        const speed = isHovered ? 0.02 : 0.04; // 호버 시 속도 감소
+        const speed = isHovered ? 0.01 : 0.02; // 호버 시 속도 감소
         currentPosition -= speed;
 
         if (currentPosition <= -50) {
