@@ -275,23 +275,23 @@ main {
     transition: transform 0.5s ease; /* 버튼 이동 애니메이션 추가 */
 }
 
-.product-button-1 { transform: translate(550px, -330px); } /*리프트*/
-.product-button-2 { transform: translate(460px, -340px); } /*카메라*/
-.product-button-3 { transform: translate(490px, -470px); } /*로봇*/
-.product-button-4 { transform: translate(315px, -380px); } /*키오스크*/
-.product-button-5 { transform: translate(255px, -320px); } /*카드리더기*/
-.product-button-6 { transform: translate(332px, -280px); } /*포토프린트*/
+.product-button-1 { transform: translate(535px, -300px); } /*리프트*/
+.product-button-2 { transform: translate(450px, -335px); } /*카메라*/
+.product-button-3 { transform: translate(475px, -470px); } /*로봇*/
+.product-button-4 { transform: translate(315px, -343px); } /*키오스크*/
+.product-button-5 { transform: translate(260px, -285px); } /*카드리더기*/
+.product-button-6 { transform: translate(332px, -245px); } /*포토프린트*/
 
 .product-image.shift-left img {
     transform: translateX(-350px); /* 이미지와 버튼을 왼쪽으로 이동 */
 }
 
-.product-button-1.shift-left { transform: translate(200px, -330px); }
-.product-button-2.shift-left { transform: translate(110px, -340px); }
-.product-button-3.shift-left { transform: translate(140px, -470px); }
-.product-button-4.shift-left { transform: translate(-35px, -380px); }
-.product-button-5.shift-left { transform: translate(-95px, -320px); }
-.product-button-6.shift-left { transform: translate(-18px, -280px); }
+.product-button-1.shift-left { transform: translate(185px, -300px); }
+.product-button-2.shift-left { transform: translate(100px, -335px); }
+.product-button-3.shift-left { transform: translate(125px, -470px); }
+.product-button-4.shift-left { transform: translate(-35px, -343px); }
+.product-button-5.shift-left { transform: translate(-90px, -285px); }
+.product-button-6.shift-left { transform: translate(-18px, -245px); }
 
 .product-button-1::after, .product-button-2::after, .product-button-3::after, .product-button-4::after, .product-button-5::after, .product-button-6::after {
     content: '';
@@ -464,7 +464,7 @@ main {
     display: flex;
     justify-content: space-between;
     position: relative;
-    top: 250px;
+    top: 220px;
     margin: 0 auto;
     width: 80%; /* 내용의 너비 설정 */
     height: 550px;
@@ -475,7 +475,7 @@ main {
 
 .content-section {
     width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
-    height: auto;
+    height: 580px;
     border: 2px solid #000;
     padding: 1rem;
     box-sizing: border-box;
@@ -501,15 +501,25 @@ main {
     margin: 20px; /* 여백 제거 */
     padding:  0.0rem 0.5rem 0.7rem 0.5rem;
     line-height: 0.3;
+    z-index: 10;
 }
 
-#left-image {
+#video-container {
+    width: 120%;
+    height: 100%;
     position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    padding-left: 20px;
+    overflow: hidden;
+}
+
+#left-video {
+    position: relative;
+    top: -25px;
+    left: -70px;
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    clip-path: inset(20px 18px 21px 55px);
 }
 
 #right-title {
@@ -1833,16 +1843,23 @@ body.menu-open {
     line-height: 0.3;
 }
 
-#left-image {
+#video-container {
+    width: 0%;
+    height: 100%;
     position: relative;
-    left: 100px;
-    top: 10px;
-    display: flex;
-    align-items: center;
-    width: 400px;
-    height: 400px;
-    padding-left: 20px;
-    margin-bottom: 30px;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+#left-video {
+    position: relative;
+    top: -20px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    clip-path: inset(20px 0px 40px 70px);
 }
 
 #right-title {
