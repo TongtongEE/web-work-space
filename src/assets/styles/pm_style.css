@@ -368,6 +368,34 @@ main {
     letter-spacing: -0.4px; /* 원하는 자간 값을 설정하세요 */
 }
 
+.popup-image {
+    position: relative;
+    top: -20px;
+    left: -16px;
+    width: 112%;
+    height: 113%;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px; /* 둥근 모서리 추가 */
+    overflow: hidden; /* 비디오 콘텐츠가 테두리를 벗어나지 않도록 함 */
+}
+
+.popup-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.popup-image video {
+    max-width: 200%;
+    max-height: 100%;
+    object-fit: contain;
+
+}
+
 .close-btn {
     position: absolute;
     top: -35px;
@@ -460,6 +488,11 @@ main {
     color: #00ff00;
 }
 
+.keyfeature1-button.active {
+    background-color: #000;
+    color: #00ff00;
+}
+
 .keyfeature1-content {
     display: flex;
     justify-content: space-between;
@@ -513,13 +546,13 @@ main {
 
 #left-video {
     position: relative;
-    top: -25px;
+    top: -35px;
     left: -70px;
     width: 120%;
-    height: 100%;
+    height: 105%;
     object-fit: cover;
     z-index: 2;
-    clip-path: inset(20px 18px 21px 55px);
+    clip-path: inset(20px 18px 34px 55px);
 }
 
 #right-title {
@@ -1687,9 +1720,10 @@ body.menu-open {
 
     .popup-text {
         position: relative;
-        top: 450px ;
+        top: 15px ;
         left: -20px;
         padding: 10px;
+        text-align: center;
     }
 
     .popup-text h3 {
@@ -1705,6 +1739,35 @@ body.menu-open {
         letter-spacing: -0.4px; /* 원하는 자간 값을 설정하세요 */
     }
 
+    .popup-image {
+        position: relative;
+        top: -20px;
+        left: -18px;
+        width: 106%;
+        height: 110%;
+        background-color: #FFFFFF;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 7px; /* 둥근 모서리 추가 */
+        overflow: hidden; /* 비디오 콘텐츠가 테두리를 벗어나지 않도록 함 */
+    }
+    
+    .popup-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    .popup-image video {
+        max-width: 200%;
+        max-height: 100%;
+        object-fit: contain;
+    
+    }
+
+
     .close-btn {
         position: absolute; /* 추가 */
         top: -10px;
@@ -1712,6 +1775,7 @@ body.menu-open {
         font-size: 60px; /* 추가 */
         cursor: pointer; /* 추가 */
     }
+
 
 /* keyfeature1 */
 #keyfeature1 {
@@ -1801,7 +1865,7 @@ body.menu-open {
     justify-content: center;
     position: relative;
     top: 480px;
-    left: -50px;
+    left: -38px;
     margin: 0 auto;
     max-width: 720px; /* 최대 너비 설정 */
     gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
@@ -1810,7 +1874,7 @@ body.menu-open {
 }
 
 .content-section {
-    width: 670px;
+    width: 650px;
     height: 550px;
     border: 2px solid #000;
     box-sizing: border-box;
@@ -1853,10 +1917,10 @@ body.menu-open {
 
 #left-video {
     position: relative;
-    top: -20px;
-    left: -10px;
-    width: 100%;
-    height: 100%;
+    top: -35px;
+    left: -19px;
+    width: 105%;
+    height: 105%;
     object-fit: cover;
     z-index: 2;
     clip-path: inset(20px 0px 40px 70px);

@@ -42,11 +42,27 @@ function changeContent(contentType) {
     rightImage2.src = `path/to/${contentType}2.jpg`;
     rightImage3.src = `path/to/${contentType}3.jpg`;
     rightImage4.src = `path/to/${contentType}4.jpg`;
+
+    // 모든 버튼에서 'active' 클래스 제거
+    const allButtons = document.querySelectorAll('.keyfeature1-button');
+    allButtons.forEach(button => button.classList.remove('active'));
+
+    // 선택된 버튼에 'active' 클래스 추가
+    const selectedButton = document.querySelector(`.keyfeature1-button[onclick="changeContent('${contentType}')"]`);
+    if (selectedButton) {
+        selectedButton.classList.add('active');
+    }
 }
 
 // 페이지 로드 시 초기 컨텐츠 설정
 window.onload = function() {
-    changeContent('high-angle');
+    changeContent('multi-angle');
+    
+    // Multi Angle 버튼에 'active' 클래스 추가
+    const multiAngleButton = document.querySelector('.keyfeature1-button[onclick="changeContent(\'multi-angle\')"]');
+    if (multiAngleButton) {
+        multiAngleButton.classList.add('active');
+    }
 };
 
 // 팝업 관련 함수 (이름만 변경)

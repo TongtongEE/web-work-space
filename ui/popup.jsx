@@ -6,20 +6,30 @@ function showPopup(buttonNumber) {
     var popup = document.getElementById('popup');
     var title = document.getElementById('popup-title');
     var description = document.getElementById('popup-description');
+    var imageContainer = document.querySelector('.popup-image');
     var productImage = document.querySelector('.product-image');
 
     var titles = ["리프트", "AI를 탑재한 고성능 카메라", "높은 안전성이 인증된 로봇", "편리한 키오스크 시스템", "카드, NFC, 쿠폰 결제를 한번에", "높은 퀄리티 사진 인쇄"];
     var descriptions = [
         "모바일베이스에 리프트 탑재로<br>높은 앵글 (최대 3m) 에서 촬영이 가능해요",
         "AI 오토 트래킹 기능과<br>고성능 카메라로 4K 촬영까지 가능해요", 
-        "NRTL(미국), CE(유럽), KCs(한국) 등<br>최고 수준의 안전성을 인증받은<br>두산로봇 사용으로 안심하고 사용할 수 있어요",
+        "최고 수준의 안전성을 인증받은<br>두산로봇 사용으로 안심하고 사용할 수 있어요",
         "사진과 동영상 촬영, 결제, 인쇄까지<br>직관적인 UI로 사용이 편리해요",
         "IC / MSR, 삼성페이, 애플페이 등<br>다양한 결제 옵션이 있어요.<br>바코드 리더기 탑재로 쿠폰 결제가 가능해요",
-        "기본 300 dpi (최대 300x600 dpi) 해상도로 퀄리티 높은 사진 인화가 가능해요"
+        "기본 300 dpi (최대 300x600 dpi) 해상도로<br>퀄리티 높은 사진 인화가 가능해요"
+    ];
+    var mediaContent = [
+        '<video autoplay loop muted playsinline><source src="src/assets/videos/LiftDetail.mp4" type="video/mp4"></video>',
+        '<video autoplay loop muted playsinline><source src="src/assets/videos/AiTracking.mp4" type="video/mp4"></video>',
+        '<img src="path/to/robot-image.jpg" alt="안전한 로봇">',
+        '<img src="path/to/kiosk-image.jpg" alt="키오스크 시스템">',
+        '<video autoplay loop muted playsinline><source src="src/assets/videos/PaymentDetail.mp4" type="video/mp4"></video>',
+        '<video autoplay loop muted playsinline><source src="src/assets/videos/PrintDetail.mp4" type="video/mp4"></video>'
     ];
 
     title.innerHTML = titles[buttonNumber - 1];
     description.innerHTML = descriptions[buttonNumber - 1];
+    imageContainer.innerHTML = mediaContent[buttonNumber - 1];
 
     popup.style.display = 'block';
 
