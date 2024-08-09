@@ -572,28 +572,78 @@ main {
     font-weight: 700;
     font-size: 16px;
     color: #000;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     margin-left: 20px;
+}
+
+.shooting-mode {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+:root {
+    --text-row-gap: 20px; /* 기본 간격 설정 */
+  }
+  
+  .text-row {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 21px;
+      margin-bottom: 5px;
+      gap: var(--text-row-gap);
+  }
+  
+  .text-row h3 {
+      flex: 1; /* 각 텍스트가 동일한 너비를 가지도록 설정 */
+  }
+
+.image-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mode-group {
+    width: 48%; /* 각 그룹의 너비를 조절할 수 있습니다 */
+    display: flex;
+    flex-direction: column;
 }
 
 .shooting-mode h3 {
     font-family: 'Jalnan2';
     font-size: 15px;
     color: #000;
-    margin-left: 20px;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
-.image-row {
+.right-image {
     display: flex;
-    gap: 1rem;
-    margin-left: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 0px;
 }
 
-.image-row img {
-    width: 100px;
-    height: 130px;
-    border: 1px solid #000;
+.vertical-image {
+    position: relative;
+    left: 7px;
+    height: 332px; /* 원하는 크기로 조정 */
+    object-fit: cover;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border:#000 solid 1px;
+    box-shadow: #000000 2px 2px;
+}
+
+.horizontal-image {
+    position: relative;
+    left: -3px;
+    height: 160px; /* 원하는 크기로 조정 */
+    object-fit: cover;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border:#000 solid 1px;
+    box-shadow: #000000 2px 2px;
 }
 
 /* keyfeature1-2 */

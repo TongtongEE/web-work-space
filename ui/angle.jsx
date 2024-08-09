@@ -15,33 +15,52 @@ function changeContent(contentType) {
         leftTitle.innerHTML = '로봇 무빙 (High Angle)';
         rightTitle.innerHTML = 'High Angle';
         rightDescription.innerHTML = '최대 3m 높이에서 유행하는 항공샷, 정수리샷 등 촬영할 수 있어요.';
+        rightImage1.src = 'src/assets/images/section3/high_ver.jpg';
+        rightImage3.src = 'src/assets/images/section3/high_hor.jpg';
+        rightImage4.src = 'src/assets/images/section3/high_hor2.jpg';
+        rightImage2.style.display = 'none';
     } else if (contentType === 'middle-angle') {
         videoSrc = 'src/assets/videos/MiddleAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙 (Middle Angle)';
         rightTitle.innerHTML = 'Middle Angle';
         rightDescription.innerHTML = '일반적인 네컷사진, 증명사진 등 촬영할 수 있어요.';
+        rightImage1.src = 'src/assets/images/section3/Middle_ver.jpg';
+        rightImage3.src = 'src/assets/images/section3/middle_hor.jpg';
+        rightImage4.src = 'src/assets/images/section3/middle_hor2.jpg';
+        rightImage2.style.display = 'none';
     } else if (contentType === 'low-angle') {
         videoSrc = 'src/assets/videos/LowAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙 (Low Angle)';
         rightTitle.innerHTML = 'Low Angle';
         rightDescription.innerHTML = '로우 앵글샷, 롱다리샷 등을 촬영할 수 있어요.';
+        rightImage1.src = 'src/assets/images/section3/Low_ver.jpg';
+        rightImage3.src = 'src/assets/images/section3/Low_hor.jpg';
+        rightImage4.src = 'src/assets/images/section3/Low_hor2.jpg';
+        rightImage2.style.display = 'none';
+        
     } else if (contentType === 'multi-angle') {
         videoSrc = 'src/assets/videos/MultiAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙 (Multi Angle)';
         rightTitle.innerHTML = 'Multi Angle';
         rightDescription.innerHTML = '하이, 일반, 로우 앵글을 하나의 포토 프레임에 인쇄할 수 있어요.';
+        rightImage1.src = 'src/assets/images/section3/multi-angle1.jpg';
+        rightImage2.src = 'src/assets/images/section3/multi-angle2.jpg';
+        rightImage3.src = 'src/assets/images/section3/multi-angle3.jpg';
+        rightImage4.src = 'src/assets/images/section3/multi-angle4.jpg';
+        rightImage2.style.display = 'block';
+        rightImage3.style.display = 'block';
     }
+
+    // 이미지 크기 클래스 설정
+    rightImage1.className = 'right-image vertical-image';
+    rightImage2.className = 'right-image vertical-image';
+    rightImage3.className = 'right-image horizontal-image';
+    rightImage4.className = 'right-image horizontal-image';
 
     // 비디오 소스 변경 및 재생
     leftVideo.src = videoSrc;
     leftVideo.load();
     leftVideo.play();
-
-    // 우측 이미지 업데이트
-    rightImage1.src = `path/to/${contentType}1.jpg`;
-    rightImage2.src = `path/to/${contentType}2.jpg`;
-    rightImage3.src = `path/to/${contentType}3.jpg`;
-    rightImage4.src = `path/to/${contentType}4.jpg`;
 
     // 모든 버튼에서 'active' 클래스 제거
     const allButtons = document.querySelectorAll('.keyfeature1-button');
@@ -65,7 +84,7 @@ window.onload = function() {
     }
 };
 
-// 팝업 관련 함수 (이름만 변경)
+// 팝업 관련 함수
 function showAnglePopup(popupId) {
     const popup = document.getElementById('popup');
     const popupTitle = document.getElementById('popup-title');
@@ -96,7 +115,7 @@ function hideAnglePopup() {
     }, 500);
 }
 
-// 모바일 메뉴 관련 함수 (기존 코드 유지)
+// 모바일 메뉴 관련 함수
 document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.getElementById('menuIcon');
     const closeIcon = document.getElementById('closeIcon');
@@ -113,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// 슬라이드 관련 함수 (기존 코드 유지)
+// 슬라이드 관련 함수
 let isMouseDown = false;
 let startX;
 let scrollLeft;
