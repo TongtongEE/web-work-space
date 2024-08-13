@@ -7,6 +7,9 @@ function changeContent(contentType) {
     const rightImage2 = document.getElementById('right-image2');
     const rightImage3 = document.getElementById('right-image3');
     const rightImage4 = document.getElementById('right-image4');
+    const shootingMode = document.querySelector('.shooting-mode');
+    const textRow = document.querySelector('.text-row');
+    const modeGroups = document.querySelectorAll('.mode-group');
 
     // 비디오 소스 설정
     let videoSrc;
@@ -18,7 +21,7 @@ function changeContent(contentType) {
         rightImage1.src = 'src/assets/images/section3/high_ver.jpg';
         rightImage3.src = 'src/assets/images/section3/high_hor.jpg';
         rightImage4.src = 'src/assets/images/section3/high_hor2.jpg';
-        rightImage2.style.display = 'none';
+        setNormalLayout();
     } else if (contentType === 'middle-angle') {
         videoSrc = 'src/assets/videos/MiddleAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙 (Middle Angle)';
@@ -27,7 +30,7 @@ function changeContent(contentType) {
         rightImage1.src = 'src/assets/images/section3/Middle_ver.jpg';
         rightImage3.src = 'src/assets/images/section3/middle_hor.jpg';
         rightImage4.src = 'src/assets/images/section3/middle_hor2.jpg';
-        rightImage2.style.display = 'none';
+        setNormalLayout();
     } else if (contentType === 'low-angle') {
         videoSrc = 'src/assets/videos/LowAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙 (Low Angle)';
@@ -36,19 +39,14 @@ function changeContent(contentType) {
         rightImage1.src = 'src/assets/images/section3/Low_ver.jpg';
         rightImage3.src = 'src/assets/images/section3/Low_hor.jpg';
         rightImage4.src = 'src/assets/images/section3/Low_hor2.jpg';
-        rightImage2.style.display = 'none';
-        
+        setNormalLayout();
     } else if (contentType === 'multi-angle') {
         videoSrc = 'src/assets/videos/MultiAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙 (Multi Angle)';
         rightTitle.innerHTML = 'Multi Angle';
         rightDescription.innerHTML = '하이, 일반, 로우 앵글을 하나의 포토 프레임에 인쇄할 수 있어요.';
-        rightImage1.src = 'src/assets/images/section3/multi-angle1.jpg';
-        rightImage2.src = 'src/assets/images/section3/multi-angle2.jpg';
-        rightImage3.src = 'src/assets/images/section3/multi-angle3.jpg';
-        rightImage4.src = 'src/assets/images/section3/multi-angle4.jpg';
-        rightImage2.style.display = 'block';
-        rightImage3.style.display = 'block';
+        document.getElementById('multi-angle-image').src = 'src/assets/images/section3/MultiAngle_frame.jpg';
+        setMultiAngleLayout();
     }
 
     // 이미지 크기 클래스 설정
@@ -83,6 +81,28 @@ window.onload = function() {
         multiAngleButton.classList.add('active');
     }
 };
+
+function setNormalLayout() {
+    document.querySelector('.shooting-mode').style.display = 'block';
+    document.querySelector('.text-row').style.display = 'flex';
+    document.querySelectorAll('.mode-group').forEach(group => group.style.display = 'block');
+    document.querySelector('.multi-angle-container').style.display = 'none';
+    document.getElementById('right-image1').style.display = 'block';
+    document.getElementById('right-image2').style.display = 'none';
+    document.getElementById('right-image3').style.display = 'block';
+    document.getElementById('right-image4').style.display = 'block';
+}
+
+function setMultiAngleLayout() {
+    document.querySelector('.shooting-mode').style.display = 'flex';
+    document.querySelector('.text-row').style.display = 'none';
+    document.querySelectorAll('.mode-group').forEach(group => group.style.display = 'none');
+    document.querySelector('.multi-angle-container').style.display = 'block';
+    document.getElementById('right-image1').style.display = 'none';
+    document.getElementById('right-image2').style.display = 'none';
+    document.getElementById('right-image3').style.display = 'none';
+    document.getElementById('right-image4').style.display = 'none';
+}
 
 // 팝업 관련 함수
 function showAnglePopup(popupId) {

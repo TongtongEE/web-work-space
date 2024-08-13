@@ -646,10 +646,32 @@ main {
     box-shadow: #000000 2px 2px;
 }
 
+.mode-group {
+    display: block;
+}
+
+.multi-angle-container {
+    position: relative;
+    top: -35px;
+    left: 20px;
+    width: 440px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 추가된 부분 */
+}
+
+#multi-angle-image {
+    width: 100%; /* 추가된 부분 */
+    height: 100%; /* 추가된 부분 */
+    object-fit: contain;
+}
+
 /* keyfeature1-2 */
 #keyfeature1-2 {
     position: relative;
-    top: -90px;
+    top: -100px;
     width: 100%;
     height: 650px; /* 섹션 높이 설정 */
     background-color: #ffffff;
@@ -822,13 +844,15 @@ main {
     line-height: 0.3;
 }
 
-#left-image2 {
+#key2-left-video {
     position: relative;
+    top: -60px;
+    left: -190px;
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 170%;
     height: auto;
-    padding-left: 20px;
+    clip-path: inset(50px 153px 30px 175px);
 }
 
 #right-title2 {
@@ -860,17 +884,18 @@ main {
     margin-bottom: 10px;
 }
 
-.image-row2 {
+.key2-right-video {
+    position: relative;
+    top: -60px;
+    left: -180px;
     display: flex;
-    gap: 1rem;
-    margin-left: 20px;
+    align-items: center;
+    width: 165%;
+    height: auto;
+    clip-path: inset(50px 136px 0px 170px);
 }
 
-.image-row2 img {
-    width: 100px;
-    height: 130px;
-    border: 1px solid #000;
-}
+
 
 /* keyfeature2-2 */
 #keyfeature2-2 {
@@ -1832,7 +1857,7 @@ body.menu-open {
     position: relative;
     top: 320px;
     width: 100%;
-    height: 1600px; /* 섹션 높이 설정 */
+    height: 1620px; /* 섹션 높이 설정 */
     background-color: #ffffff;
     background-size: cover;
     background-position: center;
@@ -1914,7 +1939,7 @@ body.menu-open {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 480px;
+    top: 545px;
     left: -38px;
     margin: 0 auto;
     max-width: 720px; /* 최대 너비 설정 */
@@ -1934,7 +1959,7 @@ body.menu-open {
 }
 
 #right-content {
-    height: 600px;
+    height: 800px;
 }
 
 .content-section p, .content-section h2 {
@@ -2001,35 +2026,67 @@ body.menu-open {
     font-family: 'Jalnan2';
     font-size: 20px;
     color: #000;
-    margin-left: 20px;
+    margin-left: 0px;
     margin-bottom: 10px;
     line-height: 0.5;
 }
 
-.image-row {
+.right-image {
     display: flex;
-    gap: 1rem;
-    margin-left: 100px;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 0px;
 }
 
-.image-row img {
+.vertical-image {
     position: relative;
-    left: 50px;
-    top: 10px;
-    display: flex;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-    padding-left: 20px;
+    left: 7px;
+    height: 476px; /* 원하는 크기로 조정 */
+    object-fit: cover;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border:#000 solid 1px;
+    box-shadow: #000000 2px 2px;
+}
 
+.horizontal-image {
+    position: relative;
+    left: -3px;
+    height: 232px; /* 원하는 크기로 조정 */
+    object-fit: cover;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border:#000 solid 1px;
+    box-shadow: #000000 2px 2px;
+}
+
+.mode-group {
+    display: block;
+}
+
+.multi-angle-container {
+    position: relative;
+    top: -5px;
+    left: 58px;
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 추가된 부분 */
+}
+
+#multi-angle-image {
+    width: 100%; /* 추가된 부분 */
+    height: 100%; /* 추가된 부분 */
+    object-fit: contain;
 }
 
 /* keyfeature1-2 */
 #keyfeature1-2 {
     position: relative;
-    top: 50px;
+    top: 150px;
     width: 100%;
     height: 1400px; /* 섹션 높이 설정 */
     background-color: #ffffff;
@@ -2037,7 +2094,7 @@ body.menu-open {
     background-position: center;
     text-align: center;
     color: #000000; /* 텍스트 색상 */
-    margin-bottom: 130px;
+    margin-bottom: 210px;
 }
 
 .keyfeature1-2-container {
@@ -2121,6 +2178,7 @@ body.menu-open {
     -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
     display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 
@@ -2140,7 +2198,7 @@ body.menu-open {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 400px;
+    top: 270px;
     left: -50px;
     margin: 0 auto;
     max-width: 720px; /* 최대 너비 설정 */
@@ -2150,7 +2208,9 @@ body.menu-open {
 }
 
 .content2-section {
-    width: 670px;
+    position: relative;
+    left: 13px;
+    width: 650px;
     height: 550px;
     border: 2px solid #000;
     box-sizing: border-box;
@@ -2160,7 +2220,9 @@ body.menu-open {
 }
 
 .content2-section2 {
-    width: 670px;
+    position: relative;
+    left: 13px;
+    width: 650px;
     height: 550px;
     border: 2px solid #000;
     box-sizing: border-box;
@@ -2189,16 +2251,23 @@ body.menu-open {
     line-height: 0.3;
 }
 
-#left-image2 {
+#video-container {
+    width: 0%;
+    height: 100%;
     position: relative;
-    left: 100px;
-    top: 10px;
-    display: flex;
-    align-items: center;
-    width: 400px;
-    height: 400px;
-    padding-left: 20px;
-    margin-bottom: 30px;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+#key2-left-video {
+    position: relative;
+    top: -35px;
+    left: -19px;
+    width: 105%;
+    height: 105%;
+    object-fit: cover;
+    z-index: 2;
+    clip-path: inset(20px 0px 40px 70px);
 }
 
 #right-title2 {
