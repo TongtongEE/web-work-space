@@ -730,15 +730,20 @@ main {
     height: auto;
 }
 
-#photo-frame-video-1 {
-    z-index: 2;
+#photo-frame-video-1-1,
+#photo-frame-video-2-1 {
     position: relative;
-    top: -575px;
+    z-index: 1;
 }
 
-#photo-frame-video-2 {
+#photo-frame-video-1-2,
+#photo-frame-video-2-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-
 }
 
 
@@ -790,6 +795,7 @@ main {
     -webkit-text-stroke: 1px #000000; /* 테두리 추가 */
     display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
     margin-top: 0px;
+    margin-bottom: -10px;
 }
 
 
@@ -809,10 +815,9 @@ main {
     display: flex;
     justify-content: space-between;
     position: relative;
-    top: 110px;
+    top: 70px;
     margin: 0 auto;
     width: 80%; /* 내용의 너비 설정 */
-    height: 550px;
     max-width: 1100px; /* 최대 너비 설정 */
     padding: 1rem 0;
     gap: var(--content-gap, 0rem); /* 간격을 CSS 변수로 설정 */
@@ -820,8 +825,8 @@ main {
 
 .content2-section {
     width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
-    height: auto;
     border: 2px solid #000;
+    height: 550px;
     padding: 1rem;
     box-sizing: border-box;
     text-align: left; /* 글자 좌측 정렬 */
@@ -830,8 +835,8 @@ main {
 
 .content2-section2 {
     width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
-    height: auto;
     border: 2px solid #000;
+    height: 550px;
     padding: 1rem;
     box-sizing: border-box;
     text-align: left; /* 글자 좌측 정렬 */
@@ -844,6 +849,7 @@ main {
     color: #000;
     text-align: left; /* 글자 좌측 정렬 */
     margin-left: 20px;
+    z-index: 100;
 }
 
 #left-title2 {
@@ -879,15 +885,20 @@ main {
     margin-bottom: -10px;
     padding:  0.0rem 0.5rem 0.7rem 0.5rem;
     line-height: 0.3;
+    position: absolute;
 }
 
 #right-description2 {
     font-family: 'NEXON Lv2 Gothic';
     font-weight: 700;
     font-size: 16px;
+    top: 70px;
     color: #000;
     margin-bottom: 30px;
     margin-left: 20px;
+    position: absolute;
+    z-index: 2;
+    
 }
 
 .shooting-mode2 h3 {
@@ -898,15 +909,14 @@ main {
     margin-bottom: 10px;
 }
 
-.key2-right-video {
+#key2-right-video {
     position: relative;
-    top: -60px;
-    left: -180px;
-    display: flex;
-    align-items: center;
-    width: 165%;
+    left: -400px;
+    top: -100px;
+    width: 250%; /* 부모 요소에 맞춰 조정 */
     height: auto;
-    clip-path: inset(50px 136px 0px 170px);
+    clip-path: inset(84px 350px 167px 400px);
+    z-index: 1;
 }
 
 
@@ -914,7 +924,7 @@ main {
 /* keyfeature2-2 */
 #keyfeature2-2 {
     position: relative;
-    top: -300px;
+    top: -350px;
     width: 100%;
     height: 650px; /* 섹션 높이 설정 */
     background-color: #ffffff;
@@ -922,7 +932,7 @@ main {
     background-position: center;
     text-align: center;
     color: #000000; /* 텍스트 색상 */
-    margin-bottom: 0;
+    margin-bottom: -50px;
 }
 
 .keyfeature2-2-container {
@@ -2148,20 +2158,20 @@ body.menu-open {
 
 .photo-frame-image {
     width: 90%;
-    margin-bottom: 20px; /* 이미지 사이 간격 */
+    margin-bottom: 5px; /* 이미지 사이 간격 */
 }
 
 /* keyfeature2 */
 #keyfeature2 {
     position: relative;
     width: 100%;
-    height: 1600px; /* 섹션 높이 설정 */
+    height: 1400px; /* 섹션 높이 설정 */
     background-color: #ffffff;
     background-size: cover;
     background-position: center;
     text-align: center;
     color: #000000; /* 텍스트 색상 */
-    margin-bottom: 150px;
+    margin-bottom: 350px;
 }
 
 .keyfeature2-container {
@@ -2211,7 +2221,7 @@ body.menu-open {
 }
 
 .keyfeature2-description {
-    font-size: 17px;
+    font-size: 20px;
 }
 
 
@@ -2219,13 +2229,12 @@ body.menu-open {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 270px;
+    top: 100px;
     left: -50px;
     margin: 0 auto;
     max-width: 720px; /* 최대 너비 설정 */
     gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
     flex-direction: column;
-    margin-bottom: 100px;
 }
 
 .content2-section {
@@ -2235,7 +2244,6 @@ body.menu-open {
     height: 550px;
     border: 2px solid #000;
     box-sizing: border-box;
-    text-align: left; /* 글자 좌측 정렬 */
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
     text-align: center;
 }
@@ -2244,19 +2252,18 @@ body.menu-open {
     position: relative;
     left: 13px;
     width: 650px;
-    height: 550px;
+    height: 600px;
     border: 2px solid #000;
     box-sizing: border-box;
-    text-align: left; /* 글자 좌측 정렬 */
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
-    text-align: center;
+    overflow: hidden;
 }
 
 .content2-section2 p, .content2-section2 h2 {
     font-family: 'JalnanGothic';
     font-size: 16px;
+    text-align: center;
     color: #000;
-    text-align: left; /* 글자 좌측 정렬 */
     margin-left: 20px;
 }
 
@@ -2301,39 +2308,37 @@ body.menu-open {
     margin-bottom: -10px;
     padding:  0.0rem 0.5rem 0.7rem 0.5rem;
     line-height: 0.3;
+    
 }
 
 #right-description2 {
     font-family: 'NEXON Lv2 Gothic';
     font-weight: 700;
     font-size: 20px;
-    text-align: center;
     color: #000;
     margin-bottom: 30px;
     margin-left: 20px;
+    position: absolute;
 }
 
-.shooting-mode2 h3 {
-    font-family: 'Jalnan2';
-    font-size: 20px;
-    color: #000;
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
 
-#right-image2-1 {
+#key2-right-video {
     position: relative;
-    left: 100px;
-    top: 15px;
-    display: flex;
-    align-items: center;
-    width: 400px;
-    height: 400px;
-    padding-left: 20px;
-    margin-bottom: 30px;
+    top: -35px;
+    left: -360px;
+    width: 220%;
+    height: auto;
+    object-fit: cover;
+    z-index: 1;
+    clip-path: inset(20px 0px 40px 70px);
 }
 
 /*key feature2-2*/
+
+#keyfeature2-2 {
+    top: -300px;
+}
+
 
 .keyfeature2-2-subtitle {
     font-family: 'Jalnan Gothic';

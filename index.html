@@ -141,42 +141,48 @@
                     </p>
                     <div class="photo-frame-container">
                         <div class="photo-frame-image photo-frame-1">
-                            <video id="photo-frame-video-2" loop muted playsinline>
-                                <source src="src/assets/videos/LeftFrame.mp4" type="video/mp4">
+                            <video id="photo-frame-video-1-1" loop muted playsinline>
+                                <source src="src/assets/videos/LeftFrame_2.mp4" type="video/mp4">
                             </video>
-                            <video id="photo-frame-video-1" loop muted autoplay playsinline>
-                                <source src="src/assets/videos/LeftFrame.mp4" type="video/mp4">
+                            <video id="photo-frame-video-1-2" loop muted playsinline style="display: none;">
+                                <source src="src/assets/videos/LeftFrame_2.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="photo-frame-image photo-frame-2">
-                            <img id="photo-frame-image-2" src="src/assets/images/section3-2/photo_frame_2.png" alt="포토 프레임 2">
+                            <video id="photo-frame-video-2-1" loop muted playsinline>
+                                <source src="src/assets/videos/RightFrame_2.mp4" type="video/mp4">
+                            </video>
+                            <video id="photo-frame-video-2-2" loop muted playsinline style="display: none;">
+                                <source src="src/assets/videos/RightFrame_2.mp4" type="video/mp4">
+                            </video>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="keyfeature2">
-                <div class="keyfeature2-container">
-                    <h2 class="keyfeature2-title">포스트미 ✦ 2</h2>
-                    <h3 class="keyfeature2-subtitle">다양한 앵글 동영상 촬영을 한번에</h3>
-                    <p class="keyfeature2-description">
-                        로봇 카메라를 통해 다양한 앵글을 연속 동작으로 구현하여 전문가 수준의 동영상 촬영이 가능합니다.
-                    </p>
-                </div>
-                <div class="keyfeature2-content">
-                    <div class="content2-section">
-                        <h2 id="left-title2">로봇 무빙</h2>
-                        <video id="key2-left-video" loop muted autoplay playsinline>
-                            <source src="src/assets/videos/Dancing_video.mp4" type="video/mp4">
-                    </div>
-                    <div class="content2-section2" id="right-content">
-                        <h2 id="right-title2">동영상 촬영본</h2>
-                         <p id="right-description2">다양한 앵글을 연속 동작으로 설정하여 촬영이 가능해요.</p>
-                         <video id="key2-right-video" loop muted autoplay playsinline>
-                            <source src="src/assets/videos/Dancing_woman_video.mp4" type="video/mp4">
-                    </div>
-                </div>
-            </section>
+           <section id="keyfeature2">
+    <div class="keyfeature2-container">
+        <h2 class="keyfeature2-title">포스트미 ✦ 2</h2>
+        <h3 class="keyfeature2-subtitle">다양한 앵글 동영상 촬영을 한번에</h3>
+        <p class="keyfeature2-description">
+            로봇 카메라로 다양한 앵글을 연속 설정하여 전문가 수준의 동영상 촬영이 가능해요.
+        </p>
+    </div>
+    <div class="keyfeature2-content">
+        <div class="content2-section">
+            <h2 id="left-title2">로봇 무빙</h2>
+            <video id="key2-left-video" loop muted autoplay playsinline>
+                <source src="src/assets/videos/Dancing_video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="content2-section2" id="key2-right-content">
+            <h2 id="right-title2">동영상 촬영본</h2>
+            <video id="key2-right-video" loop muted autoplay playsinline>
+                <source src="src/assets/videos/ModelDancing2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
 
             <section id="keyfeature2-2">
                 <div class="keyfeature2-2-container">
@@ -320,6 +326,7 @@
                     
             </main>
         </div>
+    <script src="ui/Key2_video.js"></script>
     <script src="ui/video_play.jsx"></script>
     <script src="ui/popup.jsx"></script>
     <script src="ui/angle.jsx"></script>
