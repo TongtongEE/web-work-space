@@ -18,9 +18,9 @@ function changeContent(contentType) {
         leftTitle.innerHTML = '로봇 무빙 (High Angle)';
         rightTitle.innerHTML = 'High Angle';
         rightDescription.innerHTML = '최대 3m 높이에서 유행하는 항공샷, 정수리샷 등 촬영할 수 있어요.';
-        rightImage1.src = 'src/assets/images/section3/high_ver.jpg';
-        rightImage3.src = 'src/assets/images/section3/high_hor.jpg';
-        rightImage4.src = 'src/assets/images/section3/high_hor2.jpg';
+        rightImage1.src = 'src/assets/images/section3/High_ver.jpg';
+        rightImage3.src = 'src/assets/images/section3/High_hor.jpg';
+        rightImage4.src = 'src/assets/images/section3/High_hor2.jpg';
         setNormalLayout();
     } else if (contentType === 'middle-angle') {
         videoSrc = 'src/assets/videos/MiddleAngle.mp4';
@@ -28,8 +28,8 @@ function changeContent(contentType) {
         rightTitle.innerHTML = 'Middle Angle';
         rightDescription.innerHTML = '일반적인 네컷사진, 증명사진 등 촬영할 수 있어요.';
         rightImage1.src = 'src/assets/images/section3/Middle_ver.jpg';
-        rightImage3.src = 'src/assets/images/section3/middle_hor.jpg';
-        rightImage4.src = 'src/assets/images/section3/middle_hor2.jpg';
+        rightImage3.src = 'src/assets/images/section3/Middle_hor.jpg';
+        rightImage4.src = 'src/assets/images/section3/Middle_hor2.jpg';
         setNormalLayout();
     } else if (contentType === 'low-angle') {
         videoSrc = 'src/assets/videos/LowAngle.mp4';
