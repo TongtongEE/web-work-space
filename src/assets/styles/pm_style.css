@@ -912,10 +912,10 @@ main {
 #key2-right-video {
     position: relative;
     left: -400px;
-    top: -100px;
+    top: -120px;
     width: 250%; /* 부모 요소에 맞춰 조정 */
     height: auto;
-    clip-path: inset(84px 350px 167px 400px);
+    clip-path: inset(104px 350px 147px 400px);
     z-index: 1;
 }
 
@@ -1034,15 +1034,17 @@ main {
 .event-reference {
     position: relative;
     max-width: 1920px;
-    top: 70px;
+    top: -45px;
+    left: -190px;
     transform: translateX(20%);
     z-index: -10; /* 배경 뒤에 위치하도록 설정 */
 }
 
 .event-reference img {
     display: block;
-    width: 60%; /* 기본 이미지 너비 */
+    width: 77%; /* 기본 이미지 너비 */
     height: auto;
+    clip-path: inset(110px 0px 0px 0px);
 
 }   
 
@@ -1127,7 +1129,7 @@ main {
     background-color:#ffffff;
     padding: 1rem;
     box-sizing: border-box;
-    text-align: left; /* 글자 좌측 정렬 */
+    text-align: center; /* 글자 좌측 정렬 */
     box-shadow: 4px 4px 0px #00ff00;
 
 }
@@ -1139,7 +1141,7 @@ main {
     background-color:#ffffff;
     padding: 1rem;
     box-sizing: border-box;
-    text-align: left; /* 글자 좌측 정렬 */
+    text-align: center; /* 글자 좌측 정렬 */
     box-shadow: 4px 4px 0px #00ff00;
 }
 
@@ -1356,29 +1358,44 @@ main {
     top: -260px;
     margin: 0 auto;
     width: 80%; /* 내용의 너비 설정 */
-    max-width: 800px; /* 최대 너비 설정 */
+    max-width: 1000px; /* 최대 너비 설정 */
     padding: 1rem 0;
     gap: 0.6rem; /* 간격 설정 */
 }
 
 .content4-2-section  {
-    width: calc(48% - -0.7rem); /* 좌우 섹션의 너비를 간격에 따라 조정 */
+    width: calc(48% - -0.9rem); /* 좌우 섹션의 너비를 간격에 따라 조정 */
     height: 500px;
     border: 2px solid #000000;
     background-color:#ffffff;
     padding: 3rem;
     box-sizing: border-box;
-    text-align: left; /* 글자 좌측 정렬 */
+    text-align: center; /* 글자 좌측 정렬 */
     box-shadow: 4px 4px 0px #00ff00;
 }
+
 
 #title4-2 {
     font-family: 'Jalnan2';
     font-size: 20px;
     text-align: center;
     color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem; /* 배경 크기를 조정하는 패딩 값 */
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
     margin: 0px;
-    line-height: 1; /* 줄 높이 설정 */
+    line-height: 0.3; /* 줄 높이 설정 */
+}
+
+#Custom-Branding {
+    position: absolute;
+    top: 35px;
+    left: -155px;
+    width: 82%;
+    height: auto;
+    clip-path: inset(70px 172px 70px 158px);
+    z-index: 10;
 }
 
 .content4-2-buttons {
@@ -1402,7 +1419,7 @@ main {
     font-weight: 50;
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
-    left: 0px;
+    left: 100px;
     border-radius: 0;
     width: 125px;
 }
@@ -2304,11 +2321,11 @@ body.menu-open {
     color: #000;
     background-color: #00ff00;
     display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
-    margin-left: 20px; /* 여백 제거 */
+    margin-left: 200px; /* 여백 제거 */
     margin-bottom: -10px;
     padding:  0.0rem 0.5rem 0.7rem 0.5rem;
     line-height: 0.3;
-    
+
 }
 
 #right-description2 {
@@ -2324,7 +2341,7 @@ body.menu-open {
 
 #key2-right-video {
     position: relative;
-    top: -35px;
+    top: -135px;
     left: -360px;
     width: 220%;
     height: auto;
@@ -2390,7 +2407,7 @@ body.menu-open {
 
 .keyfeature3-container {
     position: absolute;
-    top: -160px;
+    top: -102px;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #00ff00;
@@ -2425,21 +2442,21 @@ body.menu-open {
 
 .event-reference {
     position: relative;
-    max-width: 1920px;
-    top: 70px;
-    left: -275px;
+    max-width: 150%;
+    top: 20px;
+    left: -400px;
     transform: translateX(20%);
     z-index: -10;
     overflow: hidden;
-    width: 115%;
+    width: 130%;
     height: auto; /* 높이를 auto로 설정 */
 }
 
 .event-reference img {
     display: block;
-    width: 110%;
+    width: 117%;
     height: auto;
-    clip-path: inset(10% 10% 10% 5%); /* 상 우 하 좌 순서로 크롭 */
+    clip-path: inset(10% 14.8% 10% 5%); /* 상 우 하 좌 순서로 크롭 */
 }
 
 /* keyfeature4 */
