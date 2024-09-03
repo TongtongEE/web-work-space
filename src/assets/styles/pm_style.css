@@ -1739,7 +1739,7 @@ body.menu-open {
 
     .button_1, .button_2 {
         display: inline-block;
-        width: 400px; /* 버튼 너비를 자동으로 설정 */
+        width: 300px; /* 버튼 너비를 자동으로 설정 */
         padding: 1.5rem 0rem;
         font-size: 22px;
         left: 45%;
@@ -2922,11 +2922,12 @@ body.menu-open {
 #insta-cell {
     grid-column: 1;
     grid-row: auto;
-    justify-self: left;
-    left: 18px;
-    top: 15px;
+    justify-self: right;
+    left: 160px;
+    top: -205px;
     scale: 190%;
-    padding-bottom: 30px;
+    margin-bottom: -50px;
+  
 
 }
 }
