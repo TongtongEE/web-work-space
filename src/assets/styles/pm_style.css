@@ -523,7 +523,7 @@ main {
     font-family: 'JalnanGothic';
     font-size: 16px;
     color: #000;
-    text-align: left; /* 글자 좌측 정렬 */
+    text-align: ce; /* 글자 좌측 정렬 */
     margin-left: 20px;
 }
 
@@ -1393,21 +1393,21 @@ main {
 
 #Custom-Branding {
     position: absolute;
-    top: 35px;
-    left: -155px;
-    width: 82%;
+    top: 150px;
+    left: 0px;
+    width: 50%;
     height: auto;
-    clip-path: inset(70px 173px 70px 158px);
+    clip-path: inset(0px 8px 0px 5px);
     z-index: 2;
 }
 
 #Photo-Logo {
     position: absolute;
-    top: 37px;
-    left: 295px;
-    width: 84%;
+    top: 36px;
+    left: 474px;
+    width: 56%;
     height: auto;
-    clip-path: inset(52px 136px 48px 212.5px);
+    clip-path: inset(55px 35px 7px 33px);
     z-index: 2;
 }
 
@@ -1458,23 +1458,26 @@ main {
     width: 100%;
     height: 250px;
     background-color: #000000;
+    border-top: solid 1px #00ff00;
     top: -150px;
+    align-items: center;
 }
 
 .additional-text-container {
-    max-width: 100%;
+    width: 1920px;
     margin: 0 auto;
     color: #ffffff;
-    border-top: solid 1px #00ff00;
 }
 
 .text-grid {
+    position: absolute;
     display: grid;
     grid-template-columns: 525px 225px 500px;
     grid-auto-flow: column;
     gap: 15px 0px;
     padding: 35px 355px;
     margin-top: 20px;
+
 }
 
 .text-cell {
@@ -1483,6 +1486,7 @@ main {
     font-size: 15px;
     color: #cbcbcb;
     text-align: left;
+    align-items: center;
 }
 
 .text-cell.hoverable {
@@ -1491,6 +1495,11 @@ main {
 
 .text-cell.hoverable:hover {
     color: #00ff00;
+}
+
+.text-cell.hoverable a {
+    text-decoration: none;
+    color: inherit; /* 부모 요소의 색상을 상속 */
 }
 
 #insta-cell {
@@ -1670,6 +1679,7 @@ body.menu-open {
     .container {
     height: 380px;
     margin-bottom: 4rem;
+    
     }
 
     #intro {
@@ -1685,7 +1695,7 @@ body.menu-open {
     #bg-video {
         position: relative;
         top: 0; /* 변경 */
-        left: 50%; /* 변경 */
+        left: 155%; /* 변경 */
         width: 1550px; 
         height: auto; /* 변경 */
         max-width: 1550px; /* 제거 또는 100%로 변경 */
@@ -1697,7 +1707,7 @@ body.menu-open {
     #intro .intro-content {
         position: relative; /* 추가 */
         top: -30px;
-        left: -775px;
+        left: -450px;
         z-index: 1; /* 추가 */
         max-width: 100%; /* 변경 */
         padding: 0 20px; /* 추가 */
@@ -1729,10 +1739,11 @@ body.menu-open {
 
     .button_1, .button_2 {
         display: inline-block;
-        width: 550px; /* 버튼 너비를 자동으로 설정 */
-        padding: 1.5rem 2rem;
+        width: 400px; /* 버튼 너비를 자동으로 설정 */
+        padding: 1.5rem 0rem;
         font-size: 22px;
-        left: -30px;
+        left: 45%;
+        transform: translateX(-50%);
     }
 
     /* 제품구성 */
@@ -1783,11 +1794,11 @@ body.menu-open {
         position: relative;
         top: 50px;
         left: -103px;
+        
     }
 
     .product-image img {
         width: 125%;
-
     }
 
     .product-button-1, .product-button-2, .product-button-3, 
@@ -2724,15 +2735,15 @@ body.menu-open {
 
 .keyfeature4-2-container {
     position: relative;
-    top: 50px;
+    top: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #000000;
     background-size: cover; /* 기본값은 cover */
     background-position: center;
-    width: 100%;
+    max-width: 720px;
     height: 330px; /* 섹션 높이 설정 */
-    margin-bottom: -50px;
+    margin-bottom: -10px;
 }
 
 .subtitle-container {
@@ -2749,6 +2760,7 @@ body.menu-open {
     font-weight: 300;
     color: #ffffff;
     margin-right: 10px; /* 간격을 조정 */
+    margin-left: 90px;
 }
 
 .mobile-break {
@@ -2767,43 +2779,76 @@ body.menu-open {
 
 .keyfeature4-2-content {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column; /* 세로 배치로 변경 */
     align-items: center;
     position: relative;
     top: -200px;
-    left: 15px;
-    width: 80%; /* 내용의 너비 설정 */
-    height: 1000px;
-    max-width: 720px; /* 최대 너비 설정 */
+    left: -40px;
     padding: 1rem 0;
-    gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
+    gap: var(--content-gap, 1rem);
 }
 
 .content4-2-section  {
-    width: calc(50% - var(--content-gap, 0.5rem) / 2); /* 좌우 섹션의 너비를 간격에 따라 조정 */
-    height: 550px;
+    width: 114%; /* 부모의 80% 너비 사용 */
+    max-width: 720px; /* 최대 너비 설정 */
+    height: 550px; /* 높이를 내용에 맞게 조정 */
     border: 2px solid #000000;
     background-color:#ffffff;
     padding: 1rem;
     box-sizing: border-box;
     box-shadow: 4px 4px 0px #00ff00;
-    width: 550px;
     text-align: center;
 }
 
 #title4-2 {
     font-family: 'Jalnan2';
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     color: #000;
+    background-color: #00ff00;
+    background-size: 100px 5px;
+    padding:  0.0rem 0.5rem 0.7rem 0.5rem; /* 배경 크기를 조정하는 패딩 값 */
+    display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
     margin: 40px;
-    line-height: 1; /* 줄 높이 설정 */
+    line-height: 0.3; /* 줄 높이 설정 */
+}
+
+#Custom-Branding {
+    position: relative;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) ;
+    width: 105%;
+    height: auto;
+    clip-path: inset(0px 0px 0px 0px);
+    z-index: 2;
+}
+
+#Photo-Logo {
+    position: relative;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%) ;
+    width: 109%;
+    height: auto;
+    clip-path: inset(80px 12px 37px 12px);
+    z-index: 2;
+}
+
+#Kiosk-Logo {
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%) ;
+    width: 105%;
+    height: auto;
+    clip-path: inset(0px 52px 78px 52px);
+    z-index: 2;
 }
 
 .content4-2-buttons {
     position: relative;
-    left: -220px;
+    left: -30px;
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -2824,7 +2869,7 @@ body.menu-open {
     font-weight: 50;
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
-    left: 0px;
+    left: -30%;
     border-radius: 0;
     width: 200px;
 }
@@ -2836,15 +2881,14 @@ body.menu-open {
 
 #additional-text-section {
     height: auto; /* 높이를 자동으로 조정 */
-    top: 1380px;
-    overflow: hidden;
+    top: -50px;
 }
 
 .text-grid {
     grid-template-columns: 1fr; /* 단일 열 그리드 */
     grid-auto-flow: row;
     gap: 20px;
-    padding: 40px;
+    padding: 20px 40px;
 }
 
 .text-cell {
@@ -2852,7 +2896,7 @@ body.menu-open {
     font-size: 21px; /* 모바일에서 폰트 크기 조정 */
     font-family: 'NEXON Lv2 Gothic';
     font-display: none;
-    margin-bottom: -10px;
+    margin-bottom: -5px;
 }
 
 .text-cell * { /* 모든 하위 요소에도 적용 */
@@ -2866,13 +2910,24 @@ body.menu-open {
     font-style: normal; /* 기울임 없음 */
 }
 
+.text-cell.hoverable:hover {
+    color: #00ff00;
+}
+
+.text-cell.hoverable a {
+    text-decoration: none;
+    color: inherit; /* 부모 요소의 색상을 상속 */
+}
+
 #insta-cell {
     grid-column: 1;
     grid-row: auto;
-    justify-self: right;
-    left: -40px;
-    top: -65px;
-    scale: 200%;
+    justify-self: left;
+    left: 18px;
+    top: 15px;
+    scale: 190%;
+    padding-bottom: 30px;
+
 }
 }
 
