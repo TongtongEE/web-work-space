@@ -2840,9 +2840,9 @@ body.menu-open {
     top: 0px;
     left: 50%;
     transform: translateX(-50%) ;
-    width: 105%;
+    width: 109%;
     height: auto;
-    clip-path: inset(0px 52px 78px 52px);
+    clip-path: inset(0px 52px 98px 52px);
     z-index: 2;
 }
 
