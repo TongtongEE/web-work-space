@@ -22,7 +22,7 @@ function showPopup(buttonNumber) {
         '<video autoplay loop muted playsinline><source src="src/assets/videos/LiftDetail.mp4" type="video/mp4"></video>',
         '<video autoplay loop muted playsinline><source src="src/assets/videos/AiTracking.mp4" type="video/mp4"></video>',
         '<img src="path/to/robot-image.jpg" alt="안전한 로봇">',
-        '<img src="path/to/kiosk-image.jpg" alt="키오스크 시스템">',
+        '<video autoplay loop muted playsinline><source src="src/assets/videos/AppUse3.mp4" type="video/mp4"></video>',
         '<video autoplay loop muted playsinline><source src="src/assets/videos/PaymentDetail.mp4" type="video/mp4"></video>',
         '<video autoplay loop muted playsinline><source src="src/assets/videos/PrintDetail.mp4" type="video/mp4"></video>'
     ];
