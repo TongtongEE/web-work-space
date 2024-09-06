@@ -318,7 +318,7 @@ main {
     display: none; /* 기본적으로 숨김 */
     position: relative;
     top: -690px;
-    right: -1000px;
+    right: -51%;
     width: 591px;
     height: 515px;
     background-color: #00ff00;
@@ -1421,6 +1421,16 @@ main {
     z-index: 2;
 }
 
+#Brand-AD {
+    position: absolute;
+    top: 572px;
+    right: -45px;
+    width: 58%;
+    height: auto;
+    clip-path: inset(50px 47px 0px 48px);
+    z-index: 2;
+}
+
 .content4-2-buttons {
     display: flex;
     justify-content: center;
@@ -1695,7 +1705,8 @@ body.menu-open {
     #bg-video {
         position: relative;
         top: 0; /* 변경 */
-        left: 155%; /* 변경 */
+        left: 150%; /* 변경 */
+        scale: 110%;
         width: 1550px; 
         height: auto; /* 변경 */
         max-width: 1550px; /* 제거 또는 100%로 변경 */
