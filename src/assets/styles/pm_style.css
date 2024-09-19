@@ -2857,6 +2857,18 @@ body.menu-open {
     z-index: 2;
 }
 
+#Brand-AD {
+    position: relative;
+    top: -70px;
+    left: 51%;
+    transform: translateX(-50%) ;
+    width: 130%;
+    height: auto;
+    clip-path: inset(50px 88px 128px 80px);
+    z-index: 2;
+}
+
+
 .content4-2-buttons {
     position: relative;
     left: -30px;
