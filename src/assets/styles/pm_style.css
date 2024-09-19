@@ -2859,12 +2859,12 @@ body.menu-open {
 
 #Brand-AD {
     position: relative;
-    top: -70px;
-    left: 51%;
+    top: -20px;
+    left: 50.5%;
     transform: translateX(-50%) ;
-    width: 130%;
+    width: 109%;
     height: auto;
-    clip-path: inset(50px 88px 128px 80px);
+    clip-path: inset(0px 52px 78px 52px);
     z-index: 2;
 }
 
