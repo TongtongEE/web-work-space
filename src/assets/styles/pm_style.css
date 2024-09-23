@@ -148,7 +148,7 @@ main {
     max-width: 1920px;
     object-fit: cover;
     z-index: -1;
-    clip-path: inset(162px 0 240px 0); /* 상단 202px, 하단 203px 크롭 */
+    clip-path: inset(162px 0 240px 0); 
 }
 
 
@@ -713,7 +713,7 @@ main {
     position: relative;
     top: 10px;
     left: 50%;
-    transform: translateX(-49%);
+    transform: translateX(-47.5%);
     width: 100%;
     max-width: 1200px;
     display: flex;
@@ -1589,7 +1589,7 @@ body.menu-open {
 .close-icon {
     position: absolute;
     top: 30px;
-    right: 62px;
+    right: -150%;
     font-size: 50px;
     color: #ffffff;
     cursor: pointer;
@@ -1705,11 +1705,9 @@ body.menu-open {
     #bg-video {
         position: relative;
         top: 0; /* 변경 */
-        left: 150%; /* 변경 */
-        scale: 110%;
-        width: 1550px; 
-        height: auto; /* 변경 */
-        max-width: 1550px; /* 제거 또는 100%로 변경 */
+        left: 95%; /* 변경 */
+        width: 100%; 
+        max-width: 720px; /* 제거 또는 100%로 변경 */
         clip-path: inset(0 0 0 0);
         z-index: -1;
  
@@ -1718,14 +1716,15 @@ body.menu-open {
     #intro .intro-content {
         position: relative; /* 추가 */
         top: -30px;
-        left: -450px;
+        left: 50%;
+        transform: translateX(-105%);
         z-index: 1; /* 추가 */
         max-width: 100%; /* 변경 */
         padding: 0 20px; /* 추가 */
         margin: 0; /* 변경 */
         text-align: center;
     }
-
+    
     #intro h1 {
         font-size: 45px;
         margin-left: 0;
@@ -2217,6 +2216,8 @@ body.menu-open {
 
 .photo-frame-container {
     flex-direction: column;
+    left: 50%;
+    transform: translateX(-49%);
 }
 
 .photo-frame-image {

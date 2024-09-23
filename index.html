@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Post Me</title>
     <link rel="stylesheet" href="src/assets/styles/pm_style.css">
+    <script>
+        function setViewport() {
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            var isIPhone = /iPhone/i.test(navigator.userAgent);
+            var viewportMeta = document.querySelector('meta[name="viewport"]');
+            
+            if (isAndroid) {
+                viewportMeta.content = "width=device-width, initial-scale=1.0, maximum-scale=0.58, user-scalable=yes";
+            } else if (isIPhone) {
+                viewportMeta.content = "width=device-width, initial-scale=1.0, maximum-scale=0.55, user-scalable=yes";
+            } else {
+                // 기본 설정 (다른 모든 기기에 대해)
+                viewportMeta.content = "width=device-width, initial-scale=1.0, user-scalable=yes";
+            }
+        }
+    
+        
+        // DOMContentLoaded 이벤트에서 함수 호출
+        document.addEventListener('DOMContentLoaded', setViewport);
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -35,8 +56,10 @@
         <main>
             <section id="intro">
                 <video autoplay muted loop playsinline webkit-playsinline id="bg-video">
-                    <source src="src/assets/videos/homepage_main2.mp4" type="video/mp4">
+                    <source src="src/assets/videos/homepage_main_web.mp4" type="video/mp4" media="(min-width: 721px)">
+                    <source src="src/assets/videos/homepage_main_mobile.mp4" type="video/mp4" media="(max-width: 720px)">
                 </video>
+
                 <div class="container">
                     <div class="intro-content">
                         <h1>다양한 앵글 촬영을<br>한번에 경험할 수 있는<br>AI 로봇 촬영 솔루션</h1>

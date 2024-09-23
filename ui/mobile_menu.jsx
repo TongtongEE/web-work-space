@@ -1,3 +1,5 @@
+let scrollPosition;
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.getElementById('menuIcon');
     const closeIcon = document.getElementById('closeIcon');
