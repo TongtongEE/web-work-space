@@ -143,12 +143,12 @@ main {
     top: -226px;
     left: 50%;
     transform: translateX(-50%);
-    width: 1920px;
+    width: 100%;
     height: 1080px;
     max-width: 1920px;
     object-fit: cover;
     z-index: -1;
-    clip-path: inset(162px 0 240px 0); 
+    clip-path: inset(162px 0 240px 0);
 }
 
 
@@ -1046,7 +1046,7 @@ main {
     width: 1500px; /* 기본 이미지 너비 */
     height: auto;
     margin: 0 0;
-    clip-path: inset(110px 0px 60px 0px);
+    clip-path: inset(110px 30px 60px 0px);
 
 }   
 
