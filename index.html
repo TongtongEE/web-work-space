@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Post Me</title>
     <link rel="stylesheet" href="src/assets/styles/pm_style.css">
+    <link rel="stylesheet" href="src/assets/styles/pm_style_mobile.css">
     <script>
         function setViewport() {
             var isAndroid = /Android/i.test(navigator.userAgent);
@@ -20,8 +21,6 @@
                 viewportMeta.content = "width=device-width, initial-scale=1.0, user-scalable=yes";
             }
         }
-    
-        
         // DOMContentLoaded 이벤트에서 함수 호출
         document.addEventListener('DOMContentLoaded', setViewport);
     </script>
