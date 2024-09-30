@@ -16,7 +16,7 @@ function changeContent(contentType) {
     if (contentType === 'high-angle') {
         videoSrc = 'src/assets/videos/HighAngle2.mp4';
         leftTitle.innerHTML = '로봇 무빙';
-        rightTitle.innerHTML = 'High Angle';
+        rightTitle.innerHTML = '사진 촬영본';
         rightDescription.innerHTML = '최대 3m 높이에서 유행하는 항공샷, 정수리샷 등 촬영할 수 있어요.';
         rightImage1.src = 'src/assets/images/section3/High_ver.jpg';
         rightImage3.src = 'src/assets/images/section3/High_hor.jpg';
@@ -25,7 +25,7 @@ function changeContent(contentType) {
     } else if (contentType === 'middle-angle') {
         videoSrc = 'src/assets/videos/MiddleAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙';
-        rightTitle.innerHTML = 'Middle Angle';
+        rightTitle.innerHTML = '사진 촬영본';
         rightDescription.innerHTML = '일반적인 네컷사진, 증명사진 등 촬영할 수 있어요.';
         rightImage1.src = 'src/assets/images/section3/Middle_ver.jpg';
         rightImage3.src = 'src/assets/images/section3/Middle_hor.jpg';
@@ -34,7 +34,7 @@ function changeContent(contentType) {
     } else if (contentType === 'low-angle') {
         videoSrc = 'src/assets/videos/LowAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙';
-        rightTitle.innerHTML = 'Low Angle';
+        rightTitle.innerHTML = '사진 촬영본';
         rightDescription.innerHTML = '로우 앵글샷, 롱다리샷 등을 촬영할 수 있어요.';
         rightImage1.src = 'src/assets/images/section3/Low_ver.jpg';
         rightImage3.src = 'src/assets/images/section3/Low_hor.jpg';
@@ -43,7 +43,7 @@ function changeContent(contentType) {
     } else if (contentType === 'multi-angle') {
         videoSrc = 'src/assets/videos/MultiAngle.mp4';
         leftTitle.innerHTML = '로봇 무빙';
-        rightTitle.innerHTML = 'Multi Angle';
+        rightTitle.innerHTML = '사진 촬영본';
         rightDescription.innerHTML = '하이, 일반, 로우 앵글을 하나의 포토 프레임에 인쇄할 수 있어요.';
         document.getElementById('multi-angle-image').src = 'src/assets/images/section3/MultiAngle_frame.jpg';
         setMultiAngleLayout();
