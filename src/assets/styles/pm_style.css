@@ -154,27 +154,31 @@ main {
 
 
 #intro .intro-content {
+    width: 100%;
     max-width: 100%;
     position: relative;
-    left: 12.5%;
+    left: 50%;
+    transform: translateX(-45%);
     top: -290%;
-    margin: 100px ;
+    margin: 100px 0px ;
     white-space: nowrap;
+
 }
 
 #intro h1 {
     font-family: 'Jalnan Gothic';
     font-size: 36px;
     margin-bottom: 1rem; 
-    margin-left: 60px;
+    margin-left: 16%;
     line-height: 1.4;
     font-weight: 300;
+    align-items: center;
 }
 
 #intro p {
     font-size: 17px;
     margin-bottom: 2rem;
-    margin-left: 60px;
+    margin-left: 16%;
     line-height: 1.8;
 }
 
@@ -182,7 +186,7 @@ main {
     display: flex;
     justify-content: left;
     gap: 0.5rem;
-    margin-left: 60px;
+    margin-left: 16%;
 }
 
 .button_1, .button_2 {
