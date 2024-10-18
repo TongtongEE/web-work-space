@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function setLanguage(lang) {
         console.log('Setting language to:', lang);
 
+        // URL 해시 업데이트
+        window.location.hash = lang;
+
         // 언어 설정을 localStorage에 저장
         localStorage.setItem('selectedLanguage', lang);
 
@@ -64,14 +67,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 페이지 로드 시 저장된 언어 설정 확인 및 적용
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-        setLanguage(savedLanguage);
-    } else {
-        // 저장된 설정이 없으면 기본값으로 'ko' 사용
-        setLanguage('ko');
+    // 페이지 로드 시 URL 해시 또는 저장된 언어 설정 확인 및 적용
+    function initLanguage() {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'en' || hash === 'ko') {
+            setLanguage(hash);
+        } else {
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage) {
+                setLanguage(savedLanguage);
+            } else {
+                setLanguage('ko');
+            }
+        }
     }
+
+    initLanguage();
+
+    // URL 해시 변경 감지
+    window.addEventListener('hashchange', initLanguage);
 });
 
 // angle.jsx의 요소들을 업데이트하는 함수
