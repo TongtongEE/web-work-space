@@ -55,16 +55,33 @@
     }
 
     .mobile-nav-menu a {
-        font-size: 30px;
+        font-size: 50px;
         color: #ffffff;
         text-decoration: none;
         font-family: 'Jalnan2';
     }
 
+    .lang-toggle-container.mobile {
+        width: 200px; /* 모바일에서 더 큰 크기로 조정 */
+        height: 80px;
+        margin: 20px auto; /* 중앙 정렬 및 여백 추가 */
+        top: 0%;
+    }
+
+    .lang-toggle-container.mobile .lang-option {
+        font-size: 35px; /* 모바일에서 더 큰 폰트 크기 */
+    }
+
+    .mobile-nav-menu li {
+        margin: 20px 0;
+        text-align: center; /* 중앙 정렬 */
+    }
+
     .close-icon {
         position: inherit;
-        left: 330px;
-        scale: 60%;
+        left: 50%;
+        transform: translateX(18%);
+        scale: 100%;
     }
 
     .overlay.active {
@@ -111,14 +128,13 @@
         max-width: 720px; /* 제거 또는 100%로 변경 */
         clip-path: inset(0 0 0 0);
         z-index: -1;
- 
     }
 
     #intro .intro-content {
         position: relative; /* 추가 */
-        top: -30px;
+        top: -10%;
         left: 50%;
-        transform: translateX(-105%);
+        transform: translateX(-100%);
         z-index: 1; /* 추가 */
         max-width: 100%; /* 변경 */
         padding: 0 20px; /* 추가 */
@@ -128,7 +144,7 @@
     
     #intro h1 {
         font-size: 45px;
-        margin-left: 0;
+        margin-left: -5%;
         letter-spacing: -0.6px;
         
     }
@@ -136,7 +152,7 @@
     #intro p {
         font-size: 20px;
         margin-bottom: 50px;
-        margin-left: 0;
+        margin-left: -5%;
         letter-spacing: -0.4px;
     }
 
@@ -153,8 +169,8 @@
         width: 300px; /* 버튼 너비를 자동으로 설정 */
         padding: 1.5rem 0rem;
         font-size: 22px;
-        left: 45%;
-        transform: translateX(-50%);
+        left: 65%;
+        transform: translateX(-100%);
     }
 
     /* 제품구성 */
@@ -264,7 +280,8 @@
     .popup {
         position: relative; 
         top: -610px;
-        left: 20px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 650px;
         height: 700px;
         max-width: 700px;

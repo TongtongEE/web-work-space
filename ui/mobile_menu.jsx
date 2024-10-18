@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.getElementById('menuIcon');
     const closeIcon = document.getElementById('closeIcon');
     const overlay = document.getElementById('overlay');
+    const body = document.body;
 
     function openMenu() {
         scrollPosition = window.pageYOffset;

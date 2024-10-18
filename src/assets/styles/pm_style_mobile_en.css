@@ -1,0 +1,192 @@
+@media screen and (max-width: 720px) {
+    /* 메인 컨텐츠 영역 */
+    .lang-en main {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    /* Section_1 */
+    .lang-en .container {
+        height: 380px;
+        margin-bottom: 4rem;
+    }
+
+    .lang-en #intro {
+        height: 720px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .lang-en #intro .intro-content {
+        position: relative;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-100%);
+        z-index: 1;
+        max-width: 100%;
+        padding: 0 40px;
+        margin: 0;
+        text-align: center;
+    }
+            
+    .lang-en #intro h1 {
+        font-size: 35px;
+        margin-left: 0%;
+        letter-spacing: -0.6px;
+    }
+
+    .lang-en #intro p {
+        font-size: 22px;
+        margin-bottom: 50px;
+        margin-left: 0%;
+        letter-spacing: -0.4px;
+    }
+
+    .lang-en .intro-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 12px;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .lang-en .button_1,
+    .lang-en .button_2 {
+        display: inline-block;
+        width: 400px;
+        padding: 1.5rem 0rem;
+        font-size: 22px;
+        left: 50%;
+        transform: translateX(-62%);
+    }
+    
+    .lang-en .popup-content {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0px;
+        background-color: #ffffff;
+        width: 94%;
+        height: 400px;
+        padding: 20px; /* 추가 */
+    }
+
+    .lang-en .popup-text {
+        position: absolute;
+        top: 107% ;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0px;
+        text-align: center;
+    }
+
+    .lang-en .popup-text h3 {
+        font-size: 28px;
+        width: 720px;
+        margin: 10px;
+        margin-bottom: 10px;
+    }
+
+    .lang-en .popup-text p {
+        font-size: 25px;
+        line-height: 40px;
+        margin: 10px;
+        letter-spacing: -0.4px; /* 원하는 자간 값을 설정하세요 */
+    }
+
+    .lang-en .keyfeature1-subtitle {
+        font-family: 'Jalnan Gothic';
+        font-size: 33px;
+        font-weight: 300;
+        margin-bottom: -10px;
+        color: #ffffff;
+    }
+    
+    .lang-en .keyfeature1-description {
+        font-size: 20px;
+        color: #ffffff;
+    }
+
+    .lang-en .keyfeature1-content {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 65px;
+        left: -5%;
+        height: 1600px;
+        margin: 0 auto;
+        max-width: 720px; /* 최대 너비 설정 */
+        gap: var(--content-gap, 1rem); /* 간격을 CSS 변수로 설정 */
+        flex-direction: column;
+    }
+
+    .lang-en #right-content {
+        position: relative;
+        width: 650px;
+        height: 725px;
+        border: 2px solid #000;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+        text-align: center;
+    }
+
+    .lang-en .keyfeature1-2-subtitle {
+        font-family: 'Jalnan Gothic';
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: -10px;
+    }
+
+    .lang-en .keyfeature2-subtitle {
+        font-family: 'Jalnan Gothic';
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: -10px;
+    }
+
+    .lang-en .keyfeature3-subtitle {
+        font-family: 'Jalnan Gothic';
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: -10px;
+    }
+
+    .lang-en .keyfeature4-2-subtitle {
+        font-family: 'Jalnan Gothic';
+        font-size: 30px;
+        font-weight: 300;
+        color: #ffffff;
+        margin-left: 0%;
+    }
+    
+    .lang-en .button4-2_1, .button4-2_2 {
+        display: inline-block;
+        padding: 1.5rem 2rem;
+        background-color: transparent;
+        border: 2px solid #00ff00; /* 테두리 추가 */
+        color: #ffffff;
+        font-family: 'Jalnan2';
+        text-align: center;
+        -webkit-text-stroke: 0.5px #000;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: 50;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        position: relative;
+        border-radius: 0;
+        width: 320px;
+        left: 7%;
+    }
+
+    .lang-en .text-cell {
+        font-family: 'NEXON Lv1 Gothic';
+        font-weight: 100;
+        font-size: 20px;
+        color: #ffffff;
+    }
+}

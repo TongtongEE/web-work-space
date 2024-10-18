@@ -1,3 +1,39 @@
+// 언어별 타이틀과 설명
+var titles = {
+    ko: ["리프트", "AI를 탑재한 고성능 카메라", "높은 안전성이 인증된 로봇", "편리한 키오스크 시스템", "카드, NFC, 쿠폰 결제를 한번에", "높은 퀄리티 사진 인쇄"],
+    en: ["Lift", "High-performance Camera with AI", "Safety-certified Robot", "Convenient Kiosk System", "All-in-one Payment: Card, NFC, Coupon", "High Quality Photo Printing"]
+};
+
+var descriptions = {
+    ko: [
+        "모바일베이스에 리프트 탑재로<br>높은 앵글 (최대 3m) 에서 촬영이 가능해요",
+        "AI 오토 트래킹 기능과<br>고성능 카메라로 4K 촬영까지 가능해요", 
+        "최고 수준의 안전성을 인증받은<br>협동로봇 사용으로 안심하고 사용할 수 있어요",
+        "사진과 동영상 촬영, 결제, 인쇄까지<br>직관적인 UI로 사용이 편리해요",
+        "IC / MSR, 삼성페이, 애플페이 등<br>다양한 결제 옵션이 있어요.<br>바코드 리더기 탑재로 쿠폰 결제가 가능해요",
+        "기본 300 dpi (최대 300x600 dpi) 해상도로<br>퀄리티 높은 사진 인화가 가능해요"
+    ],
+    en: [
+        "Capture from high angles (up to 3m)<br>with the lift mounted on a mobile base",
+        "4K shooting possible with AI auto-tracking<br>feature and high-performance camera", 
+        "Use with confidence thanks to the collaborative robot<br>certified with the highest level of safety",
+        "Convenient to use with intuitive UI for<br>photo and video shooting, payment, and printing",
+        "Various payment options including IC / MSR,<br>Samsung Pay, Apple Pay, etc.<br>Coupon payment possible with built-in barcode reader",
+        "High-quality photo printing possible with<br>300 dpi resolution (up to 300x600 dpi)"
+    ]
+};
+
+var mediaContent = [
+    '<video autoplay loop muted playsinline><source src="src/assets/videos/LiftDetail.mp4" type="video/mp4"></video>',
+    '<video autoplay loop muted playsinline><source src="src/assets/videos/AiTracking.mp4" type="video/mp4"></video>',
+    '<video autoplay loop muted playsinline><source src="src/assets/videos/Cobot.mp4" type="video/mp4"></video>',
+    '<video autoplay loop muted playsinline><source src="src/assets/videos/AppUse3.mp4" type="video/mp4"></video>',
+    '<video autoplay loop muted playsinline><source src="src/assets/videos/PaymentDetail.mp4" type="video/mp4"></video>',
+    '<video autoplay loop muted playsinline><source src="src/assets/videos/PrintDetail.mp4" type="video/mp4"></video>'
+];
+
+var currentButtonNumber = 0;
+
 function isMobile() {
     return window.innerWidth <= 768;
 }
@@ -9,27 +45,13 @@ function showPopup(buttonNumber) {
     var imageContainer = document.querySelector('.popup-image');
     var productImage = document.querySelector('.product-image');
 
-    var titles = ["리프트", "AI를 탑재한 고성능 카메라", "높은 안전성이 인증된 로봇", "편리한 키오스크 시스템", "카드, NFC, 쿠폰 결제를 한번에", "높은 퀄리티 사진 인쇄"];
-    var descriptions = [
-        "모바일베이스에 리프트 탑재로<br>높은 앵글 (최대 3m) 에서 촬영이 가능해요",
-        "AI 오토 트래킹 기능과<br>고성능 카메라로 4K 촬영까지 가능해요", 
-        "최고 수준의 안전성을 인증받은<br>협동로봇 사용으로 안심하고 사용할 수 있어요",
-        "사진과 동영상 촬영, 결제, 인쇄까지<br>직관적인 UI로 사용이 편리해요",
-        "IC / MSR, 삼성페이, 애플페이 등<br>다양한 결제 옵션이 있어요.<br>바코드 리더기 탑재로 쿠폰 결제가 가능해요",
-        "기본 300 dpi (최대 300x600 dpi) 해상도로<br>퀄리티 높은 사진 인화가 가능해요"
-    ];
-    var mediaContent = [
-        '<video autoplay loop muted playsinline><source src="src/assets/videos/LiftDetail.mp4" type="video/mp4"></video>',
-        '<video autoplay loop muted playsinline><source src="src/assets/videos/AiTracking.mp4" type="video/mp4"></video>',
-        '<video autoplay loop muted playsinline><source src="src/assets/videos/Cobot.mp4" type="video/mp4"></video>',
-        '<video autoplay loop muted playsinline><source src="src/assets/videos/AppUse3.mp4" type="video/mp4"></video>',
-        '<video autoplay loop muted playsinline><source src="src/assets/videos/PaymentDetail.mp4" type="video/mp4"></video>',
-        '<video autoplay loop muted playsinline><source src="src/assets/videos/PrintDetail.mp4" type="video/mp4"></video>'
-    ];
+    var currentLang = document.documentElement.lang; // 현재 언어 가져오기
 
-    title.innerHTML = titles[buttonNumber - 1];
-    description.innerHTML = descriptions[buttonNumber - 1];
+    title.innerHTML = titles[currentLang][buttonNumber - 1];
+    description.innerHTML = descriptions[currentLang][buttonNumber - 1];
     imageContainer.innerHTML = mediaContent[buttonNumber - 1];
+
+    currentButtonNumber = buttonNumber;
 
     popup.style.display = 'block';
 
@@ -62,6 +84,8 @@ function hidePopup() {
     } else {
         popup.style.display = 'none';
     }
+
+    currentButtonNumber = 0;
 }
 
 // 팝업 이외의 부분 클릭 시 팝업 닫기
@@ -104,3 +128,15 @@ window.addEventListener('resize', function() {
         }
     }
 });
+
+// 언어 변경 시 팝업 내용 업데이트
+function updatePopupLanguage() {
+    var currentLang = document.documentElement.lang;
+    var popupTitle = document.getElementById('popup-title');
+    var popupDescription = document.getElementById('popup-description');
+
+    if (popupTitle && popupDescription && currentButtonNumber > 0) {
+        popupTitle.innerHTML = titles[currentLang][currentButtonNumber - 1];
+        popupDescription.innerHTML = descriptions[currentLang][currentButtonNumber - 1];
+    }
+}

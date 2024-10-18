@@ -204,7 +204,6 @@ main {
     left: 0px;
     border-radius: 0;
     width: 125px
-    
 }
 
 .button_1:hover, .button_2:hover  {
@@ -1624,6 +1623,37 @@ body.menu-open {
     color: #ffffff;
     cursor: pointer;
     display: none;
+}
+
+.lang-toggle-container {
+    display: flex;
+    background-color: #001f04; /* 짙은 남색 배경 */
+    border-radius: 0px; /* 둥근 모서리 */
+    overflow: hidden;
+    width: 90px; /* 전체 너비 설정 */
+    height: 30px; /* 높이 설정 */
+    position: relative;
+    top: -5px;
+}
+
+.lang-option {
+    flex: 1;
+    border: none;
+    background: none;
+    color: #00501f; /* 비활성 상태 색상 */
+    font-family: 'Jalnan2', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-option.active {
+    background-color: #00ff00; /* 활성 상태 배경색 */
+    color: #000000; /* 활성 상태 텍스트 색상 */
 }
 
 @media (max-width: 1600px) {
