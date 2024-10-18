@@ -24,6 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
         koElements.forEach(el => el.style.display = isKorean ? '' : 'none');
         enElements.forEach(el => el.style.display = isKorean ? 'none' : '');
 
+        // 모바일/웹 버전 제어
+        const isMobile = window.innerWidth <= 720;
+        enElements.forEach(el => {
+            const webVersion = el.querySelector('.web-version');
+            const mobileVersion = el.querySelector('.mobile-version');
+            if (webVersion && mobileVersion) {
+                webVersion.style.display = isMobile ? 'none' : '';
+                mobileVersion.style.display = isMobile ? '' : 'none';
+            }
+        });
+
         // CONTACT 링크 업데이트 (필요한 경우)
         const koContact = document.querySelector('.contact-link.lang-ko');
         const enContact = document.querySelector('.contact-link.lang-en');
@@ -86,6 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // URL 해시 변경 감지
     window.addEventListener('hashchange', initLanguage);
+
+    // 창 크기 변경 감지
+    window.addEventListener('resize', function() {
+        const currentLang = document.documentElement.lang;
+        setLanguage(currentLang);
+    });
 });
 
 // angle.jsx의 요소들을 업데이트하는 함수
