@@ -159,7 +159,7 @@ function updateAngleDescription(angle, isKorean) {
         },
         'multi-angle': {
             ko: '하이, 일반, 로우 앵글을 하나의 포토 프레임에 인쇄할 수 있어요.',
-            en: 'You can print high, normal, and low angles\nin a single photo frame.'
+            en: 'You can print high, normal, and low angles in a single photo frame.'
         }
     };
 

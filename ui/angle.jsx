@@ -60,25 +60,25 @@ function updateContent(contentType) {
     const rightTitle = document.getElementById('right-title');
     const rightDescription = document.getElementById('right-description');
 
-    leftTitle.textContent = isKorean ? '로봇 무빙' : 'Robot Moving';
-    rightTitle.textContent = isKorean ? '사진 촬영본' : 'Photo Shots';
+    leftTitle.textContent = isKorean ? '로봇 무빙' : 'Robot Motion';
+    rightTitle.textContent = isKorean ? '사진 촬영본' : 'Photos Taken with Post-me';
 
     const descriptions = {
         'high-angle': {
             ko: '최대 3m 높이에서 유행하는 항공샷, 정수리샷 등 촬영할 수 있어요.',
-            en: 'You can take trending aerial shots and top-down shots from a maximum height of 3m.'
+            en: 'Capture trending aerial and top-down shots<br>from a maximum height of 3 meters.'
         },
         'middle-angle': {
             ko: '일반적인 네컷사진, 증명사진 등 촬영할 수 있어요.',
-            en: 'You can take typical four-cut photos, ID photos, etc.'
+            en: 'Capture standard four-cut photos, ID photos, and more.'
         },
         'low-angle': {
             ko: '로우 앵글샷, 롱다리샷 등을 촬영할 수 있어요.',
-            en: 'You can take low angle shots, long leg shots, etc.'
+            en: 'Capture stunning low-angle shots.'
         },
         'multi-angle': {
             ko: '하이, 일반, 로우 앵글을 하나의 포토 프레임에 인쇄할 수 있어요.',
-            en: 'You can print high, normal, and low angles\nin a single photo frame.'
+            en: 'Print multi-angle shots featuring high, standard,<br>and low angles in a single photo.'
         }
     };
 

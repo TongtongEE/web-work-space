@@ -19,13 +19,26 @@
         background-color: transparent;
         position: relative;
         overflow: hidden;
+        left: 0%;
+    }
+
+    .lang-en #bg-video {
+        position: relative;
+        top: 0; /* 변경 */
+        left: 44%; /* 변경 */
+        scale: 100%;
+        width: 100%;
+        height: 120%;
+        max-width: 720px; /* 제거 또는 100%로 변경 */
+        clip-path: inset(0 0 0 0);
+        z-index: -1;
     }
     
     .lang-en #intro .intro-content {
         position: relative;
         top: -10%;
-        left: 50%;
-        transform: translateX(-100%);
+        left: 55%;
+        transform: translateX(-105%);
         z-index: 1;
         max-width: 100%;
         padding: 0 40px;
@@ -34,7 +47,7 @@
     }
             
     .lang-en #intro h1 {
-        font-size: 35px;
+        font-size: 40px;
         margin-left: 0%;
         letter-spacing: -0.6px;
     }
@@ -99,6 +112,10 @@
         letter-spacing: -0.4px; /* 원하는 자간 값을 설정하세요 */
     }
 
+    .lang-en .keyfeature1-title {
+     margin-bottom: -15px;
+    }
+
     .lang-en .keyfeature1-subtitle {
         font-family: 'Jalnan Gothic';
         font-size: 33px;
@@ -154,6 +171,11 @@
         font-size: 30px;
         font-weight: 300;
         margin-bottom: -10px;
+    }
+
+    #title4-2 {
+        font-family: 'Jalnan2';
+        font-size: 28px;
     }
 
     .lang-en .keyfeature4-2-subtitle {

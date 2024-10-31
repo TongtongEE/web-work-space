@@ -127,7 +127,7 @@ main {
 
 /* Section_1 */
 .container {
-    height: 380px;
+    height: 420px;
     margin-bottom: -1020px;
 }
 
@@ -149,7 +149,8 @@ main {
     max-width: 100%;
     object-fit: cover;
     z-index: -1;
-    clip-path: inset(162px 0 240px 0);
+    clip-path: inset(0 0 0 0);
+    /*clip-path: inset(162px 0 240px 0); keyvisual video*/
 }
 
 
@@ -159,7 +160,7 @@ main {
     position: relative;
     left: 50%;
     transform: translateX(-44.5%);
-    top: -290%;
+    top: -255%;
     margin: 100px 0px ;
     white-space: nowrap;
 
@@ -229,6 +230,7 @@ main {
     top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 }
 
 .product-title {
@@ -243,7 +245,7 @@ main {
 
 .product-subtitle {
     font-family: 'Jalnan Gothic';
-    font-size: 33px;
+    font-size: 30px;
     font-weight: 300;
     margin-bottom: -10px;
 }
@@ -675,7 +677,7 @@ main {
 }
 
 #multi-angle-image {
-    width: 100%;
+    width: 95%;
     height: auto;
     object-fit: contain;
     max-width: 100%;

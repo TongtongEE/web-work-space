@@ -1,7 +1,7 @@
 // 언어별 타이틀과 설명
 var titles = {
     ko: ["리프트", "AI를 탑재한 고성능 카메라", "높은 안전성이 인증된 로봇", "편리한 키오스크 시스템", "카드, NFC, 쿠폰 결제를 한번에", "높은 퀄리티 사진 인쇄"],
-    en: ["Lift", "High-performance Camera with AI", "Safety-certified Robot", "Convenient Kiosk System", "All-in-one Payment: Card, NFC, Coupon", "High Quality Photo Printing"]
+    en: ["Lift", "AI-assisted Auto-framing & Tracking", "Safety-certified Robot", "Convenient Kiosk System", "All-in-One Payment Options", "High Quality Photo Printing"]
 };
 
 var descriptions = {
@@ -14,12 +14,12 @@ var descriptions = {
         "기본 300 dpi (최대 300x600 dpi) 해상도로<br>퀄리티 높은 사진 인화가 가능해요"
     ],
     en: [
-        "Capture from high angles (up to 3m)<br>with the lift mounted on a mobile base",
-        "4K shooting possible with AI auto-tracking<br>feature and high-performance camera", 
-        "Use with confidence thanks to the collaborative robot<br>certified with the highest level of safety",
-        "Convenient to use with intuitive UI for<br>photo and video shooting, payment, and printing",
-        "Various payment options including IC / MSR,<br>Samsung Pay, Apple Pay, etc.<br>Coupon payment possible with built-in barcode reader",
-        "High-quality photo printing possible with<br>300 dpi resolution (up to 300x600 dpi)"
+        "Capture images from high angles (up to 3 meters)<br>using a lift mounted on the robot base.",
+        "The AI intelligently recognizes subjects,<br>ensuring they are always perfectly framed<br>in the shot (up to 4K resolution).", 
+        "Use with confidence, as this collaborative robot<br>is certified to the highest safety standards.",
+        "Enjoy easy-to-use functionality with an intuitive UI<br> for photo and video shooting, payment processing,<br>printing, and downloading via the Post-Me server.",
+        "Enjoy a variety of payment methods, including<br>credit card (IC/MSR), NFC (Samsung & Apple Pay),<br>and QR or barcode coupons.",
+        "Achieve high-quality photo printing<br>with resolutions of up to 300x600 dpi."
     ]
 };
 
