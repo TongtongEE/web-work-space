@@ -166,6 +166,21 @@
         margin-bottom: -10px;
     }
 
+    .lang-en #right-title2 {
+        font-family: 'Jalnan2';
+        font-size: 30px;
+        color: #000;
+        background-color: #00ff00;
+        display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
+        left: 50%;
+        transform: translateX(-55%);
+        margin-bottom: -10px;
+        padding:  0.0rem 0.5rem 0.7rem 0.5rem;
+        width: 72%;
+        line-height: 0.3;
+    }
+    
+
     .lang-en .keyfeature3-subtitle {
         font-family: 'Jalnan Gothic';
         font-size: 30px;

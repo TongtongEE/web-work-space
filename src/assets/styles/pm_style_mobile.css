@@ -800,12 +800,12 @@
     color: #000;
     background-color: #00ff00;
     display: inline-block; /* 배경이 텍스트 크기에 맞게 조정되도록 설정 */
-    margin-left: 8%; /* 여백 제거 */
+    left: 50%;
+    transform: translateX(-60%);
     margin-bottom: -10px;
     padding:  0.0rem 0.5rem 0.7rem 0.5rem;
-    width: 80%;
+    width: 31%;
     line-height: 0.3;
-
 }
 
 #right-description2 {
