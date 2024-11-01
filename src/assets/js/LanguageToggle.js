@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const enElements = document.querySelectorAll('.lang-en');
 
     function setLanguage(lang) {
-        console.log('Setting language to:', lang);
-
         // URL 해시 업데이트
         window.location.hash = lang;
 
@@ -35,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // CONTACT 링크 업데이트 (필요한 경우)
+        // CONTACT 링크 업데이트
         const koContact = document.querySelector('.contact-link.lang-ko');
         const enContact = document.querySelector('.contact-link.lang-en');
         if (koContact) koContact.style.display = isKorean ? '' : 'none';
@@ -43,37 +41,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // body 태그에 언어 클래스 추가
         document.body.classList.remove('lang-ko', 'lang-en');
-        document.body.classList.add('lang-' + lang);
+        document.body.classList.add(`lang-${lang}`);
 
         // HTML lang 속성 업데이트
         document.documentElement.lang = lang;
 
-        // 이미지 전환 로직 추가
+        // 이미지 전환 로직
         const productImage = document.getElementById('product-image');
         if (productImage) {
-            if (isKorean) {
-                productImage.src = "src/assets/images/section2_product/Post-Me_set_white2.png";
-                productImage.alt = "제품 구성 이미지";
-            } else {
-                productImage.src = "src/assets/images/section2_product/Post-Me_set_white2_en.png";
-                productImage.alt = "Product Configuration Image";
-            }
+            productImage.src = isKorean ? 
+                "./src/assets/images/section2_product/Post-Me_set_white2.png" : 
+                "./src/assets/images/section2_product/Post-Me_set_white2_en.png";
+            productImage.alt = isKorean ? "제품 구성 이미지" : "Product Configuration Image";
         }
 
         // angle.jsx의 요소들 업데이트
-        if (typeof changeLanguage === 'function') {
-            changeLanguage(lang);
-        } else {
-            console.warn('changeLanguage function not found. Make sure angle.jsx is loaded.');
-            updateAngleContent(lang);
-        }
-
-        console.log('Language set complete');
+        updateAngleContent(lang);
     }
 
     // 언어 옵션 버튼에 이벤트 리스너 추가
     langOptions.forEach(option => {
-        option.addEventListener('click', function() {
+        option.addEventListener('click', function(e) {
+            e.preventDefault(); // 기본 동작 방지
             setLanguage(this.dataset.lang);
         });
     });
@@ -81,27 +70,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // 페이지 로드 시 URL 해시 또는 저장된 언어 설정 확인 및 적용
     function initLanguage() {
         const hash = window.location.hash.substring(1);
+        const savedLanguage = localStorage.getItem('selectedLanguage');
+        
         if (hash === 'en' || hash === 'ko') {
             setLanguage(hash);
+        } else if (savedLanguage === 'en' || savedLanguage === 'ko') {
+            setLanguage(savedLanguage);
         } else {
-            const savedLanguage = localStorage.getItem('selectedLanguage');
-            if (savedLanguage) {
-                setLanguage(savedLanguage);
-            } else {
-                setLanguage('ko');
-            }
+            setLanguage('ko'); // 기본값
         }
     }
 
+    // 초기 언어 설정 적용
     initLanguage();
 
     // URL 해시 변경 감지
     window.addEventListener('hashchange', initLanguage);
 
-    // 창 크기 변경 감지
+    // 창 크기 변경 감지 (디바운스 처리)
+    let resizeTimer;
     window.addEventListener('resize', function() {
-        const currentLang = document.documentElement.lang;
-        setLanguage(currentLang);
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            const currentLang = document.documentElement.lang;
+            setLanguage(currentLang);
+        }, 250);
     });
 });
 
@@ -110,20 +103,19 @@ function updateAngleContent(lang) {
     const isKorean = lang === 'ko';
 
     // 제목 업데이트
-    document.querySelector('.keyfeature1-title .lang-ko').style.display = isKorean ? '' : 'none';
-    document.querySelector('.keyfeature1-title .lang-en').style.display = isKorean ? 'none' : '';
+    updateDisplayBySelector('.keyfeature1-title .lang-ko', isKorean);
+    updateDisplayBySelector('.keyfeature1-title .lang-en', !isKorean);
 
     // 부제목 업데이트
-    document.querySelector('.keyfeature1-subtitle .lang-ko').style.display = isKorean ? '' : 'none';
-    document.querySelector('.keyfeature1-subtitle .lang-en').style.display = isKorean ? 'none' : '';
+    updateDisplayBySelector('.keyfeature1-subtitle .lang-ko', isKorean);
+    updateDisplayBySelector('.keyfeature1-subtitle .lang-en', !isKorean);
 
     // 설명 업데이트
-    document.querySelector('.keyfeature1-description .lang-ko').style.display = isKorean ? '' : 'none';
-    document.querySelector('.keyfeature1-description .lang-en').style.display = isKorean ? 'none' : '';
+    updateDisplayBySelector('.keyfeature1-description .lang-ko', isKorean);
+    updateDisplayBySelector('.keyfeature1-description .lang-en', !isKorean);
 
     // 버튼 텍스트 업데이트
-    const buttons = document.querySelectorAll('.keyfeature1-button');
-    buttons.forEach(button => {
+    document.querySelectorAll('.keyfeature1-button').forEach(button => {
         button.textContent = isKorean ? 
             button.getAttribute('data-text-ko') : 
             button.getAttribute('data-text-en');
@@ -133,14 +125,27 @@ function updateAngleContent(lang) {
     updateTextContent('left-title', isKorean ? '로봇 무빙' : 'Robot Moving');
     updateTextContent('right-title', isKorean ? '사진 촬영본' : 'Photo Shots');
     
-    // 현재 선택된 앵글에 따라 설명 업데이트
-    const currentAngle = document.querySelector('.keyfeature1-button.active').getAttribute('onclick').match(/'(.+)'/)[1];
-    updateAngleDescription(currentAngle, isKorean);
+    // 현재 선택된 앵글에 따른 설명 업데이트
+    const activeButton = document.querySelector('.keyfeature1-button.active');
+    if (activeButton) {
+        const currentAngle = activeButton.getAttribute('onclick').match(/'(.+)'/)[1];
+        updateAngleDescription(currentAngle, isKorean);
+    }
+}
+
+// 헬퍼 함수들
+function updateDisplayBySelector(selector, show) {
+    const element = document.querySelector(selector);
+    if (element) {
+        element.style.display = show ? '' : 'none';
+    }
 }
 
 function updateTextContent(id, text) {
     const element = document.getElementById(id);
-    if (element) element.textContent = text;
+    if (element) {
+        element.textContent = text;
+    }
 }
 
 function updateAngleDescription(angle, isKorean) {

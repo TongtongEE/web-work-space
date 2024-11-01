@@ -16,16 +16,16 @@ function changeContent(contentType) {
     // 비디오 소스 설정
     let videoSrc;
     if (contentType === 'high-angle') {
-        videoSrc = 'src/assets/videos/HighAngle2.mp4';
+        videoSrc = './src/assets/videos/HighAngle2.mp4';
         setNormalLayout();
     } else if (contentType === 'middle-angle') {
-        videoSrc = 'src/assets/videos/MiddleAngle.mp4';
+        videoSrc = './src/assets/videos/MiddleAngle.mp4';
         setNormalLayout();
     } else if (contentType === 'low-angle') {
-        videoSrc = 'src/assets/videos/LowAngle.mp4';
+        videoSrc = './src/assets/videos/LowAngle.mp4';
         setNormalLayout();
     } else if (contentType === 'multi-angle') {
-        videoSrc = 'src/assets/videos/MultiAngle.mp4';
+        videoSrc = './src/assets/videos/MultiAngle.mp4';
         setMultiAngleLayout();
     }
 
@@ -100,22 +100,22 @@ function updateImages(contentType, isKorean) {
     // 이미지 소스 설정 (언어별 이미지가 없다면 같은 이미지 사용)
     const imageSources = {
         'high-angle': {
-            vertical: 'src/assets/images/section3/High_ver.jpg',
-            horizontal1: 'src/assets/images/section3/High_hor.jpg',
-            horizontal2: 'src/assets/images/section3/High_hor2.jpg'
+            vertical: './src/assets/images/section3/High_ver.jpg',
+            horizontal1: './src/assets/images/section3/High_hor.jpg',
+            horizontal2: './src/assets/images/section3/High_hor2.jpg'
         },
         'middle-angle': {
-            vertical: 'src/assets/images/section3/Middle_ver.jpg',
-            horizontal1: 'src/assets/images/section3/Middle_hor.jpg',
-            horizontal2: 'src/assets/images/section3/Middle_hor2.jpg'
+            vertical: './src/assets/images/section3/Middle_ver.jpg',
+            horizontal1: './src/assets/images/section3/Middle_hor.jpg',
+            horizontal2: './src/assets/images/section3/Middle_hor2.jpg'
         },
         'low-angle': {
-            vertical: 'src/assets/images/section3/Low_ver.jpg',
-            horizontal1: 'src/assets/images/section3/Low_hor.jpg',
-            horizontal2: 'src/assets/images/section3/Low_hor2.jpg'
+            vertical: './src/assets/images/section3/Low_ver.jpg',
+            horizontal1: './src/assets/images/section3/Low_hor.jpg',
+            horizontal2: './src/assets/images/section3/Low_hor2.jpg'
         },
         'multi-angle': {
-            multiAngle: 'src/assets/images/section3/MultiAngle_frame.jpg'
+            multiAngle: './src/assets/images/section3/MultiAngle_frame.jpg'
         }
     };
 
