@@ -1,8 +1,42 @@
-// languageToggle.js
 document.addEventListener('DOMContentLoaded', function() {
     const langOptions = document.querySelectorAll('.lang-option');
     const koElements = document.querySelectorAll('.lang-ko');
     const enElements = document.querySelectorAll('.lang-en');
+
+    // 모바일/웹 버전 표시 상태를 관리하는 함수
+    function updateVersionDisplay(isKorean) {
+        const isMobile = window.innerWidth <= 720;
+        const style = document.createElement('style');
+        
+        if (!isKorean) {
+            style.textContent = `
+                @media screen and (max-width: 720px) {
+                    .lang-en .web-version {
+                        display: none !important;
+                    }
+                    .lang-en .mobile-version {
+                        display: block !important;
+                    }
+                }
+                @media screen and (min-width: 721px) {
+                    .lang-en .web-version {
+                        display: block !important;
+                    }
+                    .lang-en .mobile-version {
+                        display: none !important;
+                    }
+                }
+            `;
+        }
+        
+        // 이전 스타일 제거 후 새로운 스타일 추가
+        const prevStyle = document.getElementById('version-styles');
+        if (prevStyle) {
+            prevStyle.remove();
+        }
+        style.id = 'version-styles';
+        document.head.appendChild(style);
+    }
 
     function setLanguage(lang) {
         // URL 해시 업데이트
@@ -19,25 +53,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const isKorean = lang === 'ko';
 
         // 언어별 요소 표시/숨김
-        koElements.forEach(el => el.style.display = isKorean ? '' : 'none');
-        enElements.forEach(el => el.style.display = isKorean ? 'none' : '');
-
-        // 모바일/웹 버전 제어
-        const isMobile = window.innerWidth <= 720;
-        enElements.forEach(el => {
-            const webVersion = el.querySelector('.web-version');
-            const mobileVersion = el.querySelector('.mobile-version');
-            if (webVersion && mobileVersion) {
-                webVersion.style.display = isMobile ? 'none' : '';
-                mobileVersion.style.display = isMobile ? '' : 'none';
-            }
+        koElements.forEach(el => {
+            el.style.setProperty('display', isKorean ? 'block' : 'none', 'important');
         });
+        enElements.forEach(el => {
+            el.style.setProperty('display', isKorean ? 'none' : 'block', 'important');
+        });
+
+        // 모바일/웹 버전 업데이트
+        updateVersionDisplay(isKorean);
 
         // CONTACT 링크 업데이트
         const koContact = document.querySelector('.contact-link.lang-ko');
         const enContact = document.querySelector('.contact-link.lang-en');
-        if (koContact) koContact.style.display = isKorean ? '' : 'none';
-        if (enContact) enContact.style.display = isKorean ? 'none' : '';
+        if (koContact) koContact.style.setProperty('display', isKorean ? 'block' : 'none', 'important');
+        if (enContact) enContact.style.setProperty('display', isKorean ? 'none' : 'block', 'important');
 
         // body 태그에 언어 클래스 추가
         document.body.classList.remove('lang-ko', 'lang-en');
@@ -62,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 언어 옵션 버튼에 이벤트 리스너 추가
     langOptions.forEach(option => {
         option.addEventListener('click', function(e) {
-            e.preventDefault(); // 기본 동작 방지
+            e.preventDefault();
             setLanguage(this.dataset.lang);
         });
     });
@@ -95,6 +125,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const currentLang = document.documentElement.lang;
             setLanguage(currentLang);
         }, 250);
+    });
+
+    // 페이지 로드 완료 시 실행
+    window.addEventListener('load', function() {
+        const currentLang = document.documentElement.lang;
+        setLanguage(currentLang);
     });
 });
 
@@ -137,7 +173,7 @@ function updateAngleContent(lang) {
 function updateDisplayBySelector(selector, show) {
     const element = document.querySelector(selector);
     if (element) {
-        element.style.display = show ? '' : 'none';
+        element.style.setProperty('display', show ? 'block' : 'none', 'important');
     }
 }
 
