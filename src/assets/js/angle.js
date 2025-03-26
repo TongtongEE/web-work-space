@@ -29,10 +29,14 @@ function changeContent(contentType) {
         setMultiAngleLayout();
     }
 
-    // 비디오 소스 변경 및 재생
-    leftVideo.src = videoSrc;
-    leftVideo.load();
-    leftVideo.play();
+    // 비디오 전환 효과
+    leftVideo.classList.remove('visible');
+    setTimeout(() => {
+        leftVideo.src = videoSrc;
+        leftVideo.load();
+        leftVideo.play();
+        leftVideo.classList.add('visible');
+    }, 500);
 
     // 언어에 따른 텍스트 설정
     updateContent(contentType);

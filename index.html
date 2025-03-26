@@ -17,7 +17,7 @@
             if (isAndroid) {
                 viewportMeta.content = "width=device-width, initial-scale=1.0, maximum-scale=0.58, user-scalable=yes";
             } else if (isIPhone) {
-                viewportMeta.content = "width=device-width, initial-scale=1.0, maximum-scale=0.55, user-scalable=yes";
+                viewportMeta.content = "width=device-width, initial-scale=1.0, maximum-scale=0.53, user-scalable=yes";
             } else {
                 // 기본 설정 (다른 모든 기기에 대해)
                 viewportMeta.content = "width=device-width, initial-scale=1.0, user-scalable=yes";
@@ -29,6 +29,20 @@
 
 </head>
 <body>
+    <!-- 진입 팝업 -->
+    <div id="entrance-popup" class="entrance-popup">
+        <div class="entrance-popup-content">
+            <span class="entrance-close-btn" onclick="hideEntrancePopup()">&times;</span>
+            <div class="entrance-popup-image">
+                <img src="./src/assets/images/popup/promotion_modal_web.png" alt="프로모션 이미지">
+            </div>
+            <div class="entrance-popup-buttons">
+                <a href="#product" class="entrance-btn entrance-btn-left" onclick="hideEntrancePopup()">제품 보기</a>
+                <a href="https://www.cineticmotion.com/ko/contact" class="entrance-btn entrance-btn-right" target="_blank" rel="noopener noreferrer">문의하기</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <nav class="navbar">
@@ -312,8 +326,8 @@
             <p class="keyfeature3-description">
                 <span class="lang-ko">사진 & 동영상 촬영 컨텐츠 포스트미로 기억에 남는 이벤트를 기획해 보세요.</span>
                 <span class="lang-en" style="display: none;">
-                    <span class="web-version">Make your events unforgettable with Post-Me’s photo and video content creation capabilities.</span>
-                    <span class="mobile-version">Make your events unforgettable with Post-Me’s photo<br>and video content creation capabilities.</span>
+                    <span class="web-version">Make your events unforgettable with Post-Me's photo and video content creation capabilities.</span>
+                    <span class="mobile-version">Make your events unforgettable with Post-Me's photo<br>and video content creation capabilities.</span>
                 </span>
             </p>
                      <div class="event-reference-container">
@@ -407,8 +421,8 @@
                                 <span class="mobile-break"></span>이벤트 분위기와 일관성 있는 Tone & Manner를 유지해요.
                             </span>
                             <span class="lang-en" style="display: none;">
-                                We enhance event atmosphere by incorporating the client’s brand logo,
-                                <span class="mobile-break"></span>ensuring a consistent tone and style aligned with the event’s aesthetic.
+                                We enhance event atmosphere by incorporating the client's brand logo,
+                                <span class="mobile-break"></span>ensuring a consistent tone and style aligned with the event's aesthetic.
                             </span>
                         </p>
                     </div>
@@ -488,6 +502,7 @@
         <script src="./src/assets/js/frame_video.js"></script>
         <script src="./src/assets/js/mobile_menu.js"></script>
         <script src="./src/assets/js/languageToggle.js" defer></script>
+        <script src="./src/assets/js/entrance-popup.js"></script>
     
 </body>
 </html>
