@@ -6,9 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (entrancePopup) {
         // 모바일 기기인 경우 이미지 경로 변경
         if (isMobileDevice && popupImage) {
-            popupImage.src = './src/assets/images/popup/promotion_modal_mobile.png';
+            const mobileImages = [
+                './src/assets/images/popup/promotion_modal_mobile.png',
+                './src/assets/images/popup/promotion_modal_mobile_2.png'
+            ];
+            popupImage.src = mobileImages[Math.floor(Math.random() * mobileImages.length)];
         } else if (popupImage) {
-            popupImage.src = './src/assets/images/popup/promotion_modal_web.png';
+            const webImages = [
+                './src/assets/images/popup/promotion_modal_web.png',
+                './src/assets/images/popup/promotion_modal_web_2.png'
+            ];
+            popupImage.src = webImages[Math.floor(Math.random() * webImages.length)];
         }
         
         // 페이지 로드 후 약간의 딜레이 후 팝업 표시 (모바일, 웹 모두)
@@ -61,9 +69,17 @@ window.addEventListener('resize', function() {
     
     if (popupImage) {
         if (isMobileDevice) {
-            popupImage.src = './src/assets/images/popup/promotion_modal_mobile.png';
+            const mobileImages = [
+                './src/assets/images/popup/promotion_modal_mobile.png',
+                './src/assets/images/popup/promotion_modal_mobile_2.png'
+            ];
+            popupImage.src = mobileImages[Math.floor(Math.random() * mobileImages.length)];
         } else {
-            popupImage.src = './src/assets/images/popup/promotion_modal_web.png';
+            const webImages = [
+                './src/assets/images/popup/promotion_modal_web.png',
+                './src/assets/images/popup/promotion_modal_web2.png'
+            ];
+            popupImage.src = webImages[Math.floor(Math.random() * webImages.length)];
         }
     }
 }); 
