@@ -1314,13 +1314,13 @@ main {
 #keyfeature4-2 {
     position: relative;
     width: 100%;
-    height: 1820px; /* 섹션 높이 설정 (고객사 레퍼런스 영역 추가로 1400px -> 1820px) */
+    height: 1400px; /* 섹션 높이 설정 */
     background-color: #000000;
     background-size: cover;
     background-position: center;
     text-align: center;
     color: #000000; /* 텍스트 색상 */
-    margin-bottom: 0px;
+    margin-bottom: -280px;
     margin-top: 4%;
 }
 
@@ -1775,11 +1775,35 @@ body.menu-open {
 
 
 
+/* ===== section5 (고객사 레퍼런스 + 버튼) ===== */
+/* 독립 섹션이라 부모(4-2)의 폭 제약 없이 화면 전체 폭 사용 가능 */
+#section5 {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    padding: 60px 0 40px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.section5-content {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 버튼은 4-2 기준의 마진(15% 0 -10%)을 쓰므로 section5에서는 정상화 */
+#section5 .button-container {
+    margin: 36px auto 0;
+}
+
+#section5 .button4-2_1 {
+    margin: 0;
+}
+
 /* ===== 고객사 레퍼런스 (client reference) ===== */
 .client-reference {
-    width: 100%;
-    margin: 70px auto 0;
-    padding-top: 20px;
+    width: 80%;
+    margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -1827,7 +1851,7 @@ body.menu-open {
 
 @keyframes client-scroll-left {
     from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    to   { transform: translateX(-30%); }
 }
 
 /* 마우스를 올리면 잠시 멈춤 */
