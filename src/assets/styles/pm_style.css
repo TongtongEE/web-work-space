@@ -1314,7 +1314,7 @@ main {
 #keyfeature4-2 {
     position: relative;
     width: 100%;
-    height: 1400px; /* 섹션 높이 설정 */
+    height: 1820px; /* 섹션 높이 설정 (고객사 레퍼런스 영역 추가로 1400px -> 1820px) */
     background-color: #000000;
     background-size: cover;
     background-position: center;
@@ -1456,7 +1456,7 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 2rem 0;
+    padding: 1rem 0;
     position: relative;
 }
 
@@ -1482,7 +1482,7 @@ main {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 0;
     width: 150px;
-    margin: 15% 0 -10%;
+    margin: 5% 0 -10%;
 }
 
 .button4-2_1:hover, .button4-2_2:hover  {
@@ -1774,3 +1774,140 @@ body.menu-open {
 }
 
 
+
+/* ===== 고객사 레퍼런스 (client reference) ===== */
+.client-reference {
+    width: 100%;
+    margin: 70px auto 0;
+    padding-top: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.client-reference-title {
+    font-family: 'Jalnan Gothic';
+    font-size: 28px;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 16px 0;
+}
+
+/* 타이틀 아래 설명 문구 (keyfeature4-2-description와 동일 톤) */
+.client-reference-description {
+    font-size: 17px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0 auto 28px;
+}
+
+/* 각 행: 좌우로 흐르는 영역. 넘치는 부분은 숨김 */
+.client-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 18px;
+    /* 좌우 끝 페이드 처리 */
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+/* 실제로 움직이는 트랙 (placeholder 세트 2벌이 들어있음) */
+.client-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+/* 우 -> 좌 무한 롤링. 트랙은 동일 세트 2벌이라 -50% 이동 시 끊김 없이 반복 */
+.client-track--row1 {
+    animation: client-scroll-left 45s linear infinite;
+}
+
+@keyframes client-scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* 마우스를 올리면 잠시 멈춤 */
+.client-marquee:hover .client-track {
+    animation-play-state: paused;
+}
+
+/* 영역 전체를 덮는 클릭 링크 (인스타그램 이동). 마퀴의 자식이라 hover-pause는 그대로 동작 */
+.client-marquee-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+    cursor: pointer;
+}
+
+/* 통합 카드 (로고 상단 + 이미지 본문) */
+.client-item {
+    flex: 0 0 auto;
+    width: 250px;
+    margin: 0 14px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: none;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+/* 카드 상단 - 로고 자리 */
+.client-item-logo {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    z-index: 10;
+}
+
+/* 카드 본문 - 이미지 자리 */
+.client-item-image {
+    width: 218px;
+    height: 272px;
+    padding-bottom: 100%; /* 정사각형 비율 */
+    position: relative;
+    background-color: none;
+    box-sizing: border-box;
+}
+
+.client-item-image img {
+    display: block;
+    border: 1px solid #000;
+    border-radius: 5px;
+    align-content: center;
+}
+
+.client-item-label {
+    font-family: 'Jalnan2';
+    font-size: 15px;
+    color: #000000;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+
+/* 이미지 영역 라벨은 박스 중앙에 배치 */
+.client-item-image .client-item-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #555555;
+}
+
+/* 모션 최소화 설정 사용자는 애니메이션 정지 */
+@media (prefers-reduced-motion: reduce) {
+    .client-track--row1 {
+        animation: none;
+    }
+}
