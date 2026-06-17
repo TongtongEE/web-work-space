@@ -54,6 +54,10 @@
 }
 
 
+html {
+    scroll-behavior: smooth; /* 앵커(#) 이동 시 부드러운 스크롤 */
+}
+
 body {
     font-family: 'NEXON Lv2 Gothic';
     line-height: 1.5;

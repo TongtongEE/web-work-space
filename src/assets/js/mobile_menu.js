@@ -25,6 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     menuIcon.addEventListener('click', openMenu);
     closeIcon.addEventListener('click', closeMenu);
 
+    // 모바일 메뉴 내 페이지 내(#) 링크: 메뉴를 닫은 뒤 해당 섹션으로 부드럽게 이동
+    overlay.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            closeMenu(); // 고정(position:fixed)된 body 해제 후 스크롤 위치 정상화
+            requestAnimationFrame(function() {
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+
     overlay.addEventListener('click', function(e) {
         if (e.target === overlay) {
             closeMenu();
