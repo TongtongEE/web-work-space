@@ -12,6 +12,26 @@
       gtag('config', 'G-N6YCD6YCRB');
     </script>
 
+    <!-- URL에서 UTM 매개변수를 깔끔하게 제거하는 스크립트 -->
+<script>
+  if (window.history && window.history.replaceState) {
+    // 페이지 로드가 완전히 끝나거나 안정화된 시점에 실행
+    window.addEventListener('load', function() {
+      var url = new URL(window.location.href);
+      
+      // 지우고 싶은 파라미터 목록 정의
+      var paramsToRemove = ['utm_campaign', 'utm_content', 'utm_source', 'utm_medium', 'trk'];
+      
+      paramsToRemove.forEach(function(param) {
+        url.searchParams.delete(param);
+      });
+      
+      // 페이지 새로고침 없이 주소창의 URL만 깔끔한 상태로 변경
+      window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+    });
+  }
+</script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Post-Me</title>
     <link rel="icon" type="image" href="./src/assets/images/postme-logo.png" />
