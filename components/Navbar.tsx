@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { CONTACT_URL } from "@/lib/links";
@@ -10,7 +11,6 @@ import { useLang } from "@/lib/i18n";
 /** 우측 내부 라우팅 메뉴 */
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  /*{ label: "Brand", href: "/brand" },*/
   { label: "Product", href: "/product" },
   { label: "Portfolio", href: "/portfolio" },
 ] as const;
@@ -26,7 +26,17 @@ const GLASS =
  */
 export default function Navbar() {
   const { lang, toggle } = useLang();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  /** 메뉴 클릭: 이미 해당 페이지면 라우팅 대신 최상단으로 스크롤 (다른 페이지면 기본 이동) */
+  const handleNavClick =
+    (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      if (pathname !== href) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
   // 새로고침 시 브라우저의 스크롤 위치 복원을 끄고 항상 최상단(hero)에서 시작
   useEffect(() => {
@@ -98,6 +108,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={handleNavClick(link.href)}
               className="body-sm font-medium text-white/85 transition-colors duration-300 hover:text-brand"
             >
               {link.label}
@@ -156,7 +167,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                setOpen(false);
+                handleNavClick(link.href)(e);
+              }}
               className="rounded-xl px-4 py-3 font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-brand"
             >
               {link.label}
