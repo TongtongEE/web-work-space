@@ -22,11 +22,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // 쿠키에서 언어를 읽어 서버 렌더 초기 언어로 사용 (언어 변경은 새로고침으로 반영)
-  const saved = (await cookies()).get(LANG_COOKIE)?.value;
-  const lang: Lang = saved === "EN" ? "EN" : "KO";
+  const lang: Lang = "KO";
 
   return (
-    <html lang={lang === "EN" ? "en" : "ko"}>
+    <html lang="ko">
       <body>
         <LanguageProvider initialLang={lang}>
           {/* 전체 페이지 공통 상단 고정 네비게이션 */}
