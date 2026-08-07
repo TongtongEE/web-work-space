@@ -1,0 +1,253 @@
+@import "tailwindcss";
+
+/* ============================================================
+   FONTS  (noonnu CDN 웹폰트)
+   Headline : YeogiOttaeJalnanGothic (여기어때 잘난 고딕)
+   Body     : NexonLv1Gothic (넥슨 Lv1 고딕) — Light 300 / Regular 400 / Bold 700
+   ============================================================ */
+@font-face {
+  font-family: "YeogiOttaeJalnanGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NexonLv1Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff")
+    format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NexonLv1Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NexonLv1Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ============================================================
+   DESIGN TOKENS (Tailwind v4 @theme)
+   여기 등록한 토큰은 자동으로 유틸리티 클래스로 노출됩니다.
+   예) --color-brand → text-brand / bg-brand / border-brand
+       --text-h1     → text-h1
+   ============================================================ */
+@theme {
+  /* 한글 폴백 스택 (폰트 파일 없을 때 대비) */
+  --font-fallback-kr: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic",
+    system-ui, sans-serif;
+
+  /* 폰트 패밀리 */
+  --font-heading: "YeogiOttaeJalnanGothic", var(--font-fallback-kr);
+  --font-body: "NexonLv1Gothic", var(--font-fallback-kr);
+  --font-sans: var(--font-body);
+
+  /* 컬러 시스템 */
+  --color-base: #ffffff; /* 모든 페이지 기본 배경 */
+  --color-ink: #333333; /* 기본 글씨색 — 어두운 쥐색 */
+  --color-ink-soft: #6b6b6b; /* 보조 텍스트 */
+  --color-brand: #00ff00; /* 브랜드 포인트 컬러 */
+
+  /* 헤드라인 크기 (PC 기준 최대값) */
+  --text-h1: 70px;
+  --text-h2: 60px;
+  --text-h3: 40px;
+  --text-h4: 25px;
+
+  /* 본문 크기 */
+  --text-body-lg: 25px;
+  --text-body-md: 20px; /* 기본 본문 */
+  --text-body-sm: 16px;
+
+  /* 로고 무한 마퀴 애니메이션 (animate-marquee 유틸로 노출)
+     ※ Tailwind v4는 @theme 안에 정의해야 @keyframes를 번들에 포함시킴 */
+  --animate-marquee: marquee 35s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* 제품 히어로 KV 크로스페이드 루프 (상단 이미지에 적용) */
+  --animate-kv-fade: kvFade 14s ease-in-out infinite;
+  @keyframes kvFade {
+    0%,
+    45% {
+      opacity: 0;
+    }
+    50%,
+    95% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* POST ME AI 배너 글로우 펄스 (브랜드 그린) */
+  --animate-ai-glow: aiGlow 3.5s ease-in-out infinite;
+  @keyframes aiGlow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 22px rgba(0, 255, 0, 0.25));
+    }
+    50% {
+      filter: drop-shadow(0 0 46px rgba(0, 255, 0, 0.55));
+    }
+  }
+
+  /* Shining Scan 등장 — 빈 캔버스에서 위→아래로 이미지가 생성되며 채워짐 (ScanReveal) */
+  --animate-scan-clip: scanClip 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes scanClip {
+    from {
+      clip-path: inset(0 0 100% 0); /* 아래 100% 잘림 = 비어있음 */
+    }
+    to {
+      clip-path: inset(0 0 0 0); /* 전체 표시 */
+    }
+  }
+  /* 스캔 라인(가로) — 위 → 아래 이동 */
+  --animate-scan-edge: scanEdge 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes scanEdge {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    88% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+  /* 빈 캔버스 스켈레톤 시머 */
+  --animate-shimmer: shimmer 1.4s linear infinite;
+  @keyframes shimmer {
+    from {
+      background-position: 150% 0;
+    }
+    to {
+      background-position: -150% 0;
+    }
+  }
+
+  /* 제품구성 디테일 확장 — 부드럽게 커지며 나타남 */
+  --animate-detail-open: detailOpen 1020ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes detailOpen {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  /* 전역 smooth 스크롤은 제거.
+     페이지 이동 시 새 페이지가 최상단으로 "부드럽게" 스크롤되면서 지나가는
+     Reveal 섹션들의 등장 효과가 한꺼번에 소모되는 문제가 있어서, 라우트 이동은
+     즉시 최상단으로 점프하도록 함. (캐러셀 등은 JS의 behavior:'smooth' 로 처리) */
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: var(--text-body-md); /* 기본 본문 20px */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* 한글 카피는 글자 단위가 아니라 어절(공백) 단위로 줄바꿈 */
+    word-break: keep-all;
+    overflow-wrap: break-word; /* URL 등 공백 없는 긴 문자열은 예외적으로 강제 줄바꿈 */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-ink);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* 반응형: 데스크톱에서 지정 크기, 모바일에서 자연스럽게 축소 (fluid clamp) */
+  h1 {
+    font-size: clamp(40px, 6vw + 8px, var(--text-h1));
+  }
+  h2 {
+    font-size: clamp(34px, 5vw + 8px, var(--text-h2));
+  }
+  h3 {
+    font-size: clamp(26px, 3vw + 8px, var(--text-h3));
+  }
+  h4 {
+    font-size: clamp(20px, 1.5vw + 8px, var(--text-h4));
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ============================================================
+   COMPONENTS — 편의용 본문 크기 클래스
+   ============================================================ */
+@layer components {
+  .body-lg {
+    font-size: var(--text-body-lg);
+    line-height: 1.6;
+  }
+  .body-md {
+    font-size: var(--text-body-md);
+    line-height: 1.6;
+  }
+  .body-sm {
+    font-size: var(--text-body-sm);
+    line-height: 1.6;
+  }
+}
+
+/* ============================================================
+   메인 페이지 전용 하단 그라데이션
+   최하단(#F5F5F5) → 위로 올라오며 #FFFFFF 로 밝아짐, 높이 1749px.
+   .main-gradient 클래스는 메인 페이지(app/page.tsx)에서만 사용 →
+   다른 서브 페이지에는 영향 없음.
+   ============================================================ */
+.main-gradient {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1749px;
+  background: linear-gradient(to top, #f5f5f5 0%, #ffffff 100%);
+  pointer-events: none;
+  z-index: -10;
+}
