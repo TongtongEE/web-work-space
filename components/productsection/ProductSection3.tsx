@@ -178,7 +178,7 @@ export default function ProductSection3() {
             >
               {/* 이미지 우측 상단에 ✕가 포함되어 있어 별도 닫기 버튼 없음 (전체 클릭 시 닫힘) */}
               <Image
-                src={BOXES[expanded].detail}
+                src={langImageSrc(BOXES[expanded].detail, lang)}
                 alt={
                   lang === "EN"
                     ? `${BOXES[expanded].label.en} configuration`
