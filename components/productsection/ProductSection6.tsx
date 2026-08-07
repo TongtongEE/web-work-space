@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import ArrowButton from "@/components/ArrowButton";
+import LangImage from "@/components/LangImage";
 import Reveal from "@/components/Reveal";
 import ProductAiBlock from "@/components/productsection/ProductAiBlock";
 import { CONTACT_URL } from "@/lib/links";
@@ -68,9 +67,9 @@ export default function ProductSection6() {
           className="pointer-events-none absolute inset-0 [background:radial-gradient(55%_120%_at_50%_50%,rgba(0,255,0,0.12),transparent_70%)]"
         />*/}
         <Reveal direction="fade" duration={3000}>
-          {/* 데스크톱 배너 (md↑) — postme_ai.png (1704×559) */}
+          {/* 데스크톱 배너 (md↑) — postme_ai.png (1704×559) · EN은 postme_ai_en.png */}
           <div className="relative mx-auto hidden aspect-[1704/559] w-full max-w-[1652px] md:block">
-            <Image
+            <LangImage
               src="/images/product/postme_ai.png"
               alt="POST ME AI"
               fill
@@ -80,7 +79,7 @@ export default function ProductSection6() {
           </div>
           {/* 모바일 배너 (md↓) — postme_ai_m.png (1578×540) · 크기는 aspect로 조정 */}
           <div className="relative mx-auto aspect-[1578/540] w-[180%] md:hidden items-center left-1/2 -translate-x-1/2">
-            <Image
+            <LangImage
               src="/images/product/postme_ai_m.png"
               alt="POST ME AI"
               fill

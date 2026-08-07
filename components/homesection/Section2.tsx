@@ -3,6 +3,7 @@ import Image from "next/image";
 import ArrowButton from "@/components/ArrowButton";
 import BleedZoomImage from "@/components/BleedZoomImage";
 import CountUp from "@/components/CountUp";
+import LangImage from "@/components/LangImage";
 import Reveal from "@/components/Reveal";
 import { T } from "@/lib/i18n";
 import type { ReactNode } from "react";
@@ -25,15 +26,18 @@ const GUTTER = "px-6 sm:px-10 lg:px-20 xl:px-28";
 /**
  * 상단 블록의 AI 기능 아이콘 카드 (아이콘 + 배경 + 문구가 모두 합쳐진 이미지 리소스)
  * ※ 문구가 이미지에 포함되어 있으므로 화면 라벨은 없음. alt는 접근성/SEO용.
+ * ※ src는 국문 기준 — 영문(EN)일 때는 LangImage가 `_en` 파일로 교체한다.
  */
 const AI_ICONS = [
   {
     src: "/images/section2/icon-tracking.png",
     alt: "AI 인물 트래킹",
+    altEn: "AI subject tracking",
   },
   {
     src: "/images/section2/icon-retouch.png",
     alt: "AI 보정",
+    altEn: "AI retouching",
   },
 ] as const;
 
@@ -322,10 +326,11 @@ export default function Section2() {
         className="mt-[clamp(12px,2.4vw,40px)] flex justify-end gap-[clamp(8px,1.6vw,24px)]"
       >
         {AI_ICONS.map((icon) => (
-          <Image
+          <LangImage
             key={icon.src}
             src={icon.src}
             alt={icon.alt}
+            altEn={icon.altEn}
             width={320}
             height={320}
             className="h-auto w-[clamp(40px,10.4vw,200px)]"
@@ -377,10 +382,11 @@ export default function Section2() {
           {/* AI 기능 아이콘 — 인물 이미지 위에 레이어로 오버레이 (세로 정렬) */}
           <div className="absolute right-4 top-1/2 flex -translate-y-1/2 flex-col gap-3">
             {AI_ICONS.map((icon) => (
-              <Image
+              <LangImage
                 key={icon.src}
                 src={icon.src}
                 alt={icon.alt}
+                altEn={icon.altEn}
                 width={320}
                 height={320}
                 className="h-24 w-24 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:h-30 sm:w-30"

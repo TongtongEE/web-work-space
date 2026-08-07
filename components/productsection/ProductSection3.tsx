@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import HoverSwapImage from "@/components/HoverSwapImage";
 import Reveal from "@/components/Reveal";
 import { T, useLang } from "@/lib/i18n";
+import { langImageSrc } from "@/lib/lang";
 
 /* ============================================================
    PRODUCT — SECTION 3 : 제품구성
@@ -79,8 +80,8 @@ export default function ProductSection3() {
       className="block w-full cursor-pointer rounded-2xl transition-transform duration-300 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
     >
       <HoverSwapImage
-        normalSrc={box.normal}
-        hoverSrc={box.hover}
+        normalSrc={langImageSrc(box.normal, lang)}
+        hoverSrc={langImageSrc(box.hover, lang)}
         alt={label(box)}
         ratio="699 / 567"
         sizes="(min-width: 768px) 50vw, 100vw"

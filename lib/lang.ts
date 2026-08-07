@@ -5,3 +5,16 @@
 export type Lang = "KO" | "EN";
 
 export const LANG_COOKIE = "postme-lang";
+
+/**
+ * 문구가 그려진 이미지의 영문판 경로 — 국문 파일명 뒤에 `_en` 을 붙인 규칙.
+ * 예) /images/product/postme_ai.png → /images/product/postme_ai_en.png
+ */
+export function enImageSrc(src: string): string {
+  return src.replace(/(\.[^./]+)$/, "_en$1");
+}
+
+/** 현재 언어에 맞는 이미지 경로 (EN 이면 _en 버전) */
+export function langImageSrc(src: string, lang: Lang): string {
+  return lang === "EN" ? enImageSrc(src) : src;
+}
