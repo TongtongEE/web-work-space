@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { LanguageProvider } from "@/lib/i18n";
-import { LANG_COOKIE, type Lang } from "@/lib/lang";
 
 export const metadata: Metadata = {
   title: "POST ME",
@@ -16,18 +15,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // 쿠키에서 언어를 읽어 서버 렌더 초기 언어로 사용 (언어 변경은 새로고침으로 반영)
-  const lang: Lang = "KO";
-
+  // output: 'export' 이므로 프리렌더는 항상 KO로 고정하고,
+  // 저장된 언어(localStorage/쿠키) 반영은 LanguageProvider가 클라이언트에서 처리한다.
   return (
     <html lang="ko">
       <body>
-        <LanguageProvider initialLang={lang}>
+        <LanguageProvider>
           {/* 전체 페이지 공통 상단 고정 네비게이션 */}
           <Navbar />
           {children}
