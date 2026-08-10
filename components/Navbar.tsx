@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { CONTACT_URL } from "@/lib/links";
 import { useLang } from "@/lib/i18n";
+import { useNotice } from "@/lib/notice";
 
 /** 우측 내부 라우팅 메뉴 */
 const NAV_LINKS = [
@@ -26,6 +27,7 @@ const GLASS =
  */
 export default function Navbar() {
   const { lang, toggle } = useLang();
+  const { visible: noticeVisible, height: noticeHeight } = useNotice();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -38,10 +40,17 @@ export default function Navbar() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-  // 새로고침 시 브라우저의 스크롤 위치 복원을 끄고 항상 최상단(hero)에서 시작
+  // 새로고침 시 브라우저의 스크롤 위치 복원을 끄고 항상 최상단(hero)에서 시작.
+  // 단, 주소에 #앵커가 있으면(예: /product#ai — 공지 배너 링크) 해당 섹션으로 가야 하므로
+  // 최상단 이동을 건너뛰고 대상 요소로 맞춰준다. (scroll-mt 값이 반영되어 네비에 안 가림)
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
+    }
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      document.getElementById(hash)?.scrollIntoView();
+      return;
     }
     window.scrollTo(0, 0);
   }, []);
@@ -76,7 +85,11 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed left-1/2 top-6 z-50 w-[1487px] max-w-[calc(100vw-2rem)] -translate-x-1/2">
+    // 공지 배너가 켜져 있으면 배너 높이만큼 아래로 내려온다 (배너는 sticky, 네비는 fixed)
+    <header
+      style={{ top: (noticeVisible ? noticeHeight : 0) + 24 }}
+      className="fixed left-1/2 z-50 w-[1487px] max-w-[calc(100vw-2rem)] -translate-x-1/2 transition-[top] duration-300"
+    >
       <nav
         className={`flex h-[68px] items-center justify-between rounded-2xl px-6 md:h-[78px] md:px-8 lg:px-14 xl:px-20 ${GLASS}`}
       >

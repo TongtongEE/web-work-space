@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import NoticeBanner from "@/components/NoticeBanner";
 import { LanguageProvider } from "@/lib/i18n";
+import { NoticeProvider } from "@/lib/notice";
 
 export const metadata: Metadata = {
   title: "POST ME",
@@ -26,9 +28,13 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <LanguageProvider>
-          {/* 전체 페이지 공통 상단 고정 네비게이션 */}
-          <Navbar />
-          {children}
+          <NoticeProvider>
+            {/* 최상단 공지 배너 (관리자 ON/OFF — lib/notice.tsx) */}
+            <NoticeBanner />
+            {/* 전체 페이지 공통 상단 고정 네비게이션 */}
+            <Navbar />
+            {children}
+          </NoticeProvider>
         </LanguageProvider>
       </body>
     </html>

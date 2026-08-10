@@ -14,8 +14,10 @@ import { T } from "@/lib/i18n";
    ============================================================ */
 const GUTTER = "px-6 sm:px-10 lg:px-20 xl:px-28";
 
+/** anchor: 값을 넣으면 그 블록에 #앵커가 걸림 (예: "ai" → /product#ai 로 바로 착지) */
 const BLOCKS = [
   {
+    anchor: "",
     title: { ko: "AI 피사체 오토 트래킹", en: "AI Subject Auto-Tracking" },
     desc: {
       ko: "AI가 피사체를 실시간으로 인식하여 추적합니다. 어떤 앵글에서도 최적의 구도를 잡아 완성도 높은 사진을 완성합니다.",
@@ -33,6 +35,8 @@ const BLOCKS = [
     ],
   },
   {
+    // 공지 배너(/product#ai)가 이 블록으로 바로 착지
+    anchor: "ai",
     title: { ko: "AI 딥러닝 생성 & 보정", en: "AI Deep-Learning\nGeneration & Retouch" },
     desc: {
       ko: "사전 설정된 프롬프트에 맞춰 다양한 배경과 컨셉 이미지를 즉석 생성합니다. 단 한 장의 촬영으로 고품격 프로필과 맞춤형 화보를 완성하여 차별화된 경험을 선사합니다.",
@@ -94,9 +98,19 @@ export default function ProductSection6() {
       {/* AI 기능 블록 */}
       <div className={`mx-auto max-w-[1740px] ${GUTTER}`}>
         <div className="mt-20 space-y-24 md:space-y-28">
-          {/* 각 블록은 단일 트리거로 before → ai_effect → after(스캔) 순서 보장 */}
+          {/* 각 블록은 단일 트리거로 before → ai_effect → after(스캔) 순서 보장.
+              anchor 가 있는 블록은 #앵커 착지 지점 — scroll-mt 로 고정 네비게이션 바
+              (+공지 배너) 아래에 오도록 착지 위치를 내려준다. */}
           {BLOCKS.map((block) => (
-            <ProductAiBlock key={block.title.ko} block={block} />
+            <div
+              key={block.title.ko}
+              id={block.anchor || undefined}
+              className={
+                block.anchor ? "scroll-mt-[150px] md:scroll-mt-[170px]" : ""
+              }
+            >
+              <ProductAiBlock block={block} />
+            </div>
           ))}
         </div>
 
