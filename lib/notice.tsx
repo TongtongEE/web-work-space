@@ -42,7 +42,7 @@ export const NOTICE: NoticeConfig = {
   enabled: true,
   id: "2026-08-notice",
   text: {
-    ko: "POST ME AI 이미지 생성 서비스를 출시! 자세한 내용은 이곳을 클릭하세요.",
+    ko: "POST ME AI 이미지 생성 서비스 출시! 자세한 내용은 이곳을 클릭하세요.",
     en: "POST ME AI image generation is now live! Click here to learn more.",
   },
   href: "/product#ai",
