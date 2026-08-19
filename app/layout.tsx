@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import NoticeBanner from "@/components/NoticeBanner";
 import { LanguageProvider } from "@/lib/i18n";
 import { NoticeProvider } from "@/lib/notice";
+import { GA_MEASUREMENT_ID } from "@/lib/gtag";
 
 export const metadata: Metadata = {
   title: "POST ME",
@@ -36,6 +38,20 @@ export default function RootLayout({
             {children}
           </NoticeProvider>
         </LanguageProvider>
+
+        {/* Google Analytics 4 — 측정 ID는 lib/gtag.ts 에서 관리 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
