@@ -22,7 +22,7 @@ export type InstaPost = {
 const WIDGET_ID = process.env.NEXT_PUBLIC_SNAPWIDGET_ID ?? "1128367";
 
 /** 피드에서 숨길 게시물 shortcode 목록 (여기에 추가하면 그리드에서 제외) */
-export const HIDDEN_SHORTCODES: string[] = ["DaSEm_EPhcw","DIBcCdZyZap"];
+export const HIDDEN_SHORTCODES: string[] = ["DaSEm_EPhcw","DIBcCdZyZap","Db48zmqDds8"];
 
 /** 표시할 최대 게시물 수 */
 export const MAX_POSTS = 33;
