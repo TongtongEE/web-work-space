@@ -4,6 +4,15 @@ on:
   push:
     branches: ["main"]
 
+  # 인스타 CDN 서명 URL은 발급 후 약 4.5일이면 만료된다.
+  # output: 'export' 정적 배포라 ISR 재검증이 없으므로, 매일 다시 빌드해
+  # 포트폴리오 피드의 이미지 주소를 새로 발급받는다.
+  schedule:
+    - cron: "20 3 * * *"
+
+  # 수동 재빌드(피드 즉시 갱신)
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write

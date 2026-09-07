@@ -6,8 +6,11 @@
    · 캡션(img alt) 이 들어 있어, 이를 파싱해 우리 그리드로 직접 렌더한다.
    → iframe을 쓰지 않으므로 클릭 시 게시물로 바로 이동 / 스타일 자유 / 특정 게시물 숨김 가능.
 
-   ※ 이미지 주소는 인스타 CDN 서명 URL이라 시간이 지나면 만료된다.
-     fetch의 revalidate(ISR)로 주기적으로 다시 불러와 항상 신선한 URL을 유지한다.
+   ※ 이미지 주소는 인스타 CDN 서명 URL이라 발급 후 약 4.5일이면 만료된다(403).
+     이 사이트는 next.config.ts 의 output: 'export' 정적 배포라 ISR(revalidate)이
+     동작하지 않는다 → 이 fetch는 오직 빌드 시점에 한 번만 실행된다.
+     따라서 신선한 URL은 "재빌드"로만 유지되며, .github/workflows/deploy.yml 의
+     schedule(매일 재빌드)이 그 역할을 한다. 수동 갱신은 Actions → Run workflow.
    ============================================================ */
 
 export type InstaPost = {
@@ -74,16 +77,40 @@ function parsePosts(html: string): InstaPost[] {
   return posts;
 }
 
-/** 인스타 게시물 목록을 가져온다 (실패 시 빈 배열 → 컴포넌트에서 폴백 처리) */
+/**
+ * 인스타 게시물 목록을 가져온다 (빌드 시점에 1회 실행).
+ *
+ * 빌드에서 게시물을 하나도 못 가져오면 기본적으로 빌드를 실패시킨다.
+ * 정적 배포라 "빈 피드"로 빌드가 통과하면 그대로 배포되어, 멀쩡히 보이던
+ * 포트폴리오가 회색 플레이스홀더로 덮여버리기 때문. 빌드를 세워두면 배포 단계가
+ * 건너뛰어져 직전의 정상 빌드가 그대로 유지된다.
+ * (소스가 일시적으로 죽었는데 그래도 배포해야 하면 ALLOW_EMPTY_INSTAGRAM_FEED=1)
+ */
 export async function getInstagramPosts(): Promise<InstaPost[]> {
+  let posts: InstaPost[] = [];
+  let reason = "";
+
   try {
     const res = await fetch(`https://snapwidget.com/embed/${WIDGET_ID}`, {
-      next: { revalidate: 3600 }, // 1시간마다 갱신 (서명 URL 만료 대비)
       headers: { "User-Agent": "Mozilla/5.0 (compatible; PostmeSite/1.0)" },
     });
-    if (!res.ok) return [];
-    return parsePosts(await res.text());
-  } catch {
+    if (res.ok) posts = parsePosts(await res.text());
+    else reason = `HTTP ${res.status}`;
+  } catch (e) {
+    reason = e instanceof Error ? e.message : String(e);
+  }
+
+  if (posts.length > 0) return posts;
+
+  const message =
+    `[instagram] SnapWidget(${WIDGET_ID})에서 게시물을 가져오지 못했습니다` +
+    (reason ? ` (${reason})` : " (파싱 결과 0건 — 임베드 HTML 구조 변경 가능성)");
+
+  // 개발 중에는 막지 않고 플레이스홀더 폴백으로 계속 진행한다.
+  if (process.env.NODE_ENV === "development" || process.env.ALLOW_EMPTY_INSTAGRAM_FEED === "1") {
+    console.warn(`${message} — 플레이스홀더로 대체합니다.`);
     return [];
   }
+
+  throw new Error(message);
 }
