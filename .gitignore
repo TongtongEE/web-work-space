@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 빌드 시 생성되는 인스타 피드 이미지/매니페스트 (scripts/fetch-instagram.mjs)
+/public/insta/

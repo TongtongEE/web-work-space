@@ -1,0 +1,12 @@
+{
+  "_comment": "포트폴리오 인스타 피드 설정. lib/instagram.ts 와 scripts/fetch-instagram.mjs 가 함께 읽는다.",
+  "_hiddenShortcodes": "피드에서 숨길 게시물 shortcode (인스타 주소 .../p/여기부분/). 추가하면 그리드에서 빠지고 이미지도 내려받지 않는다.",
+  "hiddenShortcodes": [
+    "DaSEm_EPhcw",
+    "DIBcCdZyZap",
+    "Db48zmqDds8",
+    "Dccb0xMShoZ"
+  ],
+  "_maxPosts": "그리드에 표시할 최대 게시물 수.",
+  "maxPosts": 33
+}

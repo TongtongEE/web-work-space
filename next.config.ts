@@ -9,11 +9,8 @@ const nextConfig: NextConfig = {
   images: {
     // GitHub Pages 환경에서는 Next.js 기본 서버 이미지 최적화를 사용할 수 없어 필요
     unoptimized: true,
-    // 인스타그램 CDN 썸네일 (포트폴리오 피드)
-    remotePatterns: [
-      { protocol: "https", hostname: "**.cdninstagram.com" },
-      { protocol: "https", hostname: "**.fbcdn.net" },
-    ],
+    // 포트폴리오 피드 이미지는 빌드 때 public/insta/ 로 내려받아 사이트에 내장하므로
+    // (scripts/fetch-instagram.mjs) 외부 호스트 허용(remotePatterns)이 필요 없다.
   },
 };
 

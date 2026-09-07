@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "insta": "node scripts/fetch-instagram.mjs",
+    "prebuild": "npm run insta",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
