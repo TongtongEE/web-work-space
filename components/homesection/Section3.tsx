@@ -31,7 +31,7 @@ export default function Section3() {
         {/* 좌측 — 제목 + 본문 (스크롤 시 아래 → 위로 페이드인) */}
         <div>
           <Reveal direction="up">
-            <h2>
+            <h2 className="text-center md:text-left">
               <T
                 ko={
                   <>
@@ -51,7 +51,7 @@ export default function Section3() {
             </h2>
           </Reveal>
           <Reveal direction="up" delay={120}>
-            <p className="body-md mt-6 max-w-[550px] text-ink-soft">
+            <p className="body-md mx-auto mt-6 max-w-[550px] text-center text-ink-soft md:mx-0 md:text-left">
               <T
                 ko={
                   <>
@@ -103,19 +103,19 @@ export default function Section3() {
       </div>
 
       {/* CTA 버튼 — 섹션2 버튼과 동일(스크롤 up 등장, 호버 확대+이동) */}
+      {/* 모바일은 세로 스택(gap-24), md↑ 는 가로 한 줄(gap-4).
+          · items-center 필수 — flex 기본값 align-items:stretch 라 이게 없으면
+            줄 높이에 맞춰 버튼이 위아래로 늘어난다(비율 깨짐).
+          · 이전에는 flex-wrap + 둘째 버튼 mt-20 으로 간격을 줬는데,
+            폭이 애매할 때 두 버튼이 같은 줄에 남아 첫 버튼만 늘어나는 문제가 있었다. */}
       <Reveal
         direction="up"
-        className="flex flex-wrap justify-center gap-4 pb-24 pt-14 md:pb-32"
+        className="flex flex-col items-center justify-center gap-24 pb-24 pt-14 md:flex-row md:gap-4 md:pb-32"
       >
         <ArrowButton href="/portfolio">
           <T ko="포트폴리오" en="Portfolio" />
         </ArrowButton>
-        <ArrowButton
-          href={CONTACT_URL}
-          tone="brand"
-          external
-          className="mt-20 md:mt-0"
-        >
+        <ArrowButton href={CONTACT_URL} tone="brand" external>
           <T ko="문의하기" en="Contact" />
         </ArrowButton>
       </Reveal>

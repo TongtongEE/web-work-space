@@ -128,7 +128,7 @@ export default function ProductSection4() {
                 (순서: 타이틀 → 이미지 → desc → 샘플) */}
             <div className={`md:hidden ${a.textPad}`}>
               <Reveal direction="up">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
                   <h3>
                     <T ko={a.title.ko} en={a.title.en} />
                   </h3>
@@ -182,7 +182,7 @@ export default function ProductSection4() {
                 </Reveal>
 
                 <Reveal direction="up" delay={120}>
-                <p className="body-md mt-4 max-w-[660px] text-ink-soft">
+                <p className="body-md mx-auto mt-4 max-w-[660px] text-center text-ink-soft md:mx-0 md:text-left">
                   <T
                     ko={a.desc.ko.map((line, i) => (
                       <span key={i}>

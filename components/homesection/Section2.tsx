@@ -290,7 +290,11 @@ export default function Section2() {
       separator=" ~ "
       suffix={<T ko="분" en="min" />}
       showMinMax={false}
-      valueClass="text-[clamp(64px,16vw,140px)]"
+      // 영문은 "1min ~ 3min" 으로 국문("1분 ~ 3분")보다 두 배 넘게 길다.
+      // 모바일(md↓)은 박스가 w-full 이라 같은 크기면 테두리를 넘치므로 EN 일 때만 축소.
+      // md↑ 는 박스가 w-auto(내용폭)라 넘칠 일이 없어 국문과 같은 크기를 유지한다.
+      // → max-md: 로 모바일 구간에 한정 (lib/i18n.tsx 가 html[lang] 을 갱신)
+      valueClass="text-[clamp(64px,16vw,140px)] max-md:[html[lang=en]_&]:text-[clamp(32px,11vw,96px)]"
       iconSrc="/images/section2/icon-rotation.png"
       iconAlt="1회 촬영 소요 시간 아이콘"
     />
@@ -367,7 +371,7 @@ export default function Section2() {
       <div className="md:hidden">
         <div className={`${GUTTER} pt-8`}>
           <Reveal direction="up">
-            <h2 className="text-left">{titleT}</h2>
+            <h2 className="text-center">{titleT}</h2>
           </Reveal>
         </div>
 
@@ -397,7 +401,7 @@ export default function Section2() {
 
         <div className={`${GUTTER} py-8`}>
           <Reveal direction="up" delay={120}>
-            <p className="body-md text-left text-ink-soft">{descT}</p>
+            <p className="body-md text-center text-ink-soft">{descT}</p>
           </Reveal>
         </div>
       </div>
@@ -431,7 +435,7 @@ export default function Section2() {
       <div className="py-16 md:hidden">
         <div className={GUTTER}>
           <Reveal direction="up">
-            <h2 className="text-left">{crowdTitle}</h2>
+            <h2 className="text-center">{crowdTitle}</h2>
           </Reveal>
         </div>
         <Reveal direction="right" className="mt-5 w-full">
@@ -445,7 +449,7 @@ export default function Section2() {
         </div>
         <div className={`${GUTTER} mt-8`}>
           <Reveal direction="up" delay={120}>
-            <p className="body-md text-left text-ink-soft">{crowdDesc}</p>
+            <p className="body-md text-center text-ink-soft">{crowdDesc}</p>
           </Reveal>
         </div>
       </div>
@@ -483,7 +487,7 @@ export default function Section2() {
       <div className="py-16 md:hidden">
         <div className={GUTTER}>
           <Reveal direction="up">
-            <h2 className="text-left">{turnTitle}</h2>
+            <h2 className="text-center">{turnTitle}</h2>
           </Reveal>
         </div>
         <Reveal direction="left" className="mt-5 w-full">
@@ -497,7 +501,7 @@ export default function Section2() {
         </div>
         <div className={`${GUTTER} mt-8`}>
           <Reveal direction="up" delay={120}>
-            <p className="body-md text-left text-ink-soft">{turnDesc}</p>
+            <p className="body-md text-center text-ink-soft">{turnDesc}</p>
           </Reveal>
         </div>
       </div>

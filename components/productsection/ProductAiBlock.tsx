@@ -53,8 +53,8 @@ export default function ProductAiBlock({ block }: { block: Block }) {
           before/ai_effect도 자연 너비 비율(375 : 315)로 나눠 컨테이너에 맞춰 스케일. */}
       <div className="w-full md:min-w-0 md:flex-1">
         <Reveal direction="right" play={play}>
-          <h3 className="whitespace-pre-line">{tr(block.title)}</h3>
-          <p className="body-md mt-4 max-w-[600px] whitespace-pre-line text-ink-soft">
+          <h3 className="whitespace-pre-line text-center md:text-left">{tr(block.title)}</h3>
+          <p className="body-md mx-auto mt-4 max-w-[600px] whitespace-pre-line text-center text-ink-soft md:mx-0 md:text-left">
             {tr(block.desc)}
           </p>
         </Reveal>

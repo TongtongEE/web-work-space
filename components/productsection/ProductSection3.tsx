@@ -93,12 +93,12 @@ export default function ProductSection3() {
   return (
     <section className={`mx-auto max-w-[1280px] ${GUTTER} py-24 md:py-32`}>
       <Reveal direction="up">
-        <h3>
+        <h3 className="text-center md:text-left">
           <T ko="제품구성" en="Product Configuration" />
         </h3>
       </Reveal>
       <Reveal direction="up" delay={120}>
-        <p className="body-md mt-5 max-w-[800px] text-ink-soft">
+        <p className="body-md mx-auto mt-5 max-w-[800px] text-center text-ink-soft md:mx-0 md:text-left">
           <T
             ko={
               <>

@@ -122,7 +122,7 @@ export default function ProductSection2() {
       className={`mx-auto max-w-[1280px] [html[lang=en]_&]:max-w-[1380px] ${GUTTER} py-24 md:py-32`}
     >
       <Reveal direction="up">
-        <h2>
+        <h2 className="text-center md:text-left">
           <T
             ko="공간과 목적에 맞춘 최적의 라인업"
             en="The optimal lineup for every space and purpose"
@@ -130,7 +130,7 @@ export default function ProductSection2() {
         </h2>
       </Reveal>
       <Reveal direction="up" delay={120}>
-        <p className="body-md mt-5 max-w-[680px] text-ink-soft">
+        <p className="body-md mx-auto mt-5 max-w-[680px] text-center text-ink-soft md:mx-0 md:text-left">
           <T
             ko={
               <>

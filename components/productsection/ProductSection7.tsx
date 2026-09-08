@@ -80,7 +80,7 @@ export default function ProductSection7() {
 
           <div>
             <Reveal direction="up">
-              <h3 className="whitespace-pre-line">
+              <h3 className="whitespace-pre-line text-center md:text-left">
                 <T
                   ko={"모든 이벤트의 스포트라이트,\n주인공은 바로 당신!"}
                   en={"The spotlight of every event —\nand you are the star!"}
@@ -88,7 +88,7 @@ export default function ProductSection7() {
               </h3>
             </Reveal>
             <Reveal direction="up" delay={120}>
-              <p className="body-md mt-5 max-w-[560px] text-ink-soft">
+              <p className="body-md mx-auto mt-5 max-w-[560px] text-center text-ink-soft md:mx-0 md:text-left">
                 <T
                   ko={
                     <>
@@ -104,12 +104,12 @@ export default function ProductSection7() {
 
             {/* 인/아웃트로 브랜딩 — 같은 텍스트 칼럼 안에 이어서 배치 */}
             <Reveal direction="up" delay={200}>
-              <h4 className="mt-10">
+              <h4 className="mt-10 text-center md:text-left">
                 <T ko="완벽한 인/아웃트로 브랜딩" en="Flawless intro & outro branding" />
               </h4>
             </Reveal>
             <Reveal direction="up" delay={280}>
-              <p className="body-md mt-4 max-w-[560px] text-ink-soft">
+              <p className="body-md mx-auto mt-4 max-w-[560px] text-center text-ink-soft md:mx-0 md:text-left">
                 <T
                   ko={
                     <>
@@ -125,10 +125,9 @@ export default function ProductSection7() {
           </div>
         </div>
 
-        {/* 하단 3컷 리드 카피 — 데스크톱은 가운데 정렬(Section4·5 인트로와 동일),
-            모바일은 좁은 폭에서 가운데 정렬이 들쭉날쭉해 보여 좌측 정렬 */}
+        {/* 하단 3컷 리드 카피 — 모바일·데스크톱 모두 가운데 정렬 (Section4·5 인트로와 동일) */}
         <Reveal direction="up" className="mt-20 md:mt-28">
-          <p className="body-md mx-auto max-w-[880px] text-left text-ink-soft md:text-center">
+          <p className="body-md mx-auto max-w-[880px] text-center text-ink-soft">
             <T
               ko={
                 <>
