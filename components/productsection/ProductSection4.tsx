@@ -128,11 +128,13 @@ export default function ProductSection4() {
                 (순서: 타이틀 → 이미지 → desc → 샘플) */}
             <div className={`md:hidden ${a.textPad}`}>
               <Reveal direction="up">
+                {/* justify-center 는 flex 아이템 배치만 담당한다. 영문 부제(37~40자)는
+                    모바일에서 줄바꿈되므로 각 요소에 text-center 를 따로 줘야 글자도 가운데 온다. */}
                 <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
-                  <h3>
+                  <h3 className="text-center">
                     <T ko={a.title.ko} en={a.title.en} />
                   </h3>
-                  <span className="body-md font-medium text-ink-soft">
+                  <span className="body-md text-center font-medium text-ink-soft">
                     <T ko={a.subtitle.ko} en={a.subtitle.en} />
                   </span>
                 </div>
