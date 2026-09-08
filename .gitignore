@@ -43,3 +43,6 @@ next-env.d.ts
 
 # 빌드 시 생성되는 인스타 피드 이미지/매니페스트 (scripts/fetch-instagram.mjs)
 /public/insta/
+
+# 웹 압축 전 원본 영상 보관 (배포/커밋 제외)
+/_original_media/

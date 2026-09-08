@@ -21,7 +21,8 @@ import {
    · href        : 배너를 클릭했을 때 이동할 랜딩 페이지 주소.
                    ┌ 공란("") → 링크 없이 공지 문구만 표시 (클릭 불가)
                    ├ "/product"                → 사이트 내부 페이지 (같은 탭 이동)
-                   ├ "/product#ai"             → 내부 페이지의 특정 섹션으로 바로 이동
+                   ├ "/product#glamotion"      → 내부 페이지의 특정 섹션으로 바로 이동
+                   │                             (#glamotion = GLAMOTION 섹션)
                    │                             (#ai = POST ME AI 이미지 생성 섹션)
                    └ "https://example.com/..." → 외부 페이지 (새 탭으로 열림)
    · height      : 배너 높이 px (기본 50 — 1920 x 50 기준)
@@ -40,12 +41,12 @@ type NoticeConfig = {
 
 export const NOTICE: NoticeConfig = {
   enabled: true,
-  id: "2026-08-notice",
+  id: "2026-09-glamotion",
   text: {
-    ko: "POST ME AI 이미지 생성 서비스 출시! 자세한 내용은 이곳을 클릭하세요.",
-    en: "POST ME AI image generation is now live! Click here to learn more.",
+    ko: "POST ME Glamotion 서비스 출시! 자세한 내용은 이곳을 클릭하세요.",
+    en: "POST ME Glamotion is now live! Click here to learn more.",
   },
-  href: "/product#ai",
+  href: "/product#glamotion",
   height: 40,
   durationSec: 28,
   repeat: 1,

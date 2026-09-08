@@ -1,9 +1,6 @@
-import ArrowButton from "@/components/ArrowButton";
 import LangImage from "@/components/LangImage";
 import Reveal from "@/components/Reveal";
 import ProductAiBlock from "@/components/productsection/ProductAiBlock";
-import { CONTACT_URL } from "@/lib/links";
-import { T } from "@/lib/i18n";
 
 /* ============================================================
    PRODUCT — SECTION 6 : POST ME AI
@@ -114,12 +111,7 @@ export default function ProductSection6() {
           ))}
         </div>
 
-        {/* 하단 버튼 */}
-        <Reveal direction="up" className="mt-40 flex justify-center">
-          <ArrowButton href={CONTACT_URL} tone="brand" external>
-            <T ko="문의하기" en="Contact" />
-          </ArrowButton>
-        </Reveal>
+        {/* 하단 문의 버튼은 마지막 섹션(ProductSection7)으로 이동 */}
       </div>
     </section>
   );

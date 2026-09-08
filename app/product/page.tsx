@@ -5,6 +5,7 @@ import ProductSection3 from "@/components/productsection/ProductSection3";
 import ProductSection4 from "@/components/productsection/ProductSection4";
 import ProductSection5 from "@/components/productsection/ProductSection5";
 import ProductSection6 from "@/components/productsection/ProductSection6";
+import ProductSection7 from "@/components/productsection/ProductSection7";
 
 export default function ProductPage() {
   return (
@@ -16,6 +17,7 @@ export default function ProductPage() {
         <ProductSection4 />
         <ProductSection5 />
         <ProductSection6 />
+        <ProductSection7 />
       </main>
       <Footer />
     </>
